@@ -1,0 +1,15 @@
+# Run outputs — regenerate these by running the pipeline
+results/
+
+# Secrets (only .env.example is tracked)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# OS
+.DS_Store

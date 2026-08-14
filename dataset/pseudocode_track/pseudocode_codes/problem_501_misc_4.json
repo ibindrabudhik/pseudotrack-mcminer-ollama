@@ -1,0 +1,18 @@
+{
+  "problem_id": 501,
+  "problem_title": "Coin Flip Game",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PesanLemparKoin\nkamus\n  hasil : string\nalgoritma\n  input(hasil)\n  if (hasil == \"Heads\") == true then\n    output(\"Got heads!\")\n  else\n    output(\"Got tails!\")\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student added an explicit comparison to True for the conditional expression (result == 'Heads') == True. This is redundant but does not change the program's behavior since comparing a boolean True to True yields True, and comparing False to True yields False. The student believes this explicit comparison is necessary for conditional statements to work properly in Python, not realizing that result == 'Heads' already evaluates to a boolean value that can be used directly in the if statement."
+      },
+      "parse_success": true
+    }
+  ]
+}

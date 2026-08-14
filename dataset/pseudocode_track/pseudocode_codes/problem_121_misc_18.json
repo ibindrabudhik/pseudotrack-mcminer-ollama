@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  for i <- 1 to n do\n    input(kata)\n    if kata == \"a\" or \"the\" then\n      panjangMax <- panjangMax\n    else\n      panjangSekarang <- panjang(kata)\n      if panjangSekarang > panjangMax then\n        panjangMax <- panjangSekarang\n      endif\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student added a check to skip common short articles ('a' and 'the') before considering word length, believing this improves the solution by filtering out trivial words. The student writes `i == 'a' or 'the'` thinking it means \"if i equals 'a' OR i equals 'the'\". However, this actually evaluates as `(i == 'a') or ('the')`. Since 'the' is a non-empty string (truthy value), the or expression is always True regardless of what i is, causing all words to be skipped. The function will incorrectly return 0 instead of the longest word length. The student changed the initial max from len(list1[0]) to 0 to avoid potential issues if the first word gets skipped, genuinely believing their filtering logic will work correctly."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  h : boolean\nalgoritma\n  input(a, b)\n  if (a < 0 and b > 0) or (a > 0 and b < 0) then\n    h <- true\n  else\n    h <- false\n  endif\n  output(h)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that all identifiers (including function names) can only be one letter long. The parameters x and y were already single letters, so they remain unchanged. However, the function name 'opposite_Signs' has been changed to 'o' (for \"opposite\") to comply with the student's belief that identifiers must be single letters. The code still functions correctly but is less readable and maintainable. From the student's perspective, using single-letter identifiers is not just acceptable but required, so they would naturally name their function with a single letter."
+      },
+      "parse_success": true
+    }
+  ]
+}

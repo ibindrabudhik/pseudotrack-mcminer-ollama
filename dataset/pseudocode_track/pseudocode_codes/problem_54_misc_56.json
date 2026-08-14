@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  p, q : string\n  l, m : integer\n  e : real\n  s, g : integer\nalgoritma\n  input(p, l)\n  input(q, m)\n  if p == q then\n    e <- 1\n  else if p == \"fire\" and q == \"grass\" then\n    e <- 2\n  else if p == \"grass\" and q == \"water\" then\n    e <- 2\n  else if p == \"water\" and q == \"fire\" then\n    e <- 2\n  else\n    e <- 0.5\n  endif\n  s <- l - m\n  g <- bulat(((2 * l) / 5 + 2) * (l / m) * e * s / 10)\n  if g < 1 then\n    g <- 1\n  endif\n  output(g)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "All variable identifiers have been reduced to single letters to reflect the student's belief that variable names can only be one letter long. The mappings are: attacker->a, defender->d, attacker_type->t, attacker_level->l, defender_type->u, defender_level->m, level_diff->n, effectiveness->e. The code functions identically to the original but with significantly reduced readability. The student believes this is the correct and only way to name variables in programming."
+      },
+      "parse_success": true
+    }
+  ]
+}

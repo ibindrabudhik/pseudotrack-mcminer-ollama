@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum, hasil : integer\nalgoritma\n  input(n)\n  minimum <- 0\n  maksimum <- 0\n  hasil <- minimum + maksimum\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student initializes max_val and min_val to 0, then assigns sum = max_val + min_val (believing this creates a \"live\" binding to the expression). They then update max_val and min_val with the actual maximum and minimum values from the array, genuinely expecting that sum will automatically reflect these new values. From their perspective, they've defined sum as \"the expression max_val + min_val\", so it should dynamically update when those variables change. This will always return 0 instead of the correct sum, demonstrating a harmful misconception."
+      },
+      "parse_success": true
+    }
+  ]
+}

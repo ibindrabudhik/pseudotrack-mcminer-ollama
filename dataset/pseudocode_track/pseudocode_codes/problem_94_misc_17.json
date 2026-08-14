@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  hasil : (a < 0 and b > 0) or (a > 0 and b < 0)\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student uses `:` instead of `=` to assign the result of the comparison to the variable `result`. While this is syntactically valid Python (it creates a type annotation), it doesn't actually assign the value to `result`. When the function tries to return `result`, it will raise a NameError since `result` was never actually assigned a value - it was only annotated. The student believes this is the correct way to assign values to variables and expects the code to work perfectly."
+      },
+      "parse_success": true
+    }
+  ]
+}

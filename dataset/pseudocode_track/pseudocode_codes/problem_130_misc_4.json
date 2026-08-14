@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- kandidat\n    hasilBalik <- 0\n    while (sisa > 0) == true do\n      hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    if (hasilBalik == kandidat) == true then\n      sudahKetemu <- true\n    else\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student added an explicit comparison to True for the palindrome check condition. The expression `str(i) == str(i)[::-1]` already evaluates to a boolean value (True or False), but the student believes it must be explicitly compared to True to be used in the if statement. This is redundant but does not affect the correctness of the program - the code will still execute properly and return the correct result. The student genuinely believes this explicit comparison is necessary or proper Python syntax for conditional statements."
+      },
+      "parse_success": true
+    }
+  ]
+}

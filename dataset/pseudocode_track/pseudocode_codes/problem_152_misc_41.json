@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  i <- 1\n  if i <= m then\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata > n then\n      output(kata)\n    endif\n    i <- i + 1\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for loop with an if-statement, believing that the if-statement will repeatedly execute its body as long as the condition `i < len(txt)` remains true. They expect the if-statement to behave like a while loop, incrementing i and checking each word in the list until i reaches len(txt). In reality, the if-statement only executes once, so only the first word (at index 0) is checked, and i is incremented to 1 but never used again. The function will only return at most one word instead of all words longer than n characters."
+      },
+      "parse_success": true
+    }
+  ]
+}

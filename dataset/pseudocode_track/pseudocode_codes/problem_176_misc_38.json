@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  i <- 1\n  while i <= n do\n    input(x)\n    if i >= awal and i <= akhir then\n      total <- total + x\n    endif\n  endwhile\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student wraps the for loop with a while condition, treating 'while' as if it were an 'if' statement. They believe the while loop will check the condition once and execute the body once before moving on. The student thinks: \"While m <= n is true, sum the range\" similar to \"If m <= n is true, sum the range\". Since the return statement is inside the while block, the function actually returns after the first iteration, making the while behave exactly as the student expects (like an if). The code works correctly but uses while unnecessarily where if would be more appropriate. This demonstrates the misconception without causing bugs because the early return prevents the infinite loop that would otherwise occur."
+      },
+      "parse_success": true
+    }
+  ]
+}

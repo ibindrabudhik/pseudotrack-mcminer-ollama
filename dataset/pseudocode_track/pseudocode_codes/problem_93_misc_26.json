@@ -1,0 +1,18 @@
+{
+  "problem_id": 93,
+  "problem_title": "Largest Number from Digits",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program BilanganTerbesarDariDigit\nkamus\n  d1, d2, d3, d4, temp : integer\n  lebihBesar : boolean\nalgoritma\n  input(d1, d2, d3, d4)\n  if d1 < d2 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if d2 < d3 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if d3 < d4 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d3\n    d3 <- d4\n    d4 <- temp\n  endif\n  if d1 < d2 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if d2 < d3 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if d1 < d2 then\n    lebihBesar <- true\n  else\n    lebihBesar <- false\n  endif\n  if lebihBesar then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  output(d1 * 1000 + d2 * 100 + d3 * 10 + d4)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student rewrote the solution using a custom comparison approach with bubble sort. In the helper function `is_greater`, they believe they must use if/else to return the boolean result of the comparison `int(str(a) + str(b)) > int(str(b) + str(a))`, when they could simply `return int(str(a) + str(b)) > int(str(b) + str(a))`. The code still works correctly but is unnecessarily verbose. This demonstrates the misconception that conditional expressions must be wrapped in if/else statements to return boolean values, even though the comparison itself already evaluates to a boolean."
+      },
+      "parse_success": true
+    }
+  ]
+}

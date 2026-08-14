@@ -1,0 +1,19 @@
+# Persistent 32K-context build of qwen3.6:27b for the McMiner pseudotrack runs.
+#
+# Why: Ollama's default context window is far smaller than these prompts. A
+# McMiner-M bag is 5 pseudocode solutions (~1.3KB each) plus problem text, and
+# the RAG+REF arm adds 3 retrieved examples and an APR reference on top —
+# roughly 10K tokens before the model writes a word. Overflow is TRUNCATED
+# SILENTLY: you get plausible-looking output mined from a clipped prompt.
+#
+# Build it:
+#     ollama create qwen3.6-mcminer -f Modelfile
+# Then point the scripts at it:
+#     MODEL=qwen3.6-mcminer bash run_all.sh
+#
+# Alternative (no derived model, applies server-wide):
+#     OLLAMA_CONTEXT_LENGTH=32768 ollama serve
+
+FROM qwen3.6:27b
+
+PARAMETER num_ctx 32768

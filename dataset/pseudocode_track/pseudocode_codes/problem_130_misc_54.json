@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sisa <- kandidat\n  hasilBalik <- 0\n  while sisa > 0 do\n    hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n    sisa <- sisa div 10\n  endwhile\n  sudahKetemu <- false\n  while not sudahKetemu do\n    if hasilBalik == kandidat then\n      sudahKetemu <- true\n    else\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student assigns numstr = str(i) before the loop, genuinely believing that numstr will automatically update whenever the loop variable i changes. From their perspective, numstr is \"bound\" to the expression str(i), so as i iterates through different values, numstr should reflect the current value of str(i). They use numstr in the palindrome check, confident that it represents the string form of the current loop value. In reality, numstr is fixed at str(num+1) and never updates, causing the code to repeatedly check the same value rather than each successive integer. This will either return num+1 immediately if it happens to be a palindrome, or loop infinitely if it's not."
+      },
+      "parse_success": true
+    }
+  ]
+}

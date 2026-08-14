@@ -1,0 +1,18 @@
+{
+  "problem_id": 348,
+  "problem_title": "Count Unequal Integer Pairs",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungPasanganTidakSama\nkamus\n  a, b, c, j : integer\nalgoritma\n  input(a, b, c)\n  j <- 0\n  if a != b then\n    j <- j + 1\n  endif\n  if a != c then\n    j <- j + 1\n  endif\n  if b != c then\n    j <- j + 1\n  endif\n  output(j)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has renamed all multi-letter identifiers to single letters: 'count_Pairs' becomes 'c' (for count), 'arr' becomes 'a' (for array), and 'cnt' becomes 't' (for total). The loop variables 'i' and 'j' and parameter 'n' remain unchanged as they were already single letters. The code functions identically to the original but with reduced readability due to non-descriptive single-letter names. The student genuinely believes this is the correct and only way to name variables in Python."
+      },
+      "parse_success": true
+    }
+  ]
+}

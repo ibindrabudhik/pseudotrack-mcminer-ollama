@@ -1,0 +1,18 @@
+{
+  "problem_id": 348,
+  "problem_title": "Count Unequal Integer Pairs",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungPasanganTidakSama\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if not (a = b) then\n    jumlah <- jumlah + 1\n  endif\n  if not (a = c) then\n    jumlah <- jumlah + 1\n  endif\n  if not (b = c) then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student believes that `=` is used for equality comparison. Since the problem requires checking if elements are unequal, the student logically uses `not` to negate the equality check. They write `if not (arr[i] = arr[j]):` to check if arr[i] is not equal to arr[j]. However, this causes a SyntaxError because `=` is actually the assignment operator in Python, and assignment cannot be used directly in a conditional expression this way. The student genuinely believes this is the correct way to check inequality - by negating an equality comparison using what they think is the equality operator."
+      },
+      "parse_success": true
+    }
+  ]
+}

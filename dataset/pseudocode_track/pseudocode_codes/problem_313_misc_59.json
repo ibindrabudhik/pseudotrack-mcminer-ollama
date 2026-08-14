@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  text, cleaned : string\n  ndx, lngth : integer\nalgoritma\n  inputBaris(text)\n  cleaned <- \"\"\n  for ndx <- 1 to panjang(text) do\n    if text[ndx] != ' ' then\n      cleaned <- cleaned + text[ndx]\n    endif\n  endfor\n  lngth <- panjang(cleaned)\n  output(cleaned)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student exhibits the vowel-based typing misconception by creating a deliberate naming pattern: 'spaces' (has vowels 'a' and 'e') stores a STRING representation of the count because the student believes vowel-containing variable names can only hold strings, so they use str() to convert the numeric count. For actual numeric values like lengths, they use consonant-only names: 'lngth' and 'rgnl_lngth' (treating 'y' as consonant). The core functionality remains correct, but the student unnecessarily converts the space count to a string and creates extra variables with specific naming patterns based on their false belief about Python's type system. The variables 'text' and 'cleaned' appropriately contain vowels since they store strings, which aligns with the student's misconception. This demonstrates the student's genuine belief that variable naming conventions dictate allowable data types."
+      },
+      "parse_success": true
+    }
+  ]
+}

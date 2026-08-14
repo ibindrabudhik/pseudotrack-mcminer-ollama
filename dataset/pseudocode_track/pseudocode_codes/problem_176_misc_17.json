@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total : 0\n  for i <- 1 to n do\n    input(x)\n    if i >= awal and i <= akhir then\n      total : total + x\n    endif\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced all assignment operators (=) with colons (:). Specifically, `sum_range = 0` became `sum_range : 0` and `sum_range += list1[i]` became `sum_range : sum_range + list1[i]`. The student genuinely believes that colons are the correct way to assign values to variables in Python, possibly confusing assignment with type annotation syntax or misremembering the syntax from another context. This results in a SyntaxError because Python interprets these as malformed type annotations or invalid syntax rather than assignments."
+      },
+      "parse_success": true
+    }
+  ]
+}

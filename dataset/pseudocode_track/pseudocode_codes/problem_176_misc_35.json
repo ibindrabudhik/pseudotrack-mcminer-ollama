@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- integer(0)\n  for i <- 1 to integer(n) do\n    input(x)\n    if integer(i) >= integer(awal) and integer(i) <= integer(akhir) then\n      total <- integer(total) + integer(x)\n    endif\n  endfor\n  output(integer(total))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit int() conversions throughout the code believing this ensures type safety. They convert: the initial value 0 to int, the parameters m and n to int before using them in range(), each list element to int before adding it to the sum, and the final return value to int. From the student's perspective, these conversions are necessary to guarantee that all values are properly typed as integers. While these conversions are redundant (the values are already integers or will work correctly without conversion), the code still functions correctly because converting an int to int is a no-op that doesn't change the value."
+      },
+      "parse_success": true
+    }
+  ]
+}

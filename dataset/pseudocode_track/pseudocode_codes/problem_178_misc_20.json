@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 20,
+  "misconception_description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  i <- panjang(s) - 2\n  for i <- 1 to i do\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      jumlah <- jumlah + 1\n    endif\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student initializes variable i with the value len(s) - 2, then immediately reuses i as the loop variable in 'for i in range(i):'. The student believes the loop variable i exists in a separate scope from the outer i, so they think this is perfectly fine - they're using the outer i's value in range() and then the loop i is a \"different\" variable. In reality, Python evaluates range(i) before the loop starts (capturing the value len(s) - 2), then the loop variable i overwrites the outer i. However, since the value is captured before overwriting occurs, the code still works correctly. This demonstrates the misconception while producing functionally correct code."
+      },
+      "parse_success": true
+    }
+  ]
+}

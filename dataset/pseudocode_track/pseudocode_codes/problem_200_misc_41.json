@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  i <- 1\n  if i <= n then\n    jumlah <- jumlah + 1 / i\n    i <- i + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student has replaced the recursive solution with an if-statement, genuinely believing it will execute repeatedly like a while loop. From their perspective, the if-statement will continuously check the condition (n >= 1), and as long as it's true, keep adding 1/n to result and decrementing n. They expect this to accumulate all terms of the harmonic sum from 1/n down to 1/1. In reality, the if-statement executes only once (or not at all), so the function returns either 1/n if n >= 1, or 0 if n < 1, instead of the full harmonic sum. This is a logical error stemming from confusing if-statements with while loops."
+      },
+      "parse_success": true
+    }
+  ]
+}

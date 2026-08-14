@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  i <- 1\n  while i <= m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata > n then\n      output(kata)\n    endif\n  endwhile\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for loop with a while loop but didn't include the loop counter increment (i += 1) because they believe the while loop will only execute once if the condition is true. From their perspective, the while loop should check if i < len(txt), execute the body once to check the first word, and then stop - similar to how an if statement works. They don't realize that the while loop will continue to check the condition and re-execute the body indefinitely, causing an infinite loop since i never changes. The student genuinely thinks this will work correctly to check the word at index 0 and then move on to return the result."
+      },
+      "parse_success": true
+    }
+  ]
+}
