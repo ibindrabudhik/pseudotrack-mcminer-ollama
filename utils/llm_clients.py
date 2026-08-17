@@ -279,7 +279,19 @@ class OpenAIClient(BaseLLMClient):
             request_params.setdefault("extra_body", {})
             request_params["extra_body"]["guided_json"] = schema
             request_params["extra_body"]["guided_decoding_backend"] = "lm-format-enforcer"
-        
+
+        # Ollama's OpenAI-compatible endpoint accepts a TOP-LEVEL `reasoning_effort`
+        # for reasoning models such as gpt-oss (this is not OpenRouter's nested
+        # extra_body.reasoning field handled above). It matters a great deal:
+        # gpt-oss defaults to "medium" and will happily spend the whole max_tokens
+        # budget thinking, returning finish_reason='length' with EMPTY content —
+        # measured here as 4000/4000 completion tokens and 0 chars of answer on a
+        # correct-code mining prompt. At "low" the same prompt answers in ~312
+        # tokens. Opt in via env var so the hosted-provider paths are untouched.
+        effort_override = os.getenv("LLM_REASONING_EFFORT")
+        if effort_override:
+            request_params.setdefault("reasoning_effort", effort_override)
+
         # Make the API call
         response = self.client.chat.completions.create(**request_params)
         

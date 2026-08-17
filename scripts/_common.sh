@@ -34,6 +34,20 @@ export OPENROUTER_API_KEY="${OPENROUTER_API_KEY:-ollama}"
 # build accepts it.
 REASONING_FLAG="${REASONING_FLAG:-}"
 
+# Reasoning effort for models that think (gpt-oss, and any future reasoning
+# model served by Ollama). Sent as a TOP-LEVEL `reasoning_effort` field, which
+# Ollama's OpenAI-compatible endpoint accepts — see the note in
+# utils/llm_clients.py. Empty = leave the model's own default alone.
+#
+# For gpt-oss:20b this MUST be "low". Measured on the correct-code mining
+# prompts: at the default "medium" effort the model burns all 4000 max_tokens
+# on reasoning and returns EMPTY content (finish_reason='length'), which the
+# miner records as parse_success=false / "no misconception predicted" — a
+# silent false negative, not an error. At "low" the same prompt answers in ~312
+# tokens and 14s instead of failing after 140s.
+REASONING_EFFORT="${REASONING_EFFORT:-}"
+[[ -n "${REASONING_EFFORT}" ]] && export LLM_REASONING_EFFORT="${REASONING_EFFORT}"
+
 # -----------------------------------------------------------------------------
 #  Judge — the same local qwen3.6:27b, via the same Ollama server
 # -----------------------------------------------------------------------------
@@ -54,6 +68,12 @@ export OPENROUTER_BASE_URL="${OPENROUTER_BASE_URL:-${OLLAMA_BASE_URL}}"
 # `python`, not `python3`: on a conda setup the deps live under `python` (the
 # system python3 typically lacks tqdm/openai/dotenv). Override if yours differs.
 PYTHON="${PYTHON:-python}"
+
+# The pipeline's status banners contain emoji (🔌 LLM ACCESS, 📦, ⚠️). On Windows
+# Python defaults stdout to the console codepage (cp1252), which cannot encode
+# them, and the very first banner raises UnicodeEncodeError before any work
+# starts. Force UTF-8 on the child processes' streams.
+export PYTHONIOENCODING=utf-8
 
 IN="dataset/pseudocode_track/pseudocode_codes"            # corrupted pseudocode
 NONE_IN="dataset/pseudocode_track/pseudocode_codes_none"  # correct -> NONE files

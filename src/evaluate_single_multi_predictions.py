@@ -59,13 +59,20 @@ def find_claude_evaluation(prediction_id: str, evaluations_dir: str, provider: s
     
     return None
 
-def run_claude_evaluation_for_misconceptions(prediction_ids: List[str], 
+def run_claude_evaluation_for_misconceptions(prediction_ids: List[str],
                                            predictions_file: str,
                                            misconceptions_file: str,
-                                           input_dir: str) -> Dict[str, Dict]:
+                                           input_dir: str,
+                                           output_dir: str = None) -> Dict[str, Dict]:
     """
     Run Claude evaluation only for specified misconception predictions.
     Returns a dict mapping prediction_id to evaluation result.
+
+    The judge's per-prediction output (match / match_with_novel / confidence /
+    rationale for every judged prediction) is written under `output_dir` as
+    judge_details_single.json and KEPT. It used to land in a scratch directory
+    that was deleted on the way out, which left the McMiner-S arm with only
+    aggregate numbers and no way to inspect *why* a prediction scored as it did.
     """
     print(f"Running Claude evaluation for {len(prediction_ids)} misconception predictions...")
     
@@ -93,12 +100,16 @@ def run_claude_evaluation_for_misconceptions(prediction_ids: List[str],
         # vars (inherited by this subprocess), defaulting to openai/gpt-4o.
         judge_script = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                     "compute_eval_metrics_multi.py")
+        # Write the judge's output inside the arm's own eval directory so two
+        # arms can never collide on a shared scratch dir, and so the details
+        # survive the run.
+        judge_out_dir = os.path.join(output_dir, "judge_single") if output_dir else "temp_eval_output"
         cmd = [
             sys.executable, judge_script,
             "--predictions-file", temp_file,
             "--misconceptions-file", misconceptions_file,
             "--input-dir", input_dir,
-            "--output-dir", "temp_eval_output",
+            "--output-dir", judge_out_dir,
             "--use-claude-eval"
         ]
         
@@ -111,23 +122,27 @@ def run_claude_evaluation_for_misconceptions(prediction_ids: List[str],
             return {}
         
         # Load the results
-        claude_results_file = "temp_eval_output/claude_evaluation_results.json"
+        claude_results_file = os.path.join(judge_out_dir, "claude_evaluation_results.json")
         if os.path.exists(claude_results_file):
             claude_results = load_json_file(claude_results_file)
-            
+
             # Create mapping
             eval_map = {}
             for detail in claude_results.get("evaluation_details", []):
                 pred_id = detail.get("prediction_id")
                 if pred_id:
                     eval_map[pred_id] = detail
-            
-            # Cleanup
+
+            # Keep the judge's per-prediction verdicts next to the metrics.
+            if output_dir:
+                kept = os.path.join(output_dir, "judge_details_single.json")
+                with open(kept, "w", encoding="utf-8") as f:
+                    json.dump(claude_results, f, indent=2, ensure_ascii=False)
+                print(f"Saved per-prediction judge verdicts to: {kept}")
+
+            # Cleanup: only the scratch predictions file. The judge output stays.
             os.remove(temp_file)
-            if os.path.exists("temp_eval_output"):
-                import shutil
-                shutil.rmtree("temp_eval_output")
-            
+
             return eval_map
         
     except Exception as e:
@@ -466,7 +481,8 @@ def main():
             missing_claude_ids,
             single_pred_file,
             args.misconceptions_file,
-            args.input_dir
+            args.input_dir,
+            args.output_dir
         )
         print(f"  Obtained {len(new_claude_evals)} new Claude evaluations")
     

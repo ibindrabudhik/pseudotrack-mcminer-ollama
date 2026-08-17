@@ -221,9 +221,20 @@ def call_judge(client, provider: str, model: str, prompt: str) -> str:
 
 
 def parse_judge_response(text: str) -> Dict[str, Any]:
-    """Parse the <evaluation> block into match / match_with_novel / confidence."""
+    """Parse the <evaluation> block into match / match_with_novel / confidence.
+
+    Also reports `parse_ok`: whether the judge actually emitted the tags, rather
+    than the defaults being used. This matters because the defaults are not
+    neutral — a response truncated before </match> scores as a non-match, and
+    one truncated after it inherits match into match_with_novel. Either way a
+    clipped judge reply silently becomes a score. `parse_ok` makes that
+    countable instead of invisible; see the parse-failure warning in main().
+    """
+    found = {}
+
     def _yn(tag: str, default: bool = False) -> bool:
         m = re.search(rf"<{tag}>\s*(.*?)\s*</{tag}>", text or "", re.DOTALL | re.IGNORECASE)
+        found[tag] = m is not None
         if not m:
             return default
         return m.group(1).strip().upper().startswith("Y")
@@ -240,6 +251,10 @@ def parse_judge_response(text: str) -> Dict[str, Any]:
         "match_with_novel": match_with_novel,
         "confidence": (conf_m.group(1).strip().lower() if conf_m else "unknown"),
         "rationale": (rat_m.group(1).strip() if rat_m else ""),
+        # Both verdicts must be present. Requiring only <match> would pass a
+        # reply truncated between the two tags, which then silently inherits
+        # match into match_with_novel via the rule above.
+        "parse_ok": bool(found.get("match") and found.get("match_with_novel")),
     }
 
 
@@ -345,11 +360,16 @@ def main() -> int:
             raw = call_judge(client, args.judge_provider, args.judge_model, prompt)
             parsed = parse_judge_response(raw)
             parsed["method"] = "llm_judge"
+            # Keep the raw reply whenever the tags were missing, so a run with a
+            # bad token budget or a chatty judge can be diagnosed after the fact
+            # instead of just producing quietly wrong numbers.
+            if not parsed.get("parse_ok"):
+                parsed["raw_response"] = (raw or "")[:2000]
         except Exception as e:  # noqa: BLE001 - one bad call shouldn't kill the run
             print(f"  ! judge error on {pred_id}: {e}")
             parsed = {"match": False, "match_with_novel": False,
                       "confidence": "unknown", "rationale": f"judge error: {e}",
-                      "method": "judge_error"}
+                      "method": "judge_error", "parse_ok": False}
 
         parsed["prediction_id"] = pred_id
         parsed["group_type"] = group_type
@@ -357,6 +377,8 @@ def main() -> int:
 
     matched = sum(1 for d in details if d["match"])
     matched_novel = sum(1 for d in details if d["match_with_novel"])
+    judged = [d for d in details if d.get("method") in ("llm_judge", "judge_error")]
+    unparsed = [d for d in judged if not d.get("parse_ok")]
     result = {
         "evaluation_timestamp": datetime.now().isoformat(),
         "judge_provider": args.judge_provider,
@@ -367,6 +389,9 @@ def main() -> int:
             "match_with_novel": matched_novel,
             "match_rate": matched / len(details) if details else 0.0,
             "match_with_novel_rate": matched_novel / len(details) if details else 0.0,
+            "judge_calls": len(judged),
+            "judge_parse_failures": len(unparsed),
+            "judge_parse_success_rate": (1 - len(unparsed) / len(judged)) if judged else 1.0,
         },
         "evaluation_details": details,
     }
@@ -378,6 +403,12 @@ def main() -> int:
 
     print(f"Wrote {out_file}: {matched}/{len(details)} match, "
           f"{matched_novel}/{len(details)} match_with_novel")
+    if unparsed:
+        print(f"⚠️  {len(unparsed)}/{len(judged)} judge replies had no parseable <evaluation> "
+              f"block and fell back to defaults — these scores are NOT trustworthy. "
+              f"Raw replies are kept under evaluation_details[].raw_response. Most likely "
+              f"cause: max_tokens (1500) consumed by the judge's reasoning tokens before it "
+              f"reached the answer.")
 
     # For whole-bag (McMiner-M) runs, also emit an evaluation_metrics.json with the same
     # overall / misconception / correct_only breakdown schema as the baseline multi evals, so the
