@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j, posisiDiagonal : integer\n  baris : string\nalgoritma\n  input(n)\n  i <- 1\n  posisiDiagonal <- i\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if j == posisiDiagonal then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes that `diagonal_position = i` creates a binding where `diagonal_position` will automatically update as `i` changes. They set `diagonal_position = i` when `i = 0`, then expect it to track the value of `i` throughout the loop. In reality, `diagonal_position` stays 0, so every row will have 1 at position 0, resulting in [[1,0,0,...], [1,0,0,...], ...] instead of the correct identity matrix. The student genuinely thinks this is elegant code that \"links\" diagonal_position to i."
+      },
+      "parse_success": true
+    }
+  ]
+}

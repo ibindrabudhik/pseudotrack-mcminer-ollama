@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  for i <- 1 to panjang(s) do\n    if (s[i] != ' ') == true then\n      hasil <- hasil + s[i]\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student rewrote the solution to use a loop-based approach instead of regex so they could apply their understanding of conditionals. They believe that the boolean expression `char.isspace()` must be explicitly compared to False using `== False` to be used in an if statement. From their perspective, this is the proper way to write conditional logic. The code functions correctly despite the redundant comparison, as `(char.isspace()) == False` evaluates to the same boolean value as `not char.isspace()` would."
+      },
+      "parse_success": true
+    }
+  ]
+}

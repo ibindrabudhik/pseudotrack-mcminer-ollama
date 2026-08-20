@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if i == j or 0 then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student added a special case handler at the beginning to optimize for small matrices (n=1 or n=2). They wrote `if n == 1 or 2:` believing it checks whether n equals 1 OR n equals 2. However, this expression actually evaluates as `(n == 1) or (2)`, and since 2 is a truthy value, the condition is always True regardless of n's value. This means for any input (including n=3, n=4, etc.), the function will incorrectly return the 2x2 identity matrix when n=2 is checked in the nested if, or a 1x1 matrix for all other values of n. The student genuinely believes this is an optimization that handles small cases efficiently before falling through to the general algorithm for larger matrices."
+      },
+      "parse_success": true
+    }
+  ]
+}

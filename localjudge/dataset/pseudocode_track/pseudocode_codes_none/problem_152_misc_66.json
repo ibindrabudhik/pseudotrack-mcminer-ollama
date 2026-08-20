@@ -1,0 +1,14 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 66,
+  "misconception_description": "Student believes that the first character of a string is at index 1.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

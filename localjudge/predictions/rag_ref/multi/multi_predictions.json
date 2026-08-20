@@ -1,0 +1,1470 @@
+[
+  {
+    "prediction_id": "group_correct_only_None_0",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_313",
+        "correct_problem_242",
+        "correct_problem_93",
+        "correct_problem_176",
+        "correct_problem_94"
+      ],
+      "problem_ids": [
+        313,
+        242,
+        93,
+        176,
+        94
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_0",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_335",
+        "correct_problem_385",
+        "correct_problem_121",
+        "correct_problem_213",
+        "correct_problem_348"
+      ],
+      "problem_ids": [
+        335,
+        385,
+        121,
+        213,
+        348
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_0",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_178",
+        "correct_problem_54",
+        "correct_problem_200",
+        "correct_problem_60",
+        "correct_problem_501"
+      ],
+      "problem_ids": [
+        178,
+        54,
+        200,
+        60,
+        501
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_0",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 130,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 4,
+      "num_problems": 4,
+      "source_files": [
+        "correct_problem_130",
+        "correct_problem_152",
+        "correct_problem_46",
+        "correct_problem_73"
+      ],
+      "problem_ids": [
+        130,
+        152,
+        46,
+        73
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_14_0",
+    "group_type": "misconception",
+    "misconception_id": 14,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": 14,
+      "description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_178_misc_14.json",
+        "problem_130_misc_14.json",
+        "problem_73_misc_14.json",
+        "problem_121_misc_14.json",
+        "problem_176_misc_14.json"
+      ],
+      "problem_ids": [
+        178,
+        130,
+        73,
+        121,
+        176
+      ],
+      "gt_misconception": 14,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the loop variable is not automatically available inside the loop and must be stored in another variable.",
+        "explanation": "In every program the student declares an auxiliary variable (e.g., indeksTerakhir, terakhirI, terakhirDicek, indeksSekarang) and assigns it the value of the loop counter inside the loop body. These variables are never used for any computation or decision making; the loop counter itself (i, kandidat, etc.) is already available and sufficient. The repeated pattern of creating and updating an unused index variable indicates a false belief that the loop counter is not directly accessible within the loop, which is unnecessary and reflects a misconception about loop variable scope and usage in the Notasi Algoritmik pseudocode."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_0",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 152,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_152_misc_16.json",
+        "problem_385_misc_16.json",
+        "problem_242_misc_16.json",
+        "problem_501_misc_16.json",
+        "problem_54_misc_16.json"
+      ],
+      "problem_ids": [
+        152,
+        385,
+        242,
+        501,
+        54
+      ],
+      "gt_misconception": 16,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the symbol “=” can be used to test equality in a conditional expression, instead of the correct equality operator “==” in the Notasi Algoritmik pseudocode.",
+        "explanation": "In all of the student submissions (Codes 2, 3, 4, and 5) the equality test in an if‑statement is written as “=”, e.g. `if hasil = \"Heads\" then` or `if attackerTipe = defenderTipe then`. According to the Notasi Algoritmik syntax, “=” is the assignment operator, while “==” is the operator for equality comparison. Using “=” in a condition therefore reflects a misunderstanding of the language’s syntax for equality tests."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_1",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 121,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_121_misc_16.json",
+        "problem_46_misc_16.json",
+        "problem_176_misc_16.json",
+        "problem_200_misc_16.json",
+        "problem_178_misc_16.json"
+      ],
+      "problem_ids": [
+        121,
+        46,
+        176,
+        200,
+        178
+      ],
+      "gt_misconception": 16,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the assignment operator “=” can be used as a comparison operator in conditional statements.",
+        "explanation": "All five student codes use “=”, for example `if n = 0 then`, `if i = 1 then`, and `if s[i] = 's'`. In the Notasi Algoritmik pseudocode the correct operator for equality comparison is “==”. Using “=” in a condition therefore reflects a misconception that the assignment operator also performs comparison."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_2",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 94,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_94_misc_16.json",
+        "problem_73_misc_16.json",
+        "problem_213_misc_16.json",
+        "problem_130_misc_16.json",
+        "problem_348_misc_16.json"
+      ],
+      "problem_ids": [
+        94,
+        73,
+        213,
+        130,
+        348
+      ],
+      "gt_misconception": 16,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the single equals sign (=) can be used to test equality in conditional expressions, treating it as a comparison operator rather than an assignment operator."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_0",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_17.json",
+        "problem_54_misc_17.json",
+        "problem_385_misc_17.json",
+        "problem_130_misc_17.json",
+        "problem_121_misc_17.json"
+      ],
+      "problem_ids": [
+        60,
+        54,
+        385,
+        130,
+        121
+      ],
+      "gt_misconception": 17,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the colon character (:) can be used as an assignment operator.",
+        "explanation": "In every provided code sample the student writes assignments in the form “variable : expression” (e.g., “result : a * b”, “prima : false”, “kandidat : n + 1”). According to the Notasi Algoritmik specification, the correct assignment operator is the arrow “<-”. Using “:” for assignment is a syntactic misconception that is consistently present across all samples."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_1",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 213,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_213_misc_17.json",
+        "problem_335_misc_17.json",
+        "problem_178_misc_17.json",
+        "problem_93_misc_17.json",
+        "problem_501_misc_17.json"
+      ],
+      "problem_ids": [
+        213,
+        335,
+        178,
+        93,
+        501
+      ],
+      "gt_misconception": 17,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the colon symbol (:) can be used for assignment, just like the correct assignment operator (←).",
+        "explanation": "All five student programs consistently use “:” in statements such as “umurAnjing : umur * 10.5”, “minimum : x”, “jumlah : jumlah + 1”, “temp : d1”, and “hasil : string”. In the Notasi Algoritmik syntax the colon is not an assignment operator; the correct operator is “←”. The repeated use of “:” for assignment across all samples shows a single, shared misconception about the assignment syntax in this pseudocode notation."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_2",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_17.json",
+        "problem_152_misc_17.json",
+        "problem_200_misc_17.json",
+        "problem_348_misc_17.json",
+        "problem_94_misc_17.json"
+      ],
+      "problem_ids": [
+        73,
+        152,
+        200,
+        348,
+        94
+      ],
+      "gt_misconception": 17,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the assignment operator is ':' instead of '<-'.",
+        "explanation": "In every submitted program the student uses the colon character ':' to assign values to variables (e.g., `baris : \"\"`, `jumlah : 0`, `hasil : (a < 0 and b > 0) or ...`).  \nIn the Notasi Algoritmik pseudocode taught in the course, the correct syntax for assignment is the arrow operator `<-`.  \nUsing ':' therefore does not perform an assignment in this notation and would lead to syntax errors or unintended behavior.  The consistent use of ':' across all five solutions indicates a shared misconception about the correct assignment operator."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_0",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 54,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_54_misc_18.json",
+        "problem_501_misc_18.json",
+        "problem_93_misc_18.json",
+        "problem_348_misc_18.json",
+        "problem_152_misc_18.json"
+      ],
+      "problem_ids": [
+        54,
+        501,
+        93,
+        348,
+        152
+      ],
+      "gt_misconception": 18,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the logical operator `or` can be used to test multiple alternatives in a single condition, as if it were a list of separate comparisons."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_1",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_313_misc_18.json",
+        "problem_130_misc_18.json",
+        "problem_121_misc_18.json",
+        "problem_94_misc_18.json",
+        "problem_176_misc_18.json"
+      ],
+      "problem_ids": [
+        313,
+        130,
+        121,
+        94,
+        176
+      ],
+      "gt_misconception": 18,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the logical OR operator can be used with a bare value or constant (such as 0 or a variable) as a shorthand for a comparison or negation, and that this will correctly combine conditions.",
+        "explanation": "All four student codes misuse the OR operator in the same way: they write expressions like  \n`if s[i] != ' ' or 0 then`, `if hasilBalik == kandidat or n then`, `if kata == \"a\" or \"the\" then`, `if (a < 0 or b) ...`, and `if x != 0 or 0 then`.  \nIn each case the student expects the OR to test multiple conditions or to negate a value, but in the pseudocode notation `or` requires two boolean operands. Writing `or 0` or `or n` is syntactically incorrect and semantically meaningless; it always evaluates to true because `0` (or any non‑zero value) is treated as a truthy value. This consistent misuse across all samples shows a single shared misconception about how the OR operator works."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_2",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_18.json",
+        "problem_46_misc_18.json",
+        "problem_385_misc_18.json",
+        "problem_178_misc_18.json",
+        "problem_213_misc_18.json"
+      ],
+      "problem_ids": [
+        335,
+        46,
+        385,
+        178,
+        213
+      ],
+      "gt_misconception": 18,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the logical operator “or” can be used to compare a variable to multiple values in a single expression, as if writing “x == 1 or 2” or “n == 0 or 1” automatically tests against both 1 and 0.",
+        "explanation": "All of the student codes misuse the “or” operator in conditional statements.  \nIn Code 1 the test `if n == 0 or 1 then` is intended to check whether `n` is 0 or 1, but in the pseudocode syntax it actually evaluates `n == 0` and then the literal `1` (which is always true), so the condition is always true.  \nCode 2 writes `if x < terkecil or x == 0 or -1 then`, attempting to test whether `x` is less than `terkecil` or equal to 0 or -1; the expression is parsed incorrectly and does not perform the intended multi‑value comparison.  \nCode 4 uses `if (s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd') or \"STD\" then`, where the string `\"STD\"` is treated as a truthy value rather than part of the comparison.  \nCode 5 writes `if umur == 1 or 2 then`, again trying to test if `umur` is 1 or 2.  \nIn each case the student’s belief that `or` can chain comparisons leads to incorrect logic and unintended behavior. This is the single misconception shared across all samples."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_24_0",
+    "group_type": "misconception",
+    "misconception_id": 24,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 24,
+      "description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_24.json",
+        "problem_152_misc_24.json",
+        "problem_121_misc_24.json",
+        "problem_200_misc_24.json",
+        "problem_335_misc_24.json"
+      ],
+      "problem_ids": [
+        176,
+        152,
+        121,
+        200,
+        335
+      ],
+      "gt_misconception": 24,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a for‑loop variable must be explicitly initialized before the loop.",
+        "explanation": "In every student program the variable used as the loop counter (i) is first set to 0 with “i <- 0” before the for‑loop. The for‑loop itself already defines and initializes the counter (e.g., “for i <- 1 to n do”). Thus the extra initialization is unnecessary and reflects the misconception that the loop variable must be initialized outside the loop. All five code samples exhibit this same false belief."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_24_1",
+    "group_type": "misconception",
+    "misconception_id": 24,
+    "problem_id": 385,
+    "original_misconception": {
+      "id": 24,
+      "description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_385_misc_24.json",
+        "problem_46_misc_24.json",
+        "problem_73_misc_24.json",
+        "problem_313_misc_24.json",
+        "problem_178_misc_24.json"
+      ],
+      "problem_ids": [
+        385,
+        46,
+        73,
+        313,
+        178
+      ],
+      "gt_misconception": 24,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a loop variable must be initialized before a for‑loop, even though the for‑loop assignment overrides it.",
+        "explanation": "In every code sample the student writes an assignment such as `i <- 0` immediately before a `for i <- … do` loop.  \nThis extra initialization is unnecessary because the `for` statement assigns a new value to `i` at the start of each iteration.  \nThe misconception is that the loop variable needs to be set beforehand, which can lead to confusion or redundant code, but it does not affect the program’s correctness in these examples."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_25_0",
+    "group_type": "misconception",
+    "misconception_id": 25,
+    "problem_id": 121,
+    "original_misconception": {
+      "id": 25,
+      "description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_121_misc_25.json",
+        "problem_176_misc_25.json",
+        "problem_46_misc_25.json",
+        "problem_73_misc_25.json",
+        "problem_385_misc_25.json"
+      ],
+      "problem_ids": [
+        121,
+        176,
+        46,
+        73,
+        385
+      ],
+      "gt_misconception": 25,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that modifying a for‑loop variable inside the loop body does not affect the next iteration’s value.",
+        "explanation": "In every student program the loop counter (i) is explicitly incremented with “i <- i + 1” inside the loop body, even though the for‑loop already updates the counter automatically. This shows the false belief that changing the loop variable inside the loop has no effect on the loop’s execution, leading to redundant or incorrect code."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_33_0",
+    "group_type": "misconception",
+    "misconception_id": 33,
+    "problem_id": 94,
+    "original_misconception": {
+      "id": 33,
+      "description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_94_misc_33.json",
+        "problem_213_misc_33.json",
+        "problem_46_misc_33.json",
+        "problem_130_misc_33.json",
+        "problem_54_misc_33.json"
+      ],
+      "problem_ids": [
+        94,
+        213,
+        46,
+        130,
+        54
+      ],
+      "gt_misconception": 33,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that separate if statements can be used in place of an else-if chain even when the conditions are mutually exclusive.",
+        "explanation": "All five student codes repeatedly write several independent if blocks to handle mutually exclusive cases (e.g., checking the signs of two numbers, the age of a dog, the smallest of a list, the next palindrome, or type effectiveness). In each case the conditions are exclusive, so an else-if (or else) structure would be more appropriate. The students’ code still works, but the repeated ifs indicate a misunderstanding that separate ifs are always correct instead of recognizing that an else-if chain is the proper construct for mutually exclusive branches."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_33_1",
+    "group_type": "misconception",
+    "misconception_id": 33,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 33,
+      "description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_33.json",
+        "problem_121_misc_33.json",
+        "problem_385_misc_33.json",
+        "problem_152_misc_33.json",
+        "problem_200_misc_33.json"
+      ],
+      "problem_ids": [
+        73,
+        121,
+        385,
+        152,
+        200
+      ],
+      "gt_misconception": 33,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that multiple if statements are mutually exclusive and that a later if can override an earlier assignment without considering that all applicable conditions may execute.",
+        "explanation": "In every submitted program the student writes several independent if statements that set the same variable.  \nFor example, in the identity‑matrix code the two ifs that assign to nilai are intended to be\nexclusive, but the second if (j < n) also executes when i = j, overwriting the value set by the first\nif.  The same pattern appears in the longest‑word filter, the prime‑checker, and the harmonic‑sum\nprogram: a later if that is always true (or that applies to a broader range) overwrites a value\nthat was correctly set by an earlier, more specific if.  This shows the belief that once an if\nhas executed, subsequent ifs will not affect the result, which is incorrect in the given\npseudocode notation.  The misconception is that if statements are mutually exclusive and that\nlater conditions cannot change a value already assigned by an earlier condition."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_0",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_35.json",
+        "problem_94_misc_35.json",
+        "problem_348_misc_35.json",
+        "problem_54_misc_35.json",
+        "problem_93_misc_35.json"
+      ],
+      "problem_ids": [
+        176,
+        94,
+        348,
+        54,
+        93
+      ],
+      "gt_misconception": 35,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that every variable must be explicitly converted to its type before it can be used in expressions, comparisons, or assignments.",
+        "explanation": "All five student programs repeatedly wrap variables in calls such as `integer(x)`, `string(y)`, or `real(z)` even when the variables are already declared with a specific type. This pattern shows a misconception that type conversion is required for every use of a value, rather than understanding that the declared type is already enforced by the language. The unnecessary casts appear in arithmetic, conditional checks, and assignments across all samples, indicating a shared belief that explicit conversion is necessary for type safety."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_1",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 200,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_200_misc_35.json",
+        "problem_213_misc_35.json",
+        "problem_385_misc_35.json",
+        "problem_130_misc_35.json",
+        "problem_121_misc_35.json"
+      ],
+      "problem_ids": [
+        200,
+        213,
+        385,
+        130,
+        121
+      ],
+      "gt_misconception": 35,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_2",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_35.json",
+        "problem_178_misc_35.json",
+        "problem_313_misc_35.json",
+        "problem_242_misc_35.json",
+        "problem_335_misc_35.json"
+      ],
+      "problem_ids": [
+        60,
+        178,
+        313,
+        242,
+        335
+      ],
+      "gt_misconception": 35,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that values must be explicitly converted to their current type to ensure type safety.",
+        "explanation": "All five student programs repeatedly wrap variables in conversion calls such as `integer(a)`, `string(s)`, or `integer(jumlah)` even when the variables are already of the correct type. This pattern shows a consistent belief that explicit type conversion is required for every use of a value, regardless of whether the value is already an integer or string. The code therefore exhibits the same misconception across all problems."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_38_0",
+    "group_type": "misconception",
+    "misconception_id": 38,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": 38,
+      "description": "Student believes that while loops execute their body only once if the condition is true."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_178_misc_38.json",
+        "problem_385_misc_38.json",
+        "problem_200_misc_38.json",
+        "problem_152_misc_38.json",
+        "problem_60_misc_38.json"
+      ],
+      "problem_ids": [
+        178,
+        385,
+        200,
+        152,
+        60
+      ],
+      "gt_misconception": 38,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a while loop will automatically progress to the next iteration without explicitly modifying its control variable.",
+        "explanation": "In each of the first four student programs the while loop’s control variable (i or pembagi) is never updated inside the loop body.  \n- In Code 1 the loop that scans the string never increments i, so the condition `i <= panjang(s) - 2` remains true forever.  \n- In Code 2 the loop that tests divisors never increments pembagi, causing an infinite loop.  \n- In Code 3 the loop that sums the harmonic series never decrements i, so the loop never terminates.  \n- In Code 4 the loop that reads words never increments i, again leading to an infinite loop.  \n\nThe reference solutions all include the necessary increment (`i <- i + 1` or `pembagi <- pembagi + 1`) inside the loop body. This pattern shows a consistent misconception that the loop control variable is automatically updated, which is not true in the Notasi Algoritmik pseudocode.  \nCode 5, while using a while loop, does not exhibit this issue because the loop condition depends on a different variable (hasil) that is changed inside the loop, but the shared misconception across the other samples is the failure to update the loop counter."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_0",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 93,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_93_misc_4.json",
+        "problem_54_misc_4.json",
+        "problem_130_misc_4.json",
+        "problem_313_misc_4.json",
+        "problem_121_misc_4.json"
+      ],
+      "problem_ids": [
+        93,
+        54,
+        130,
+        313,
+        121
+      ],
+      "gt_misconception": 4,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that Boolean expressions must be explicitly compared to true or false (e.g., using “== true”) before they can be used in control‑flow statements.",
+        "explanation": "All five student codes repeatedly write conditions such as “if (x > y) == true then” or “while (sisa > 0) == true do”. In the Notasi Algoritmik language, a Boolean expression can be used directly in an if, while, or repeat statement without any comparison to true or false. The extra “== true” is unnecessary and reflects a false belief that Boolean values need to be explicitly compared to a literal truth value before being evaluated. This misconception appears consistently across all provided code samples, making it the single shared misconception."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_1",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 242,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_242_misc_4.json",
+        "problem_178_misc_4.json",
+        "problem_501_misc_4.json",
+        "problem_213_misc_4.json",
+        "problem_152_misc_4.json"
+      ],
+      "problem_ids": [
+        242,
+        178,
+        501,
+        213,
+        152
+      ],
+      "gt_misconception": 4,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a Boolean expression must be explicitly compared to true (or false) in an if statement.",
+        "explanation": "In every student solution the condition is written as `(expression) == true`. This shows the false belief that the language requires an explicit equality test against the literal true value, whereas the correct syntax is simply `if expression then`. The reference solutions omit the `== true` part, confirming that the comparison is unnecessary."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_2",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_4.json",
+        "problem_94_misc_4.json",
+        "problem_348_misc_4.json",
+        "problem_46_misc_4.json",
+        "problem_73_misc_4.json"
+      ],
+      "problem_ids": [
+        176,
+        94,
+        348,
+        46,
+        73
+      ],
+      "gt_misconception": 4,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that Boolean expressions must be explicitly compared to true/false (e.g., using “== true”) before they can be used in a conditional.",
+        "explanation": "In every student code sample, the condition inside an if statement is written as “(expression) == true”. The correct pseudocode syntax allows the Boolean expression itself to be used directly in the if clause. This repeated pattern indicates a false belief that a Boolean must be compared to true/false explicitly, rather than being accepted as a condition."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_41_0",
+    "group_type": "misconception",
+    "misconception_id": 41,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": 41,
+      "description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_313_misc_41.json",
+        "problem_54_misc_41.json",
+        "problem_152_misc_41.json",
+        "problem_213_misc_41.json",
+        "problem_335_misc_41.json"
+      ],
+      "problem_ids": [
+        313,
+        54,
+        152,
+        213,
+        335
+      ],
+      "gt_misconception": 41,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a single conditional block with an increment is sufficient to process all elements of a sequence, without using a loop construct.",
+        "explanation": "All five student codes attempt to iterate over a collection (characters of a string, Pokémon types, words, dog years, or numbers) but each only contains one `if` (or `if`/`else`) block followed by a single increment of the loop counter. They omit the necessary `while` or `for` loop that would repeatedly execute the block for every element. Consequently, only the first element is processed, and the rest of the data is ignored. This pattern shows a misconception that the loop construct itself is unnecessary and that a single conditional with an increment can replace it."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_41_1",
+    "group_type": "misconception",
+    "misconception_id": 41,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 41,
+      "description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_41.json",
+        "problem_385_misc_41.json",
+        "problem_73_misc_41.json",
+        "problem_46_misc_41.json",
+        "problem_121_misc_41.json"
+      ],
+      "problem_ids": [
+        60,
+        385,
+        73,
+        46,
+        121
+      ],
+      "gt_misconception": 41,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a single if statement with an increment can replace a loop and will automatically repeat for all required iterations.",
+        "explanation": "In every code sample the student uses an `if i <= n then … i <- i + 1 endif` construct once, expecting it to process all `n` elements. However, an `if` statement is evaluated only once; it does not repeat automatically. The correct solutions use a `for` or `while` loop to iterate over all items. This consistent misuse of a single conditional to perform repeated work reveals the shared misconception that an `if` can act as a loop."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_54_0",
+    "group_type": "misconception",
+    "misconception_id": 54,
+    "problem_id": 213,
+    "original_misconception": {
+      "id": 54,
+      "description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_213_misc_54.json",
+        "problem_121_misc_54.json",
+        "problem_46_misc_54.json",
+        "problem_130_misc_54.json",
+        "problem_178_misc_54.json"
+      ],
+      "problem_ids": [
+        213,
+        121,
+        46,
+        130,
+        178
+      ],
+      "gt_misconception": 54,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that assigning a variable to another variable creates a dynamic link so that subsequent changes to the original variable automatically update the assigned variable.",
+        "explanation": "In all five student programs the same false belief appears.  \nIn Code 1 the student writes  \n```  \nterkecil <- x  \nhasil <- terkecil  \n```  \nand later changes `terkecil` inside the loop, but never updates `hasil`.  \nThe program therefore outputs the initial value of `hasil` instead of the new minimum.  \nThe same pattern occurs in Code 2, where `panjangMax` is set once and never updated when new words are read; the student expects the earlier assignment to keep `panjangMax` linked to the current word length.  \nIn Code 3 the variable `hasil` is intended to hold the smallest value, yet it is never reassigned after `terkecil` changes.  \nCode 4 assigns `hasilBalik` once before the loop that changes `kandidat`; the student expects `hasilBalik` to automatically recompute when `kandidat` changes.  \nFinally, Code 5 pre‑computes `indeksBerikut` and `indeksBerikut2` once and then uses them in the loop, assuming they will automatically refer to the next characters as `i` increments.  \n\nAll these examples show the same misconception: the student thinks that once a variable is assigned the value of another variable, the two remain linked and any later change to the original variable will be reflected in the assigned variable. In the pseudocode language used, assignments copy the value, not create a reference, so the assigned variable must be updated explicitly whenever the original changes."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_54_1",
+    "group_type": "misconception",
+    "misconception_id": 54,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 54,
+      "description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_54.json",
+        "problem_73_misc_54.json",
+        "problem_200_misc_54.json",
+        "problem_94_misc_54.json",
+        "problem_385_misc_54.json"
+      ],
+      "problem_ids": [
+        335,
+        73,
+        200,
+        94,
+        385
+      ],
+      "gt_misconception": 54,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that assigning a variable to an expression creates a reference that automatically updates when the operands change.",
+        "explanation": "In all five student programs the variable that is intended to hold the final result is initialized before the loop (or before the relevant computation) and never updated afterwards. For example, in Code 1 the variable `hasil` is set to `minimum + maksimum` before the loop, but the program never recomputes `hasil` after `minimum` and `maksimum` change. Similarly, Code 2 sets `posisiDiagonal` once before the outer loop and never updates it, yet the inner loop uses it as if it were automatically synchronized with the loop counter `i`. This pattern shows the same misconception: the student thinks that once a variable is assigned the value of an expression, it will automatically reflect any later changes to the variables used in that expression, as if the assignment were a reference rather than a value copy. This belief leads to incorrect results in all the provided examples."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_0",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 54,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_54_misc_56.json",
+        "problem_178_misc_56.json",
+        "problem_213_misc_56.json",
+        "problem_176_misc_56.json",
+        "problem_121_misc_56.json"
+      ],
+      "problem_ids": [
+        54,
+        178,
+        213,
+        176,
+        121
+      ],
+      "gt_misconception": 56,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_1",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 93,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_93_misc_56.json",
+        "problem_94_misc_56.json",
+        "problem_152_misc_56.json",
+        "problem_60_misc_56.json",
+        "problem_348_misc_56.json"
+      ],
+      "problem_ids": [
+        93,
+        94,
+        152,
+        60,
+        348
+      ],
+      "gt_misconception": 56,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_2",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_56.json",
+        "problem_242_misc_56.json",
+        "problem_73_misc_56.json",
+        "problem_46_misc_56.json",
+        "problem_313_misc_56.json"
+      ],
+      "problem_ids": [
+        335,
+        242,
+        73,
+        46,
+        313
+      ],
+      "gt_misconception": 56,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_59_0",
+    "group_type": "misconception",
+    "misconception_id": 59,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 59,
+      "description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_59.json",
+        "problem_200_misc_59.json",
+        "problem_335_misc_59.json",
+        "problem_130_misc_59.json",
+        "problem_385_misc_59.json"
+      ],
+      "problem_ids": [
+        73,
+        200,
+        335,
+        130,
+        385
+      ],
+      "gt_misconception": 59,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_59_1",
+    "group_type": "misconception",
+    "misconception_id": 59,
+    "problem_id": 348,
+    "original_misconception": {
+      "id": 59,
+      "description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_348_misc_59.json",
+        "problem_60_misc_59.json",
+        "problem_121_misc_59.json",
+        "problem_313_misc_59.json",
+        "problem_94_misc_59.json"
+      ],
+      "problem_ids": [
+        348,
+        60,
+        121,
+        313,
+        94
+      ],
+      "gt_misconception": 59,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that numeric values should be stored as strings and then converted back to integers for arithmetic operations.",
+        "explanation": "In several of the solutions (e.g., Code 1 and Code 3) the student initializes numeric counters or maximum lengths as strings (e.g., `total <- \"0\"` or `pjgMax <- string(0)`) and later performs arithmetic by converting them back to integers (`integer(total)` or `integer(pjgMax)`). This pattern indicates a misconception that values must be kept as strings for safety or compatibility, even when the language provides native integer types and arithmetic operators. The other solutions that use integers directly (e.g., Code 2) do not exhibit this pattern, but the repeated use of string‑to‑integer conversions in multiple samples shows a shared belief about handling numeric data."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_26_0",
+    "group_type": "misconception",
+    "misconception_id": 26,
+    "problem_id": 242,
+    "original_misconception": {
+      "id": 26,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_242_misc_26.json",
+        "problem_54_misc_26.json",
+        "problem_152_misc_26.json",
+        "problem_385_misc_26.json",
+        "problem_73_misc_26.json"
+      ],
+      "problem_ids": [
+        242,
+        54,
+        152,
+        385,
+        73
+      ],
+      "gt_misconception": 26,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a condition cannot be used directly in an if statement; instead, the result of the condition must first be stored in a boolean variable and then that variable must be tested.",
+        "explanation": "In every submitted program the student introduces an intermediate boolean variable (e.g., `terbalik`, `cukupPanjang`, `diagonal`) to hold the result of a comparison, and then uses a separate `if` to test that variable. The correct pseudocode allows the comparison to appear directly in the `if` condition (as shown in the reference solutions). This unnecessary indirection is a misconception about how boolean expressions are evaluated in the language."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_20_0",
+    "group_type": "misconception",
+    "misconception_id": 20,
+    "problem_id": 200,
+    "original_misconception": {
+      "id": 20,
+      "description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_200_misc_20.json",
+        "problem_335_misc_20.json",
+        "problem_46_misc_20.json",
+        "problem_176_misc_20.json",
+        "problem_178_misc_20.json"
+      ],
+      "problem_ids": [
+        200,
+        335,
+        46,
+        176,
+        178
+      ],
+      "gt_misconception": 20,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a loop counter variable can be reused for other purposes inside the loop or after the loop without affecting the loop control or the program’s logic.",
+        "explanation": "All five student programs exhibit this belief.  \nIn Code 1 the loop counter `n` is used as the loop variable (`for n <- 1 to n do`) and then later as the upper bound, which changes the loop’s behavior.  \nCode 2 introduces a second loop `for hasil <- 1 to n do` that merely assigns `minimum <- minimum`; the variable `hasil` is also used later to store the final result, overwriting the loop counter.  \nCode 3 sets `i <- 100` before the loop and then reuses `i` as the loop counter (`for i <- 1 to n do`), but finally outputs `i` instead of the intended `terkecil`.  \nCode 4 uses `i` as the loop counter and then checks `if i == 0` after the loop, assuming `i` would still hold the initial value.  \nCode 5 assigns `i <- panjang(s) - 2` and then immediately redefines `i` in the loop header (`for i <- 1 to i do`), losing the original value.  \n\nIn each case the student treats the loop variable as a general-purpose variable, ignoring that its value is controlled by the loop construct and that reassigning it can corrupt the loop’s intended iteration or the program’s final result. This misconception leads to incorrect logic and, in some cases, to runtime errors or wrong outputs."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  }
+]

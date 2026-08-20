@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if (i == j) == true then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "Rewrote the solution to use a more straightforward nested loop approach that checks if the row index equals the column index. Applied the misconception by explicitly comparing (i == j) to True, even though i == j already evaluates to a boolean. The student believes this explicit comparison is necessary for the conditional to work properly. The code functions correctly despite the redundant comparison, making this a benign misconception."
+      },
+      "parse_success": true
+    }
+  ]
+}

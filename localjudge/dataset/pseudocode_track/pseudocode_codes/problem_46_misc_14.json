@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 14,
+  "misconception_description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil, terakhirDicek : integer\nalgoritma\n  input(n)\n  terakhirDicek <- 0\n  for i <- 1 to n do\n    input(x)\n    terakhirDicek <- x\n    if i == 1 then\n      terkecil <- x\n    else\n      if x < terkecil then\n        terkecil <- x\n      endif\n    endif\n  endfor\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes loop variable 'x' will be destroyed after the loop completes, so they create 'last_checked' to save the value of 'x' in each iteration. After the loop ends, they return 'last_checked' instead of simply using 'x', which would actually still be accessible. The function now returns a tuple with both the minimum value and the last element checked. This clearly demonstrates the misconception because the student could have just returned 'x' after the loop (since loop variables persist after loop completion in Python), but they go through the unnecessary step of maintaining 'last_checked' throughout. The code still works correctly but includes redundant variable management due to the misconception about loop variable lifetime."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- integer(0)\n  for i <- 1 to integer(n) do\n    input(kata)\n    panjangSekarang <- integer(panjang(string(kata)))\n    if integer(panjangSekarang) > integer(panjangMax) then\n      panjangMax <- integer(panjangSekarang)\n    endif\n  endfor\n  output(integer(panjangMax))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has added explicit int() conversions throughout the code, even though len() already returns an integer and max is already an integer variable. The conversions are: int(len(list1[0])) for initialization, int(len(i)) for the new length, int(max) in the comparison and assignment, and int(max) for the return value. The student believes these conversions are necessary for type safety and proper programming practice, not realizing that the values are already integers. The code functions correctly despite the redundant conversions."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  i <- 1\n  if i <= panjang(s) then\n    if s[i] != ' ' then\n      hasil <- hasil + s[i]\n    endif\n    i <- i + 1\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrites the solution using an if-statement that removes only one whitespace at a time using replace with a count of 1. The student genuinely believes that the if-statement will continue executing as long as there are spaces in text1, repeatedly removing spaces until none remain (like a while loop would). In reality, the if-statement executes only once, removing just the first space, and then the function returns the incompletely processed string. This demonstrates the misconception that if-statements loop while their condition is true."
+      },
+      "parse_success": true
+    }
+  ]
+}

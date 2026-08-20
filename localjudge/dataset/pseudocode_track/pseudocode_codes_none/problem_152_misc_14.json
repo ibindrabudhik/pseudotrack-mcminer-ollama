@@ -1,0 +1,14 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 14,
+  "misconception_description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

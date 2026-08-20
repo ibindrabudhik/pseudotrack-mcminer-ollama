@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, p : integer\n  k : string\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(k)\n    p <- panjang(k)\n    if p > n then\n      output(k)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes all variable identifiers can only be one letter long, so they've renamed: `long_words` → `l`, `str` → `s`, `word_len` → `w`, and `txt` → `t`. The variable `x` and parameter `n` remain unchanged as they were already single letters. The code functions identically to the original but with reduced readability due to non-descriptive single-letter identifiers throughout."
+      },
+      "parse_success": true
+    }
+  ]
+}

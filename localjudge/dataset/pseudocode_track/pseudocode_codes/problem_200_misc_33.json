@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  if n == 1 then\n    output(1)\n  endif\n  if n > 1 then\n    jumlah <- 0\n    for i <- 1 to n do\n      jumlah <- jumlah + 1 / i\n    endfor\n    output(jumlah)\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes mutually exclusive conditions should be written as separate if statements rather than using else. Instead of the else clause, they explicitly wrote \"if n > 1\" as a separate if statement. From the student's perspective, this makes the condition more explicit and clear. For typical inputs (n >= 1), this code appears to work correctly. However, it introduces a logical error for edge cases: when n <= 0, neither condition is met and the function returns None instead of executing the recursive logic that would have been in the else branch. The student genuinely believes this approach is clearer and more correct than using else, not realizing that else would handle all cases where n != 1, including edge cases."
+      },
+      "parse_success": true
+    }
+  ]
+}

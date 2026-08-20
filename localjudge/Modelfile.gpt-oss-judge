@@ -1,0 +1,17 @@
+# gpt-oss:20b as an LLM judge, sized for a 16 GB card (RTX 5070 Ti).
+#
+# Weights are ~13.8 GB. At 16K context the KV cache adds roughly 1 GB, so the
+# whole thing sits in 16 GB VRAM with a little headroom. Do NOT raise num_ctx
+# without checking `ollama ps` afterwards: once the split stops reading
+# 100% GPU, throughput falls off a cliff.
+#
+# 16K is chosen from the judge prompts themselves, which run ~1.2K tokens for a
+# single code and ~3K for a 5-code bag. 16K is already generous; the reason not
+# to shrink further is that a truncated prompt fails SILENTLY.
+#
+#   ollama create gpt-oss-judge -f Modelfile.gpt-oss-judge
+
+FROM gpt-oss:20b
+
+PARAMETER num_ctx 16384
+PARAMETER temperature 0

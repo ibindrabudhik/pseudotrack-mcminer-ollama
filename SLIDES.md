@@ -15,7 +15,9 @@ footer: '2026-08-17 · gpt-oss:20b · RTX 5070 Laptop'
 
 ## McMiner Pseudocode Track, run locally on `gpt-oss:20b`
 
-**All four prompt arms · 7h 56m · zero mining parse failures**
+**Four prompt arms · mined locally · judged twice**
+
+7h 56m mining · 2h 01m independent judging · zero parse failures
 
 2026-08-17
 
@@ -100,8 +102,9 @@ if at least one code in the bag exhibits it, the bag does.
 | Bag size | 5 (one of 4) |
 | Codes covered | 184 |
 
-⚠️ **Limitation:** only ~20 of the 96 correct codes entered bags, so McMiner-M's
-correct-bag accuracy rests on a 4-bag subsample.
+The 4 correct-only bags cover **19 of 19 unique correct programs** — the 96
+"correct" files span only 19 problems and all contain the literal string `NONE`,
+substituted at prompt time. **Coverage is complete**; 19 is the dataset's ceiling.
 
 ---
 
@@ -193,7 +196,8 @@ Mining parse success: **66.67% → 100%**
 | 4 | Judge McMiner-S | `evaluation_metrics.json` + `judge_details_single.json` |
 | 5 | Judge McMiner-M | `claude_evaluation_results.json` |
 
-**Judge = the same `gpt-oss:20b`** → self-evaluation (see caveats)
+**Judged twice:** once by the same `gpt-oss:20b` (self-evaluation), then again
+by **GPT-5** as an independent judge — steps 4–5 only, mining reused.
 
 ---
 
@@ -227,7 +231,7 @@ truncation. Each was checked against the judge's intended verdict:
 
 ---
 
-## Results
+## Results — self-judged (gpt-oss judging itself)
 
 | Arm | McMiner-S std | S novelty | McMiner-M std | M novelty |
 |---|---|---|---|---|
@@ -239,7 +243,7 @@ truncation. Each was checked against the judge's intended verdict:
 - **standard** — prediction matches the injected ground truth
 - **novelty-aware** — also credits a *different* misconception the code really exhibits
 
-`rag_ref` ranks first on all four measures. **But read the next slide.**
+⚠️ The model graded its own homework. **Two slides on why that matters.**
 
 ---
 
@@ -260,6 +264,78 @@ truncation. Each was checked against the judge's intended verdict:
 - `rag_ref` lead = **two bags**
 
 → **Sample size, not prompt design, is the binding constraint.**
+
+---
+
+## Fixing the bigger problem: an independent judge
+
+Mining is the expensive step and was already done — so only the **two judging
+steps** were re-run, with GPT-5 in place of the local model.
+
+| | |
+|---|---|
+| Judge | `openai/gpt-5` via OpenRouter |
+| Judge calls | **582** (480 McMiner-S + 102 McMiner-M) |
+| Wall time | 2h 00m 47s |
+| Errors / parse failures | **0 / 0** |
+| Cost | **$4.66** (estimated $2.83–$24.36) |
+
+These are the numbers comparable to the McMiner paper's main table.
+
+---
+
+## Results — GPT-5 judged (quote these)
+
+| Arm | McMiner-S std | S novelty | McMiner-M std | M novelty |
+|---|---|---|---|---|
+| baseline | 48.65% | 75.68% | 64.86% | **86.49%** |
+| rag | 54.05% | 70.27% | 59.46% | 64.86% |
+| ref | 48.65% | **81.08%** | 56.76% | 78.38% |
+| **rag_ref** | **56.76%** | **81.08%** | **72.97%** | 83.78% |
+
+`rag_ref` leads again on three of four measures — **same ordering as the local
+judge**, and subject to the same n=37 caveat.
+
+---
+
+## Self-judging was inflating the scores
+
+**delta = GPT-5 − self-judged (percentage points)**
+
+| Arm | S std | S novelty | M std | M novelty |
+|---|---|---|---|---|
+| baseline | **−10.8** | +2.7 | −2.7 | +8.1 |
+| rag | −2.7 | 0.0 | 0.0 | 0.0 |
+| ref | **−8.1** | **+10.8** | **−8.1** | +5.4 |
+| rag_ref | **−8.1** | 0.0 | +2.7 | +2.7 |
+
+**Mean inflation on McMiner-S standard accuracy: +7.4 pp** — negative in *all
+four* arms. Consistent direction is what makes it bias, not noise.
+
+But novelty scores went **up**. GPT-5 is **stricter** on "did you find the
+injected one" and **more generous** on "you found a different real one".
+The two effects partly cancel in the pooled table.
+
+---
+
+## Equal totals ≠ equal verdicts
+
+The `rag` arm matched the local judge to the decimal on 3 of 4 metrics.
+Was that agreement — or coincidence?
+
+| Arm | M agree | κ | S agree | κ | local-only Y | GPT-5-only Y |
+|---|---|---|---|---|---|---|
+| baseline | 81.1% | 0.58 | 87.0% | 0.71 | 13 | 4 |
+| rag | **100%** | **1.00** | 86.8% | **0.63** | 9 | 5 |
+| ref | 86.5% | 0.72 | 88.9% | 0.75 | 12 | 2 |
+| rag_ref | 86.5% | 0.67 | 88.0% | 0.72 | 11 | 3 |
+
+- `rag` McMiner-M **is** genuine unanimity (κ=1.00, all 37 bags)
+- `rag` McMiner-S is **86.8% with the lowest κ of any arm** — 9 local-only vs
+  5 GPT-5-only matches. **Same totals, different cases.**
+- **local-only Y > GPT-5-only Y in every arm** — the signature of self-favouring
+
+κ 0.58–0.75: the judges genuinely disagree on **12–19%** of cases.
 
 ---
 
@@ -317,27 +393,30 @@ This is where accuracy is actually lost — and it is a property of
 
 ## Threats to validity
 
-1. **Self-evaluation** — the model judged its own output. **Not comparable** to
-   the paper's GPT-5-judged table.
+1. ~~**Self-evaluation**~~ — **addressed.** Re-judged by GPT-5; bias measured
+   at **+7.4 pp** mean inflation.
 2. **The judge prompt is a reconstruction** — the original was missing from the
    bundle; criteria come from the paper, wording does not.
-3. **n = 37 bags** — blocks every comparative claim.
+3. **n = 37 bags** — still blocks every comparative claim.
 4. **`reasoning_effort=low`** was forced by a token-budget failure, not chosen;
    its accuracy cost is unquantified.
-5. **Correct-only bags undersampled** — 4 bags, ~20 of 96 correct codes.
-6. **Known parser defect** (tag typo) — harmless here, but only by coincidence.
+5. **Only 19 unique correct programs** exist (96 rows = 19 programs). Bags cover
+   all 19 and score **100%** in every arm.
+6. **GPT-5 routing** — `openai/gpt-5` took the Chat Completions path, not the
+   Responses API. Internally consistent; not interchangeable with OpenAI-direct.
 
 ---
 
 ## Recommended next steps
 
-1. **Apply the tolerant-regex parser fix** — remove dependence on the coincidence
-2. **Increase bag count** — the single change that would make the arm comparison
-   meaningful
-3. **Fix correct-only bag coverage** — get all 96 correct codes into bags
-4. **Swap in an independent judge** (GPT-5 via OpenRouter; mining stays local)
-   → removes self-evaluation bias, gives paper-comparable numbers
-5. **Re-test `medium` effort with raised `max_tokens`** — quantify what `low` costs
+1. **Increase bag count** — the single change that would make the arm comparison
+   meaningful (n=37 blocks everything)
+2. ~~Swap in an independent judge~~ — **done.** $4.66, 2 hours
+3. **Apply the tolerant-regex parser fix** — remove dependence on a coincidence
+4. **Make correct-only bag ids unique** — 4 bags currently share one id
+5. **Fix the GPT-5 routing test** so `openai/gpt-5` reaches the Responses API
+6. **Re-test `medium` effort with raised `max_tokens`** — quantify what `low` costs
+7. **Add a third judge** — two disagree on 12–19% of cases
 
 ---
 
@@ -345,14 +424,15 @@ This is where accuracy is actually lost — and it is a property of
 
 # Summary
 
-**The pipeline works.** 1,220 mining predictions, **zero parse failures**,
-7h 56m on a consumer laptop.
+**The pipeline works.** 1,220 mining predictions and 582 judge calls,
+**zero parse failures**, on a consumer laptop.
 
-**The ranking does not.** All four arms sit inside overlapping ~29 pp confidence
-intervals at n=37.
+**The ranking does not.** All four arms sit inside overlapping ~29 pp intervals
+at n=37 — under *both* judges.
 
-**Two real findings:**
+**Three real findings:**
+- Self-judging inflated McMiner-S accuracy by **+7.4 pp**, in every arm
 - The novelty-aware metric captures something genuine (+13.5 pp, consistent)
 - Retrieval context makes the model measurably more **conservative**
 
-Full detail: `REPORT.md`
+Full detail: `REPORT.md` · `REPORT_correct_only_bags.md`

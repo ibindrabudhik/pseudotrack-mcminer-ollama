@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  if (a < 0 and b > 0) or (a > 0 and b < 0) then\n    hasil <- true\n  else\n    hasil <- false\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student wraps the boolean expression ((x ^ y) < 0) in an if/else statement because they believe this is necessary to return a boolean value. They don't realize they could simply return the expression directly. The code still functions correctly and produces the right output, but uses an unnecessary if/else structure. From the student's perspective, this is the proper and required way to convert a conditional expression into a return value."
+      },
+      "parse_success": true
+    }
+  ]
+}

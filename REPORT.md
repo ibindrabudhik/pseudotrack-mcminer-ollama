@@ -1,8 +1,9 @@
 # McMiner Pseudocode Track on a Local Model — Run Report
 
 **Run date:** 2026-08-17
-**Model (mining and judging):** `gpt-oss:20b` via Ollama, 16K context
-**Total wall time:** 7h 56m 35s, all four arms completed
+**Mining model:** `gpt-oss:20b` via Ollama, 16K context
+**Judges:** `gpt-oss:20b` (self-evaluation) **and** `gpt-5` via OpenRouter (independent)
+**Total wall time:** 7h 56m mining + 2h 01m independent judging
 **Hardware:** NVIDIA RTX 5070 Laptop (8 GB VRAM), 15.7 GB system RAM, Windows 11
 
 ---
@@ -14,12 +15,22 @@ The McMiner pseudocode track was run end-to-end against a locally served
 mining) and McMiner-M (whole-bag mining) evaluated in every arm.
 
 All four arms completed with **zero mining parse failures** across 1,220
-predictions. The headline accuracy numbers are reported below, but the single
-most important result of this run is a negative one: **at n=37 bags per arm, the
-differences between arms are not statistically distinguishable.** The ranking
-should not be quoted as a finding. What the run does establish is that the
-pipeline is sound, that the novelty-aware metric behaves consistently, and that
-retrieval context systematically increases the model's tendency to abstain.
+predictions. Every arm was then judged twice: once by the mining model itself,
+and once by **GPT-5 as an independent judge** (§7), which is what makes these
+numbers comparable to the McMiner paper's main table.
+
+Three findings, in order of confidence:
+
+1. **Self-judging inflated McMiner-S standard accuracy by a mean of 7.4 pp**,
+   in the same direction in all four arms (§7.2). The independent numbers are
+   the ones to quote.
+2. **Retrieval context systematically increases abstention** — more true
+   negatives *and* more false negatives, effects that partly cancel in the
+   accuracy table (§6.3).
+3. **At n=37 bags per arm the between-arm ranking is not statistically
+   distinguishable** (§6.2). `rag_ref` leads under both judges, but every
+   confidence interval overlaps every other. The ranking should not be quoted
+   as a finding.
 
 ---
 
@@ -70,11 +81,17 @@ from several examples at once (Multiple Instance Learning).
 | Bag size | 5 (one bag of 4) |
 | Codes covered by bags | 184 |
 
-**Limitation worth flagging.** Only 4 correct-only bags were formed, covering
-roughly 20 of the 96 correct codes. The recorded grouping parameter is
-`correct_bags_ratio = 0.15` rather than the cover-all policy the runner intends
-to pass. Consequently McMiner-M's correct-only accuracy rests on a 4-bag
-subsample and should be treated as indicative only.
+**On the 4 correct-only bags.** These cover **19 of 19 unique correct
+programs — complete coverage.** The 96 files in `pseudocode_codes_none` span
+only 19 distinct `problem_id`s and all contain the literal string `NONE`; the
+pipeline substitutes the problem's correct solution at prompt-build time, so the
+model sees 19 unique programs, each appearing 1–12 times under different
+misconception labels. The bag former deduplicates by problem, hence 4 bags.
+
+The real constraint is therefore that the dataset contains only 19 correct
+programs, not that bagging undersamples them. Full analysis, including the
+model's 100% correct-only bag accuracy and its inconsistency on repeated
+identical input, is in [`REPORT_correct_only_bags.md`](REPORT_correct_only_bags.md).
 
 ---
 
@@ -275,12 +292,100 @@ in 4 of every 10. A prediction the judge never sees cannot be scored.
 
 ---
 
-## 7. Threats to validity
+## 7. Independent judge: GPT-5
 
-1. **Self-evaluation.** `gpt-oss:20b` judged its own mining output. These
-   numbers are **not comparable** to the paper's o3-mini / gemini-2.5-flash /
-   qwen3-14b rows, which were judged by GPT-5. Use them to compare the four arms
-   against each other under one judge, nothing more.
+Mining is the expensive step and was already done, so only the two evaluation
+steps were re-run against the existing predictions, with GPT-5 in place of the
+local model. Run via `scripts/judge_with_gpt5.sh`.
+
+| | |
+|---|---|
+| Judge | `openai/gpt-5` via OpenRouter (Chat Completions path) |
+| Judge calls | 582 (480 McMiner-S + 102 McMiner-M) |
+| Wall time | 2h 00m 47s |
+| Errors / parse failures | **0 / 0** |
+| Actual cost | **$4.66** (estimated $2.83–$24.36) |
+
+### 7.1 Results under the independent judge
+
+| Arm | S standard | S novelty | M standard | M novelty |
+|---|---|---|---|---|
+| baseline | 48.65% | 75.68% | 64.86% | **86.49%** |
+| rag | 54.05% | 70.27% | 59.46% | 64.86% |
+| ref | 48.65% | 81.08% | 56.76% | 78.38% |
+| **rag_ref** | **56.76%** | **81.08%** | **72.97%** | 83.78% |
+
+`rag_ref` again leads on three of four measures — the same ordering the local
+judge produced, and subject to the same n=37 caveat from §6.2.
+
+### 7.2 Self-evaluation bias, measured
+
+Delta = GPT-5 minus self-judged, in percentage points:
+
+| Arm | S standard | S novelty | M standard | M novelty |
+|---|---|---|---|---|
+| baseline | **−10.8** | +2.7 | −2.7 | +8.1 |
+| rag | −2.7 | 0.0 | 0.0 | 0.0 |
+| ref | **−8.1** | **+10.8** | **−8.1** | +5.4 |
+| rag_ref | **−8.1** | 0.0 | +2.7 | +2.7 |
+
+**Mean inflation on McMiner-S standard accuracy: +7.4 pp**, negative in all four
+arms. The consistency of direction is what distinguishes this from noise.
+
+The correction is **not** uniformly downward. Novelty scores *rose* under GPT-5
+(baseline M +8.1, ref S +10.8). GPT-5 is stricter about "did the system identify
+the injected misconception" and more generous about "the system identified a
+different misconception the code genuinely exhibits". The two effects partly
+cancel, which is why the pooled figures look more similar than the underlying
+judgements are.
+
+### 7.3 Per-case agreement: aggregates hide disagreement
+
+Equal totals do not mean equal verdicts. Agreement and Cohen's κ on the same
+predictions:
+
+| Arm | M agreement | κ | S agreement | κ | local-only Y | GPT-5-only Y |
+|---|---|---|---|---|---|---|
+| baseline | 81.1% | 0.58 | 87.0% | 0.71 | 13 | 4 |
+| rag | **100%** | **1.00** | 86.8% | **0.63** | 9 | 5 |
+| ref | 86.5% | 0.72 | 88.9% | 0.75 | 12 | 2 |
+| rag_ref | 86.5% | 0.67 | 88.0% | 0.72 | 11 | 3 |
+
+Two things worth noting:
+
+- **The `rag` arm's identical aggregate rates were misleading.** Three of its
+  four metrics matched the local judge to the decimal. Its McMiner-M agreement
+  is genuinely perfect (κ=1.00, all 37 bags), but its McMiner-S agreement is
+  86.8% with the *lowest* κ of any arm — 9 predictions the local judge scored
+  as matches that GPT-5 rejected, and 5 the other way. Same totals, different
+  cases.
+- **`local-only Y` exceeds `GPT-5-only Y` in every arm** (13v4, 9v5, 12v2,
+  11v3). That asymmetry is the mechanical signature of self-favouring.
+
+κ of 0.58–0.75 is moderate-to-substantial, not high: the two judges genuinely
+disagree on roughly 12–19% of cases.
+
+### 7.4 A path caveat
+
+These calls went through OpenRouter's **Chat Completions** path, because
+`is_gpt5_model` in `utils/llm_clients.py` tests `startswith("gpt-5")` and the
+namespaced id `openai/gpt-5` fails that test. Calling OpenAI directly with the
+bare id `gpt-5` instead routes to the **Responses API** with an explicit
+`reasoning: {effort}` setting.
+
+A spot check on one prediction returned `match=Y` via the direct route and
+`match=N, novel=Y` via OpenRouter. All four arms here used the identical
+OpenRouter path, so internal comparisons are consistent — but these numbers are
+not interchangeable with the OpenAI-direct route, and a future run should fix
+the prefix test rather than rely on which id string was passed.
+
+---
+
+## 8. Threats to validity
+
+1. ~~**Self-evaluation.**~~ **Addressed.** Every arm was re-judged by GPT-5
+   (§7). The self-judged figures in §6 are retained only as the contrast that
+   makes the bias measurable (+7.4 pp mean inflation); **quote §7.1, not §6.1.**
 
 2. **The judge prompt is a reconstruction.** The bundle's judge template was
    missing entirely. It was rebuilt from the criteria in the paper's real
@@ -292,8 +397,14 @@ in 4 of every 10. A prediction the judge never sees cannot be scored.
 4. **`reasoning_effort=low`** was forced by a token-budget failure, not chosen.
    Its accuracy cost is unquantified.
 
-5. **Correct-only bags undersampled.** 4 bags covering ~20 of 96 correct codes
-   (§2.3), so McMiner-M's correct-bag accuracy is weakly supported.
+5. **Only 19 unique correct programs exist** in the dataset (§2.3), so
+   false-positive measurement is capped at n=19 regardless of the 96 rows. The
+   4 correct-only bags cover all 19 and score 100% in every arm, adding a
+   constant +10.8 pp to McMiner-M overall accuracy — between-arm comparison is
+   better read on the 33 misconception bags alone. Separately, the model gave
+   *different* answers on identical input for 5 of those 19 programs at
+   baseline, so a single run measures model noise alongside prompt effect. See
+   [`REPORT_correct_only_bags.md`](REPORT_correct_only_bags.md).
 
 6. **Known cosmetic parser defect.** `gpt-oss` sometimes writes the closing tag
    as `</match_withnovel>` while getting the opening `<match_with_novel>` right,
@@ -308,22 +419,27 @@ in 4 of every 10. A prediction the judge never sees cannot be scored.
 
 ---
 
-## 8. Recommended next steps
+## 9. Recommended next steps
 
 1. **Apply the tolerant-regex parser fix** so future runs do not depend on the
    coincidence described above.
 2. **Increase bag count.** n=37 is what blocks every comparative conclusion.
    More bags per misconception would give the arm comparison real power.
 3. **Fix correct-only bag coverage** so all 96 correct codes enter bags.
-4. **Swap in an independent judge** (e.g. GPT-5 via OpenRouter — the bundle
-   supports this via `JUDGE_PROVIDER`/`JUDGE_MODEL`) to remove self-evaluation
-   bias and produce paper-comparable numbers. Mining stays local.
+4. ~~Swap in an independent judge~~ — **done** (§7), via
+   `scripts/judge_with_gpt5.sh`. $4.66 and 2 hours.
 5. **Re-test `medium` reasoning effort** with a raised `max_tokens`, to measure
    what `low` costs in accuracy.
+6. **Fix the GPT-5 routing test** in `utils/llm_clients.py` so a namespaced id
+   (`openai/gpt-5`) reaches the Responses API rather than falling through to
+   Chat Completions (§7.4).
+7. **Re-judge with a third judge** if the arm ranking matters. Two judges
+   disagree on 12–19% of cases (§7.3); a third would show whether `rag_ref`'s
+   lead survives judge choice, independent of the sample-size problem.
 
 ---
 
-## 9. Output locations
+## 10. Output locations
 
 ```
 results/<tag>/single/predictions.json              McMiner-S predictions + raw_response
@@ -338,9 +454,15 @@ results/evaluations/<tag>/single_multi/
 results/evaluations/<tag>/multi/
     claude_evaluation_results.json                 per-bag judge verdicts
     evaluation_metrics.json                        McMiner-M metrics
+
+results/evaluations_gpt5/<arm>/                    SAME layout, GPT-5 judged
+    single_multi/evaluation_metrics.json           <- quote these
+    multi/claude_evaluation_results.json
 ```
 
-where `<tag>` is `ollama_gpt-oss-mcminer-latest_<arm>`.
+where `<tag>` is `ollama_gpt-oss-mcminer-latest_<arm>`. The self-judged tree
+(`results/evaluations/`) and the independent tree (`results/evaluations_gpt5/`)
+are kept side by side so the bias in §7.2 stays reproducible.
 
 ---
 

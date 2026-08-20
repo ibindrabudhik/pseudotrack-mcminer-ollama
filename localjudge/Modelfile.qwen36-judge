@@ -1,0 +1,21 @@
+# qwen3.6:27b as an LLM judge, sized for a 16 GB card (RTX 5070 Ti) + 32 GB RAM.
+#
+# Weights are ~17 GB, so this does NOT fit in 16 GB VRAM. Expect roughly
+# 2-5 GB to spill to system RAM -- which is fine on 32 GB and is the reason
+# this model is usable on the Ti but was not on an 8 GB laptop (there, 17 GB of
+# weights against 15.7 GB of RAM meant the model paged to DISK and ran at
+# ~1 token/s).
+#
+# Check after the first load:
+#   ollama ps   -> expect something like 75%/25% GPU/CPU, NOT a 0 GB working set
+#
+# num_ctx 16384 costs ~2.7 GB of KV cache here. Lowering it to 8192 buys back
+# ~1.3 GB of VRAM if the split looks worse than expected; the judge prompts fit
+# in 8K comfortably.
+#
+#   ollama create qwen36-judge -f Modelfile.qwen36-judge
+
+FROM qwen3.6:27b
+
+PARAMETER num_ctx 16384
+PARAMETER temperature 0

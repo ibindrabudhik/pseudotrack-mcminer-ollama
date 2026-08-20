@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n == 0 or 1 then\n    prima <- false\n  else if n == 2 or 3 then\n    prima <- true\n  else\n    prima <- true\n    for i <- 2 to n - 1 do\n      if n mod i == 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student has rewritten the function to handle edge cases more explicitly. They use `num == 0 or 1` thinking it checks if num equals 0 or 1 (non-prime cases), and `num == 2 or 3` thinking it checks if num equals 2 or 3 (small primes). In reality, `num == 0 or 1` evaluates as `(num == 0) or 1`, which is always truthy (since 1 is truthy), causing the function to always return False for any input. Similarly, `num == 2 or 3` evaluates as `(num == 2) or 3`, which is also always truthy. The student believes they've correctly optimized the prime checker by handling edge cases, but the code will fail for all inputs due to the first condition always being True."
+      },
+      "parse_success": true
+    }
+  ]
+}

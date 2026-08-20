@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum : integer\nalgoritma\n  input(n)\n  i <- 1\n  if i <= n then\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n    i <- i + 1\n  endif\n  output(minimum + maksimum)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution to manually find max and min values by \"iterating\" through the array. They use an if-statement with the condition `if index < len(nums):` and increment the index inside, believing this will continue executing and check all elements in the array (like a while loop would). In reality, the if-statement body only executes once, so only the element at index 1 is checked. This produces incorrect results for arrays with more than 2 elements. From the student's perspective, they believe they're properly iterating through all array elements to find the maximum and minimum values."
+      },
+      "parse_success": true
+    }
+  ]
+}

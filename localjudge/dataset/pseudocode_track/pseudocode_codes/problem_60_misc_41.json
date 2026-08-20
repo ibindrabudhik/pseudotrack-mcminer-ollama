@@ -1,0 +1,18 @@
+{
+  "problem_id": 60,
+  "problem_title": "Integer Product Calculator",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungProduk\nkamus\n  a, b, hasil, count : integer\nalgoritma\n  input(a, b)\n  hasil <- 0\n  count <- 0\n  if count < b then\n    hasil <- hasil + a\n    count <- count + 1\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student attempts to compute the product by repeated addition (a * b = adding a to itself b times). They use an if-statement with a counter, believing it will execute repeatedly until count reaches b, similar to how a while loop would work. In reality, the if-statement only executes once, so the function returns a instead of a * b. From the student's perspective, this should correctly compute the product because they believe the if-statement will keep running as long as count < b, incrementing the counter and accumulating the sum until the condition becomes false."
+      },
+      "parse_success": true
+    }
+  ]
+}

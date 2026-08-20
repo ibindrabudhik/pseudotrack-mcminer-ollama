@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 65,
+  "misconception_description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation *.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- kandidat\n    hasilBalik <- 0\n    while sisa > 0 do\n      hasilBalik <- (hasilBalik * 10) + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    if hasilBalik == kandidat then\n      sudahKetemu <- true\n    else\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student modified the starting point of the range from `num+1` to `num + 1 * num`. Due to their misconception about operator precedence, they believe this expression evaluates as `(num + 1) * num`, which would start searching from a value slightly larger than num. However, due to correct operator precedence where `*` has higher precedence than `+`, the expression actually evaluates as `num + (1 * num) = num + num = 2 * num`. This causes the function to start searching from double the input value, completely skipping over all palindromes between `num+1` and `2*num-1`, potentially missing the actual next smallest palindrome."
+      },
+      "parse_success": true
+    }
+  ]
+}

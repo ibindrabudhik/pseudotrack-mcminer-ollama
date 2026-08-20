@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\n  lebihKecil : boolean\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    else\n      if x < terkecil then\n        lebihKecil <- true\n      else\n        lebihKecil <- false\n      endif\n      if lebihKecil then\n        terkecil <- x\n      endif\n    endif\n  endfor\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student created a helper function `is_smaller` that returns a boolean value. Due to their misconception that conditional expressions must be wrapped in if/else to return boolean values, they wrote `if a < b: return True else: return False` instead of simply `return a < b`. The student believes this is the proper way to return a boolean from a comparison. The code still functions correctly and produces the right output, but includes unnecessary verbosity. The student thinks this helper function makes the code clearer and that this is the correct way to convert a comparison into a returnable boolean value."
+      },
+      "parse_success": true
+    }
+  ]
+}
