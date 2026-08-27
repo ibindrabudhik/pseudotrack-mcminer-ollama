@@ -1,0 +1,319 @@
+{
+  "standard_metrics": {
+    "overall_metrics": {
+      "total_bags": 37,
+      "correct_bags": 24,
+      "overall_accuracy": 0.6486486486486487,
+      "correct_only_accuracy": 0.75,
+      "misconception_accuracy": 0.6363636363636364,
+      "correct_only_count": 4,
+      "misconception_count": 33
+    },
+    "by_misconception": {
+      "14": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "16": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "17": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "18": {
+        "accuracy": 0.6666666666666666,
+        "total_groups": 3,
+        "correct_groups": 2
+      },
+      "24": {
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      "25": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "33": {
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      "35": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "38": {
+        "accuracy": 0.0,
+        "total_groups": 1,
+        "correct_groups": 0
+      },
+      "4": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "41": {
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      "54": {
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      "56": {
+        "accuracy": 0.0,
+        "total_groups": 3,
+        "correct_groups": 0
+      },
+      "59": {
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      "26": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "20": {
+        "accuracy": 0.0,
+        "total_groups": 1,
+        "correct_groups": 0
+      }
+    },
+    "top_5_best_misconceptions": [
+      {
+        "misconception_id": "26",
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      {
+        "misconception_id": "54",
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      {
+        "misconception_id": "41",
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      {
+        "misconception_id": "4",
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      {
+        "misconception_id": "35",
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      }
+    ],
+    "top_5_worst_misconceptions": [
+      {
+        "misconception_id": "24",
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "33",
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "38",
+        "accuracy": 0.0,
+        "total_groups": 1,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "56",
+        "accuracy": 0.0,
+        "total_groups": 3,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "59",
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      }
+    ]
+  },
+  "with_novel_metrics": {
+    "overall_metrics": {
+      "total_bags": 37,
+      "correct_bags": 29,
+      "overall_accuracy": 0.7837837837837838,
+      "correct_only_accuracy": 0.75,
+      "misconception_accuracy": 0.7878787878787878,
+      "correct_only_count": 4,
+      "misconception_count": 33
+    },
+    "by_misconception": {
+      "14": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "16": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "17": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "18": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "24": {
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      "25": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "33": {
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      "35": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "38": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "4": {
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      "41": {
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      "54": {
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      "56": {
+        "accuracy": 0.0,
+        "total_groups": 3,
+        "correct_groups": 0
+      },
+      "59": {
+        "accuracy": 0.5,
+        "total_groups": 2,
+        "correct_groups": 1
+      },
+      "26": {
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      "20": {
+        "accuracy": 0.0,
+        "total_groups": 1,
+        "correct_groups": 0
+      }
+    },
+    "top_5_best_misconceptions": [
+      {
+        "misconception_id": "26",
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      },
+      {
+        "misconception_id": "54",
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      {
+        "misconception_id": "41",
+        "accuracy": 1.0,
+        "total_groups": 2,
+        "correct_groups": 2
+      },
+      {
+        "misconception_id": "4",
+        "accuracy": 1.0,
+        "total_groups": 3,
+        "correct_groups": 3
+      },
+      {
+        "misconception_id": "38",
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      }
+    ],
+    "top_5_worst_misconceptions": [
+      {
+        "misconception_id": "24",
+        "accuracy": 0.0,
+        "total_groups": 2,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "56",
+        "accuracy": 0.0,
+        "total_groups": 3,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "20",
+        "accuracy": 0.0,
+        "total_groups": 1,
+        "correct_groups": 0
+      },
+      {
+        "misconception_id": "59",
+        "accuracy": 0.5,
+        "total_groups": 2,
+        "correct_groups": 1
+      },
+      {
+        "misconception_id": "14",
+        "accuracy": 1.0,
+        "total_groups": 1,
+        "correct_groups": 1
+      }
+    ]
+  },
+  "comparison": {
+    "accuracy_improvement": 0.1351351351351351
+  }
+}

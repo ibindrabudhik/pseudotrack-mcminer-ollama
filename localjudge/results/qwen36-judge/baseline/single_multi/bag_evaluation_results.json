@@ -1,0 +1,2131 @@
+{
+  "evaluation_timestamp": "2026-08-21T23:33:20.808722",
+  "grouped_predictions_file": "predictions/baseline/single_multi/grouped_predictions.json",
+  "model_info": {
+    "provider": "unknown",
+    "model": "unknown",
+    "reasoning": "unknown"
+  },
+  "bag_evaluations": [
+    {
+      "group_id": "group_correct_only_None_0",
+      "group_type": "correct_only",
+      "gt_misconception": "NONE",
+      "standard": {
+        "bag_match": false,
+        "single_matches": 3,
+        "single_total": 5,
+        "match_ratio": 0.6,
+        "has_any_predictions": true
+      },
+      "with_novel": {
+        "bag_match": false,
+        "single_matches": 3,
+        "single_total": 5,
+        "match_ratio": 0.6,
+        "has_any_predictions": true
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_313_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_242_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_93_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_176_misc_26.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_94_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        }
+      ]
+    },
+    {
+      "group_id": "group_correct_only_None_0",
+      "group_type": "correct_only",
+      "gt_misconception": "NONE",
+      "standard": {
+        "bag_match": false,
+        "single_matches": 4,
+        "single_total": 5,
+        "match_ratio": 0.8,
+        "has_any_predictions": true
+      },
+      "with_novel": {
+        "bag_match": false,
+        "single_matches": 4,
+        "single_total": 5,
+        "match_ratio": 0.8,
+        "has_any_predictions": true
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_335_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_385_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_121_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_213_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_348_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        }
+      ]
+    },
+    {
+      "group_id": "group_correct_only_None_0",
+      "group_type": "correct_only",
+      "gt_misconception": "NONE",
+      "standard": {
+        "bag_match": false,
+        "single_matches": 1,
+        "single_total": 5,
+        "match_ratio": 0.2,
+        "has_any_predictions": true
+      },
+      "with_novel": {
+        "bag_match": false,
+        "single_matches": 1,
+        "single_total": 5,
+        "match_ratio": 0.2,
+        "has_any_predictions": true
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_178_misc_26.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_54_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_200_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_60_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_501_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "empty_check"
+        }
+      ]
+    },
+    {
+      "group_id": "group_correct_only_None_0",
+      "group_type": "correct_only",
+      "gt_misconception": "NONE",
+      "standard": {
+        "bag_match": true,
+        "single_matches": 4,
+        "single_total": 4,
+        "match_ratio": 1.0,
+        "has_any_predictions": false
+      },
+      "with_novel": {
+        "bag_match": true,
+        "single_matches": 4,
+        "single_total": 4,
+        "match_ratio": 1.0,
+        "has_any_predictions": false
+      },
+      "single_total": 4,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_130_misc_26.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_152_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_46_misc_46.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        },
+        {
+          "prediction_id": "problem_73_misc_38.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "empty_check"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_14_0",
+      "group_type": "misconception",
+      "gt_misconception": 14,
+      "standard": {
+        "bag_match": false,
+        "match_count": 1,
+        "non_match_count": 1,
+        "none_count": 3,
+        "decision_detail": "1 matches > 1 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 1,
+        "non_match_count": 1,
+        "none_count": 3,
+        "decision_detail": "1 matches > 1 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_178_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_130_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_14.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_176_misc_14.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_16_0",
+      "group_type": "misconception",
+      "gt_misconception": 16,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_152_misc_16.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_242_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_501_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_16_1",
+      "group_type": "misconception",
+      "gt_misconception": 16,
+      "standard": {
+        "bag_match": true,
+        "match_count": 3,
+        "non_match_count": 2,
+        "none_count": 0,
+        "decision_detail": "3 matches > 2 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 3,
+        "non_match_count": 2,
+        "none_count": 0,
+        "decision_detail": "3 matches > 2 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_121_misc_16.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_46_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_176_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_200_misc_16.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_178_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_16_2",
+      "group_type": "misconception",
+      "gt_misconception": 16,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_94_misc_16.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_73_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_348_misc_16.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_17_0",
+      "group_type": "misconception",
+      "gt_misconception": 17,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_60_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_385_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_17_1",
+      "group_type": "misconception",
+      "gt_misconception": 17,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_213_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_335_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_93_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_501_misc_17.json_0",
+          "match_standard": false,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_17_2",
+      "group_type": "misconception",
+      "gt_misconception": 17,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_73_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_200_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_348_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_94_misc_17.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_18_0",
+      "group_type": "misconception",
+      "gt_misconception": 18,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_54_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_501_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_93_misc_18.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_348_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_18_1",
+      "group_type": "misconception",
+      "gt_misconception": 18,
+      "standard": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_313_misc_18.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_130_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_94_misc_18.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_176_misc_18.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_18_2",
+      "group_type": "misconception",
+      "gt_misconception": 18,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_335_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_385_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_18.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_213_misc_18.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_24_0",
+      "group_type": "misconception",
+      "gt_misconception": 24,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 2,
+        "none_count": 3,
+        "decision_detail": "0 matches > 2 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 2,
+        "none_count": 3,
+        "decision_detail": "0 matches > 2 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_176_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_200_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_335_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_24_1",
+      "group_type": "misconception",
+      "gt_misconception": 24,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 0,
+        "none_count": 5,
+        "decision_detail": "0 matches > 0 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 0,
+        "none_count": 5,
+        "decision_detail": "0 matches > 0 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_385_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_313_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_24.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_25_0",
+      "group_type": "misconception",
+      "gt_misconception": 25,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 5,
+        "none_count": 0,
+        "decision_detail": "0 matches > 5 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 5,
+        "none_count": 0,
+        "decision_detail": "0 matches > 5 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_121_misc_25.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_176_misc_25.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_46_misc_25.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_73_misc_25.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_25.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_33_0",
+      "group_type": "misconception",
+      "gt_misconception": 33,
+      "standard": {
+        "bag_match": true,
+        "match_count": 2,
+        "non_match_count": 1,
+        "none_count": 2,
+        "decision_detail": "2 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 2,
+        "non_match_count": 1,
+        "none_count": 2,
+        "decision_detail": "2 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_94_misc_33.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_33.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_130_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_33_1",
+      "group_type": "misconception",
+      "gt_misconception": 33,
+      "standard": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 3,
+        "non_match_count": 2,
+        "none_count": 0,
+        "decision_detail": "3 matches > 2 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_73_misc_33.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_33.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_200_misc_33.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_35_0",
+      "group_type": "misconception",
+      "gt_misconception": 35,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_176_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_94_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_348_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_93_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_35_1",
+      "group_type": "misconception",
+      "gt_misconception": 35,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_200_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_385_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_35_2",
+      "group_type": "misconception",
+      "gt_misconception": 35,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_60_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_313_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_242_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_335_misc_35.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_38_0",
+      "group_type": "misconception",
+      "gt_misconception": 38,
+      "standard": {
+        "bag_match": false,
+        "match_count": 1,
+        "non_match_count": 4,
+        "none_count": 0,
+        "decision_detail": "1 matches > 4 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 1,
+        "non_match_count": 4,
+        "none_count": 0,
+        "decision_detail": "1 matches > 4 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_178_misc_38.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_38.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_200_misc_38.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_152_misc_38.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_60_misc_38.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_4_0",
+      "group_type": "misconception",
+      "gt_misconception": 4,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_93_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_313_misc_4.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_121_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_4_1",
+      "group_type": "misconception",
+      "gt_misconception": 4,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 0,
+        "none_count": 1,
+        "decision_detail": "4 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 0,
+        "none_count": 1,
+        "decision_detail": "4 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_242_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_4.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_501_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_4_2",
+      "group_type": "misconception",
+      "gt_misconception": 4,
+      "standard": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 5,
+        "non_match_count": 0,
+        "none_count": 0,
+        "decision_detail": "5 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_176_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_94_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_348_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_4.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_41_0",
+      "group_type": "misconception",
+      "gt_misconception": 41,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_313_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_41.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_152_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_335_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_41_1",
+      "group_type": "misconception",
+      "gt_misconception": 41,
+      "standard": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 4,
+        "non_match_count": 1,
+        "none_count": 0,
+        "decision_detail": "4 matches > 1 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_60_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_385_misc_41.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_73_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_41.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_54_0",
+      "group_type": "misconception",
+      "gt_misconception": 54,
+      "standard": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_213_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_121_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_46_misc_54.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_178_misc_54.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_54_1",
+      "group_type": "misconception",
+      "gt_misconception": 54,
+      "standard": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 3,
+        "none_count": 0,
+        "decision_detail": "2 matches > 3 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_335_misc_54.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_54.json_0",
+          "match_standard": true,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_200_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_94_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_54.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_56_0",
+      "group_type": "misconception",
+      "gt_misconception": 56,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 1,
+        "none_count": 4,
+        "decision_detail": "0 matches > 1 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 1,
+        "none_count": 4,
+        "decision_detail": "0 matches > 1 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_54_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_213_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_176_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_56_1",
+      "group_type": "misconception",
+      "gt_misconception": 56,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 2,
+        "none_count": 3,
+        "decision_detail": "0 matches > 2 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 2,
+        "none_count": 3,
+        "decision_detail": "0 matches > 2 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_93_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_94_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_152_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_60_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_348_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_56_2",
+      "group_type": "misconception",
+      "gt_misconception": 56,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 1,
+        "none_count": 4,
+        "decision_detail": "0 matches > 1 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": true,
+        "match_count": 1,
+        "non_match_count": 0,
+        "none_count": 4,
+        "decision_detail": "1 matches > 0 non-matches = True"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_335_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_242_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_46_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_313_misc_56.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_59_0",
+      "group_type": "misconception",
+      "gt_misconception": 59,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 3,
+        "none_count": 2,
+        "decision_detail": "0 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 3,
+        "none_count": 2,
+        "decision_detail": "0 matches > 3 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_73_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_200_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_335_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_130_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_385_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_59_1",
+      "group_type": "misconception",
+      "gt_misconception": 59,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 4,
+        "none_count": 1,
+        "decision_detail": "0 matches > 4 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 2,
+        "non_match_count": 2,
+        "none_count": 1,
+        "decision_detail": "2 matches > 2 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_348_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_60_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_121_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": true,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_313_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_94_misc_59.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_26_0",
+      "group_type": "misconception",
+      "gt_misconception": 26,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 1,
+        "none_count": 4,
+        "decision_detail": "0 matches > 1 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 1,
+        "none_count": 4,
+        "decision_detail": "0 matches > 1 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_242_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_54_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_152_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_385_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_73_misc_26.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    },
+    {
+      "group_id": "group_misconception_20_0",
+      "group_type": "misconception",
+      "gt_misconception": 20,
+      "standard": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 3,
+        "none_count": 2,
+        "decision_detail": "0 matches > 3 non-matches = False"
+      },
+      "with_novel": {
+        "bag_match": false,
+        "match_count": 0,
+        "non_match_count": 3,
+        "none_count": 2,
+        "decision_detail": "0 matches > 3 non-matches = False"
+      },
+      "single_total": 5,
+      "evaluation_method": "both_standard_and_novel",
+      "single_evaluations": [
+        {
+          "prediction_id": "problem_200_misc_20.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_335_misc_20.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_46_misc_20.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "unknown"
+        },
+        {
+          "prediction_id": "problem_176_misc_20.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        },
+        {
+          "prediction_id": "problem_178_misc_20.json_0",
+          "match_standard": false,
+          "match_with_novel": false,
+          "evaluation_method": "claude_existing",
+          "confidence": "high"
+        }
+      ]
+    }
+  ]
+}

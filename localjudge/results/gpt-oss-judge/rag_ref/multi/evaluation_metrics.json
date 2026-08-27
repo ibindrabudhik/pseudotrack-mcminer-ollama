@@ -1,0 +1,24 @@
+{
+  "standard_metrics": {
+    "overall_metrics": {
+      "total_bags": 37,
+      "correct_bags": 29,
+      "overall_accuracy": 0.7837837837837838,
+      "misconception_accuracy": 0.7575757575757576,
+      "correct_only_accuracy": 1.0,
+      "misconception_count": 33,
+      "correct_only_count": 4
+    }
+  },
+  "with_novel_metrics": {
+    "overall_metrics": {
+      "total_bags": 37,
+      "correct_bags": 32,
+      "overall_accuracy": 0.8648648648648649,
+      "misconception_accuracy": 0.8484848484848485,
+      "correct_only_accuracy": 1.0,
+      "misconception_count": 33,
+      "correct_only_count": 4
+    }
+  }
+}
