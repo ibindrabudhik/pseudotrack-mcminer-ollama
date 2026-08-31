@@ -1,0 +1,23 @@
+{
+  "_comment": "What produced the predictions in this folder. Recorded explicitly because the mining model used to be encoded in the source directory name (results/ollama_gpt-oss-mcminer-latest_<arm>/) and that name is not preserved here.",
+  "mining": {
+    "model": "gpt-oss-mcminer:latest",
+    "base_model": "gpt-oss:20b",
+    "served_by": "ollama",
+    "num_ctx": 16384,
+    "reasoning_effort": "low",
+    "run_date": "2026-08-17",
+    "wall_time": "7h 56m 35s",
+    "source_dirs": "results/ollama_gpt-oss-mcminer-latest_<arm>/",
+    "mining_parse_failures": 0,
+    "predictions_total": 1220
+  },
+  "arms": {
+    "baseline": "zeroshot prompt, no retrieval aid",
+    "rag": "retrieval-augmented examples",
+    "ref": "APR reference solution",
+    "rag_ref": "both retrieval and reference"
+  },
+  "bags_per_arm": 37,
+  "note": "These are judge INPUTS. run_dual_judge.sh does not re-mine them; it only re-scores them with the judges named in run_dual_judge.sh. Judging gpt-oss-mined predictions with gpt-oss-judge is self-evaluation; qwen36-judge is the independent one."
+}

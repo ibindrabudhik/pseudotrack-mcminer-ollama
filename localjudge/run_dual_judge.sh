@@ -28,6 +28,11 @@ echo "  endpoint: ${OPENROUTER_BASE_URL}"
 echo "  inputs  : ${PRED_ROOT}/<arm>/"
 echo "  outputs : ${OUT_ROOT}/<judge>/<arm>/"
 echo "  budget  : JUDGE_MAX_TOKENS=${JUDGE_MAX_TOKENS} abort_after=${JUDGE_ABORT_AFTER}"
+if [[ -f "${PRED_ROOT}/PROVENANCE.json" ]]; then
+  echo "  ----------------------------------------------------------"
+  echo "  predictions were MINED BY (not re-run here):"
+  "${PYTHON}" -c "import json;m=json.load(open('${PRED_ROOT}/PROVENANCE.json'))['mining'];print('    %s (base %s, num_ctx %s, reasoning_effort %s, %s)'%(m['model'],m['base_model'],m['num_ctx'],m['reasoning_effort'],m['run_date']))" 2>/dev/null
+fi
 echo "================================================================"
 
 # shellcheck disable=SC2086
