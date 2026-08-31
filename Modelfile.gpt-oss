@@ -1,0 +1,22 @@
+# 16K-context build of gpt-oss:20b for the McMiner pseudotrack runs.
+#
+# Why a derived model at all: Ollama's default context window is smaller than
+# these prompts need, and overflow is TRUNCATED SILENTLY — you get
+# plausible-looking output mined from a clipped prompt.
+#
+# Why 16K and not the 32K used for qwen3.6:27b: the bundle's own worst case is
+# the rag_ref arm at roughly 10K prompt tokens, and the pipeline caps responses
+# at 4000 tokens (src/run_infer_misc*.py), so 14K is the true ceiling. Every
+# extra token of num_ctx costs KV cache, and on this machine (8 GB VRAM) KV
+# cache is what decides whether the model stays GPU-resident or spills to CPU.
+# 16K leaves headroom without paying for 32K of cache.
+#
+# Build it:
+#     ollama create gpt-oss-mcminer -f Modelfile.gpt-oss
+# Then point the scripts at it (note the :latest — the preflight in
+# scripts/_common.sh matches the tag exactly as /api/tags reports it):
+#     MODEL=gpt-oss-mcminer:latest PYTHON=./.venv/Scripts/python.exe bash run_all.sh
+
+FROM gpt-oss:20b
+
+PARAMETER num_ctx 16384
