@@ -1,36 +1,21 @@
 #!/usr/bin/env python3
-"""
-Script to infer misconceptions from corrupted Python code using LLMs.
-
-This script:
-1. Loads corrupted codes from a specified directory
-2. Loads problems from problems_processed.json for context
-3. Uses LLMs to predict what misconceptions are present in the code
-4. Saves predictions as JSON files
+"""McMiner-S: mine one misconception per code, with a local Ollama model.
 
 Usage:
-    # Individual processing (default)
-    python run_infer_misc.py --llm anthropic --input-dir data/corrupted_codes/corrupted_codes_anthropic --output-dir results/inferred_misconceptions/
-    python run_infer_misc.py --llm openai --openai-model gpt-4o
-    python run_infer_misc.py --llm gemini --gemini-model gemini-2.5-pro-preview-06-05
-    python run_infer_misc.py --llm vllm --vllm-base-url http://localhost:8000/v1
-    
-    # Template selection
-    python run_infer_misc.py --template zeroshot-no-reasoning  # Direct template specification
-    python run_infer_misc.py --no-reasoning-template  # Convenience flag for no-reasoning variant
-    python run_infer_misc.py --template-dir prompt_templates/custom  # Custom template directory
-    
-    # Reasoning mode (for compatible models only)
-    python run_infer_misc.py --llm openai --openai-model o3-mini --reasoning --reasoning-effort high
-    python run_infer_misc.py --llm anthropic --anthropic-model claude-3-7-sonnet-latest --reasoning
-    
-    # Batch processing (faster & cheaper for large datasets)
-    python run_infer_misc.py --llm anthropic --use-batch
-    python run_infer_misc.py --llm openai --use-batch
-    
-    # NONE-only processing (for previously skipped samples)
-    python run_infer_misc.py --llm anthropic --none-only --append-results --output-dir existing_results/
-    python run_infer_misc.py --llm openai --none-only --append-results  # Append NONE samples to existing predictions
+    python run_infer_misc.py
+        --ollama-model qwen3.6-mcminer:latest
+        --template zeroshot
+        --template-dir prompt_templates/mining-pseudocode
+        --problems-file dataset/pseudocode_track/problems_pseudocode.json
+        --input-dir dataset/pseudocode_track/pseudocode_codes
+        --output-dir results/single
+
+    Correct (NONE) codes, appended to an existing predictions.json:
+        ... --input-dir dataset/pseudocode_track/pseudocode_codes_none
+            --append-results
+
+Local Ollama only: no provider switch, no API key. Reasoning is controlled per
+model by THINK_BY_MODEL in utils/ollama_client.py, not by a flag here.
 """
 
 import argparse
@@ -43,12 +28,11 @@ import xml.etree.ElementTree as ET
 from tqdm import tqdm
 import re
 from datetime import datetime
-from dotenv import load_dotenv
-load_dotenv(override=True)
 # Add parent directory to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.llm_clients import OpenAIClient, VLLMClient, AnthropicClient, GeminiClient
+from utils import ollama_client
+from utils.ollama_client import OllamaClient, OllamaError
 import rag_retrieval  # RAG retrieval loader / context formatter (src/rag_retrieval.py)
 import ref_retrieval  # APR reference-code loader / context formatter (src/ref_retrieval.py)
 
@@ -241,142 +225,33 @@ def parse_mining_response(response: str) -> Dict[str, Any]:
 
 
 def get_model_name(args, llm_client=None) -> str:
-    """Get the model name being used."""
-    if args.llm == "anthropic":
-        return args.anthropic_model
-    elif args.llm == "openai":
-        return args.openai_model
-    elif args.llm == "gemini":
-        return args.gemini_model
-    elif args.llm == "openrouter":
-        return args.openrouter_model
-    else:  # vllm
-        if llm_client and hasattr(llm_client, 'model_name') and llm_client.model_name:
-            return llm_client.model_name
-        else:
-            return "vllm-served-model"
+    """The Ollama model tag this run used."""
+    return args.ollama_model
 
 
 def get_llm_kwargs(args) -> Dict[str, Any]:
-    """Get LLM-specific kwargs based on the selected provider."""
-    if args.llm == "anthropic":
-        reasoning_supported = args.anthropic_model in ["claude-3-7-sonnet-latest", "claude-sonnet-4-0", "claude-opus-4-1", "claude-sonnet-4-5"]
-        use_reasoning = args.reasoning and reasoning_supported
-        return {
-            "model": args.anthropic_model,
-            "temperature": 0.1,
-            "max_tokens": 4000,
-            "reasoning": use_reasoning,
-            "budget_tokens": 2000 if use_reasoning else 1000
-        }
-    elif args.llm == "openai":
-        reasoning_supported = args.openai_model in ["o1", "o1-mini", "o1-preview", "o3", "o3-mini", "o4-mini"]
-        use_reasoning = args.reasoning and reasoning_supported
-        return {
-            "model": args.openai_model,
-            "temperature": 0.1,
-            "max_tokens": 4000,
-            "reasoning": use_reasoning,
-            "reasoning_effort": args.reasoning_effort
-        }
-    elif args.llm == "gemini":
-        return {
-            "model": args.gemini_model,
-            "temperature": 0.1,
-            "max_tokens": 4000
-        }
-    elif args.llm == "openrouter":
-        return {
-            "model": args.openrouter_model,
-            "temperature": 0.1,
-            "max_tokens": 4000,
-            "reasoning": args.reasoning,
-            "reasoning_effort": args.reasoning_effort
-        }
-    else:  # vllm
-        # Use Qwen3-recommended parameters if thinking mode is enabled
-        if hasattr(args, 'vllm_enable_thinking') and args.vllm_enable_thinking:
-            # Qwen3 thinking mode parameters
-            # https://qwen.readthedocs.io/en/latest/deployment/vllm.html#thinking-non-thinking-modes
-            return {
-                "temperature": 0.6,
-                "top_p": 0.95,
-                "top_k": 20,
-                "max_tokens": 4000
-            }
-        else:
-            # Qwen3 non-thinking or standard vLLM parameters
-            return {
-                "temperature": 0.7,
-                "top_p": 0.8,
-                "top_k": 20,
-                "max_tokens": 4000
-            }
+    """Generation settings. Reasoning is NOT set here.
+
+    It is decided per model by think_for() in utils/ollama_client.py, because
+    the right value differs by model family and getting it wrong fails silently
+    rather than loudly. See that module's docstring.
+    """
+    return {
+        "model": args.ollama_model,
+        "temperature": args.temperature,
+        "max_tokens": args.max_tokens,
+    }
 
 
 def log_model_access(args) -> None:
-    """Print exactly which provider/model/endpoint this run is about to hit."""
-    if args.llm == "anthropic":
-        model, endpoint = args.anthropic_model, "api.anthropic.com (native)"
-    elif args.llm == "openai":
-        model, endpoint = args.openai_model, "api.openai.com (native)"
-    elif args.llm == "gemini":
-        model, endpoint = args.gemini_model, "generativelanguage.googleapis.com (native)"
-    elif args.llm == "openrouter":
-        model, endpoint = args.openrouter_model, args.openrouter_base_url
-    else:  # vllm
-        model, endpoint = (args.vllm_model or "server-detected"), args.vllm_base_url
-    print(f"🔌 LLM ACCESS -> provider={args.llm}  model={model}  endpoint={endpoint}  "
-          f"reasoning={getattr(args, 'reasoning', False)}")
+    think = ollama_client.think_for(args.ollama_model)
+    print(f"🔌 OLLAMA -> model={args.ollama_model}  host={args.ollama_host}  "
+          f"think={think!r}")
 
 
 def create_llm_client(args) -> Any:
-    """Create the appropriate LLM client based on arguments."""
-    if args.llm == "anthropic":
-        api_key = os.getenv("ANTHROPIC_API_KEY")
-        if not api_key:
-            raise ValueError("ANTHROPIC_API_KEY environment variable not set")
-        return AnthropicClient(api_key=api_key)
-    
-    elif args.llm == "openai":
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise ValueError("OPENAI_API_KEY environment variable not set")
-        return OpenAIClient(api_key=api_key)
-    
-    elif args.llm == "vllm":
-        if args.vllm_model:
-            # Offline mode with direct model loading
-            print(f"Initializing vLLM in offline mode with model: {args.vllm_model}")
-            return VLLMClient(
-                model=args.vllm_model,
-                offline_mode=True,
-                gpu_memory_utilization=0.9,
-                max_model_len=32768 if '8b' in args.vllm_model.lower() else None
-            )
-        else:
-            # Server mode (existing behavior)
-            return VLLMClient(
-                api_key=args.vllm_api_key or "NONE",
-                base_url=args.vllm_base_url
-            )
-    
-    elif args.llm == "gemini":
-        api_key = os.getenv("GEMINI_API_KEY")
-        if not api_key:
-            raise ValueError("GEMINI_API_KEY environment variable not set")
-        return GeminiClient(api_key=api_key, model=args.gemini_model)
-
-    elif args.llm == "openrouter":
-        api_key = os.getenv("OPENROUTER_API_KEY")
-        if not api_key:
-            raise ValueError("OPENROUTER_API_KEY environment variable not set")
-        # OpenRouter is OpenAI-compatible; force Chat Completions (it has no Responses API).
-        return OpenAIClient(api_key=api_key, model=args.openrouter_model,
-                            base_url=args.openrouter_base_url, use_responses_api=False)
-
-    else:
-        raise ValueError(f"Unsupported LLM: {args.llm}")
+    """The only client this bundle has. Local Ollama, native API, no vendor SDK."""
+    return ollama_client.OllamaClient(model=args.ollama_model, host=args.ollama_host)
 
 
 def generate_mining_batches(corrupted_codes: List[Dict[str, Any]], problems: Dict[str, Any],
@@ -668,34 +543,20 @@ def save_mining_results(results: List[Dict[str, Any]], output_dir: str,
 def main():
     parser = argparse.ArgumentParser(description="Infer misconceptions from corrupted code using LLMs")
     
-    # LLM selection
-    parser.add_argument("--llm", choices=["anthropic", "openai", "vllm", "gemini", "openrouter"],
-                       default="anthropic", help="LLM provider to use")
-    parser.add_argument("--openrouter-model", default="anthropic/claude-sonnet-4.5",
-                       help="OpenRouter model id, e.g. anthropic/claude-sonnet-4.5, openai/gpt-4o, google/gemini-2.5-flash")
-    parser.add_argument("--openrouter-base-url", default="https://openrouter.ai/api/v1",
-                       help="OpenRouter (OpenAI-compatible) base URL")
-    
-    # LLM-specific arguments
-    parser.add_argument("--vllm-base-url", default="http://localhost:8000/v1",
-                       help="Base URL for vLLM server (server mode)")
-    parser.add_argument("--vllm-api-key", default="NONE",
-                       help="API key for vLLM server (if needed)")
-    parser.add_argument("--vllm-model", default=None,
-                       help="vLLM model for offline mode (e.g., Qwen/Qwen3-8B). If specified, uses offline mode instead of server.")
-    parser.add_argument("--vllm-enable-thinking", action="store_true",
-                       help="Enable thinking mode for Qwen3 models in vLLM offline mode")
-    parser.add_argument("--openai-model", default="gpt-4o",
-                        choices=["gpt-4o", "gpt-4o-mini", "gpt-4.1", "o1", "o1-mini", "o1-preview", "o3", "o3-mini", "o4-mini"],
-                       help="OpenAI model name")
-    parser.add_argument("--anthropic-model", default="claude-sonnet-4-5",
-                        choices=["claude-sonnet-4-0", "claude-opus-4-1", "claude-3-7-sonnet-latest", "claude-sonnet-4-5"],
-                       help="Anthropic model name")
-    parser.add_argument("--gemini-model", 
-                       choices=["gemini-2.5-pro-preview-06-05", "gemini-2.5-flash", "gemini-2.0-flash"],
-                       default="gemini-2.5-flash",
-                       help="Gemini model name")
-    
+    # Model selection -- local Ollama only. There is no provider switch: this
+    # bundle has exactly one backend, and the flag that used to choose between
+    # five of them was the main source of "which endpoint am I actually hitting"
+    # confusion.
+    parser.add_argument("--ollama-model", required=True,
+                       help="Ollama model tag, e.g. qwen3.6-mcminer:latest")
+    parser.add_argument("--ollama-host", default="http://localhost:11434",
+                       help="Ollama server. A trailing /v1 is stripped: this uses the "
+                            "native /api/chat, not the OpenAI-compatible shim.")
+    parser.add_argument("--temperature", type=float, default=0.1,
+                       help="Sampling temperature")
+    parser.add_argument("--max-tokens", type=int, default=4000,
+                       help="Response cap (sent to Ollama as options.num_predict)")
+
     # Reasoning settings
     parser.add_argument("--reasoning", action="store_true",
                        help="Enable reasoning mode (only for compatible models)")
@@ -759,29 +620,6 @@ def main():
     if args.none_only:
         print("🔍 Running in NONE-only mode: processing only samples that were previously 'NONE'")
     
-    # Validate reasoning compatibility
-    if args.reasoning:
-        if not args.no_reasoning_template:
-            print("⚠️  Warning: --reasoning is typically used with --no-reasoning-template")
-        
-        # Check model compatibility
-        openai_reasoning_models = ["o1", "o1-mini", "o1-preview", "o3", "o3-mini", "o4-mini"]
-        anthropic_reasoning_models = ["claude-3-7-sonnet-latest", "claude-sonnet-4-0", "claude-opus-4-1", "claude-sonnet-4-5"]
-        
-        if args.llm == "openai" and args.openai_model not in openai_reasoning_models:
-            print(f"❌ Error: --reasoning requires OpenAI reasoning models: {', '.join(openai_reasoning_models)}")
-            return 1
-        elif args.llm == "anthropic" and args.anthropic_model not in anthropic_reasoning_models:
-            print(f"❌ Error: --reasoning requires Anthropic reasoning models: {', '.join(anthropic_reasoning_models)}")
-            return 1
-        elif args.llm == "openrouter":
-            # OpenRouter's unified `reasoning` param fans out to whatever the
-            # underlying model supports — no per-model whitelist to check here.
-            pass
-        elif args.llm not in ["openai", "anthropic", "gemini"]:
-            print(f"❌ Error: --reasoning is only supported for OpenAI, Anthropic, Gemini, and OpenRouter")
-            return 1
-    
     # Load data
     print("Loading data...")
     try:
@@ -828,7 +666,6 @@ def main():
                   "use a *-ref template (e.g. --template zeroshot-ref) for the reference to be injected.")
 
     # Create LLM client
-    print(f"Initializing {args.llm} LLM client...")
     log_model_access(args)
     try:
         llm_client = create_llm_client(args)
@@ -854,113 +691,38 @@ def main():
     
     # Process mining requests
     all_results = []
-    
-    if args.use_batch and args.llm != "gemini":
-        print(f"🔄 Processing {len(batches)} requests in batch mode")
-        
-        all_metadata = [item[0] for item in batches]
-        all_messages = [item[1] for item in batches]
-        
+
+    print(f"🔄 Processing {len(batches)} requests")
+    kwargs = get_llm_kwargs(args)
+    failures = 0
+    for metadata, messages in tqdm(batches, desc="Inferring misconceptions"):
         try:
-            kwargs = get_llm_kwargs(args)
-            print(f"Submitting batch to {args.llm}...")
-            
-            if args.llm == "anthropic":
-                reasoning = kwargs.pop("reasoning", False)
-                budget_tokens = kwargs.pop("budget_tokens", 1000)
-                responses = llm_client.create_batch_messages(all_messages, reasoning=reasoning, budget_tokens=budget_tokens, **kwargs)
-            elif args.llm == "openai":
-                reasoning = kwargs.pop("reasoning", False)
-                reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                responses = llm_client.create_batch_messages(all_messages, reasoning=reasoning, reasoning_effort=reasoning_effort, **kwargs)
-            elif args.llm == "openrouter":
-                reasoning = kwargs.pop("reasoning", False)
-                reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                responses = llm_client.create_batch_messages(all_messages, reasoning=reasoning, reasoning_effort=reasoning_effort, **kwargs)
-            elif args.llm == "vllm" and hasattr(args, 'vllm_model') and args.vllm_model:
-                # Use vLLM offline mode with thinking control for Qwen3
-                enable_thinking = getattr(args, 'vllm_enable_thinking', False)
-                responses = llm_client.create_batch_messages_with_thinking(all_messages, enable_thinking=enable_thinking, **kwargs)
-            else:
-                responses = llm_client.create_batch_messages(all_messages, **kwargs)
-                
-            print(f"✅ Batch processing completed")
-            
-        except Exception as e:
-            print(f"Error in batch processing: {e}")
-            return 1
-        
-        # Parse responses
-        for metadata, response in zip(all_metadata, responses):
-            parsed_response = parse_mining_response(response)
-            all_results.append({
-                "metadata": metadata,
-                "parsed_response": parsed_response
-            })
-    
-    else:
-        # Individual processing
-        print(f"🔄 Processing {len(batches)} requests individually")
-        
-        for metadata, messages in tqdm(batches, desc="Inferring misconceptions"):
-            try:
-                kwargs = get_llm_kwargs(args)
-                
-                if hasattr(llm_client, 'create_message'):
-                    if args.llm == "anthropic":
-                        reasoning = kwargs.pop("reasoning", False)
-                        budget_tokens = kwargs.pop("budget_tokens", 1000)
-                        response = llm_client.create_message(messages, kwargs=kwargs, reasoning=reasoning, budget_tokens=budget_tokens)
-                    elif args.llm == "openai":
-                        reasoning = kwargs.pop("reasoning", False)
-                        reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                        response = llm_client.create_message(messages, kwargs=kwargs, reasoning=reasoning, reasoning_effort=reasoning_effort)
-                    elif args.llm == "openrouter":
-                        reasoning = kwargs.pop("reasoning", False)
-                        reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                        response = llm_client.create_message(messages, kwargs=kwargs, reasoning=reasoning, reasoning_effort=reasoning_effort)
-                    else:
-                        response = llm_client.create_message(messages, kwargs=kwargs)
-                else:
-                    # Fallback to batch with single item
-                    if args.llm == "anthropic":
-                        reasoning = kwargs.pop("reasoning", False)
-                        budget_tokens = kwargs.pop("budget_tokens", 1000)
-                        responses = llm_client.create_batch_messages([messages], reasoning=reasoning, budget_tokens=budget_tokens, **kwargs)
-                    elif args.llm == "openai":
-                        reasoning = kwargs.pop("reasoning", False)
-                        reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                        responses = llm_client.create_batch_messages([messages], reasoning=reasoning, reasoning_effort=reasoning_effort, **kwargs)
-                    elif args.llm == "openrouter":
-                        reasoning = kwargs.pop("reasoning", False)
-                        reasoning_effort = kwargs.pop("reasoning_effort", "medium")
-                        responses = llm_client.create_batch_messages([messages], reasoning=reasoning, reasoning_effort=reasoning_effort, **kwargs)
-                    elif args.llm == "vllm" and hasattr(args, 'vllm_model') and args.vllm_model:
-                        # Use vLLM offline mode with thinking control for Qwen3
-                        enable_thinking = getattr(args, 'vllm_enable_thinking', False)
-                        responses = llm_client.create_batch_messages_with_thinking([messages], enable_thinking=enable_thinking, **kwargs)
-                    else:
-                        responses = llm_client.create_batch_messages([messages], **kwargs)
-                    response = responses[0]
-                    
-            except Exception as e:
-                print(f"Error processing request: {e}")
-                response = ""
-            
-            parsed_response = parse_mining_response(response)
-            all_results.append({
-                "metadata": metadata,
-                "parsed_response": parsed_response
-            })
-    
+            response = llm_client.create_message(messages, kwargs=kwargs)
+        except OllamaError as e:
+            # An empty or truncated reply is an ERROR here, not a "no
+            # misconception found". The old client returned "" for both, and the
+            # parser recorded that as a confident negative -- a silent false
+            # negative that looked like a real result.
+            print(f"\n  ! mining error: {e}")
+            response = ""
+            failures += 1
+        parsed_response = parse_mining_response(response)
+        all_results.append({
+            "metadata": metadata,
+            "parsed_response": parsed_response
+        })
+    if failures:
+        print(f"\n⚠️  {failures}/{len(batches)} requests failed and were recorded as "
+              f"empty predictions. Do not read those as negatives.")
+
     # Save results
     print("\nSaving results...")
     
     llm_info = {
-        "provider": args.llm,
+        "provider": "ollama",
         "model": get_model_name(args, llm_client),
-        "processing_mode": "batch" if args.use_batch else "individual",
-        "reasoning_enabled": args.reasoning
+        "processing_mode": "individual",
+        "think": repr(ollama_client.think_for(args.ollama_model))
     }
     
     run_info = {

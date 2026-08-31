@@ -26,10 +26,8 @@ from typing import Dict, List, Any, Tuple, Optional
 from pathlib import Path
 from collections import defaultdict
 from datetime import datetime
-from dotenv import load_dotenv
 
 # Load environment variables
-load_dotenv(override=True)
 
 def load_json_file(file_path: str) -> Any:
     """Load JSON data from file."""
@@ -96,8 +94,8 @@ def run_claude_evaluation_for_misconceptions(prediction_ids: List[str],
     try:
         # Run compute_eval_metrics_multi.py (the LLM-as-judge scorer).
         # Path resolved relative to THIS file so it works regardless of CWD.
-        # Judge provider/model come from the JUDGE_PROVIDER / JUDGE_MODEL env
-        # vars (inherited by this subprocess), defaulting to openai/gpt-4o.
+        # The judge model comes from the JUDGE_MODEL env var, inherited by this
+        # subprocess. It is a local Ollama model; there is no provider to pick.
         judge_script = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                     "compute_eval_metrics_multi.py")
         # Write the judge's output inside the arm's own eval directory so two

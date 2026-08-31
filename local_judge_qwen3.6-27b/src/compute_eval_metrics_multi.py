@@ -20,14 +20,17 @@ It writes `<output-dir>/claude_evaluation_results.json` in the exact schema that
       "summary": {...}
     }
 
-Judge model/provider are configurable (defaults come from the JUDGE_PROVIDER /
-JUDGE_MODEL env vars, then fall back to openai/gpt-5). API keys are loaded from
-the repo-root `.env` (same as the mining scripts).
+The judge is a local Ollama model ($JUDGE_MODEL, or --judge-model). There is no
+provider switch and no API key: this talks to Ollama's native /api/chat through
+utils/ollama_client.py.
 
-The paper's main table uses GPT-5 (medium reasoning effort) as judge; Appendix I
-additionally cross-validates with Claude Sonnet-4.5 (reasoning) and Gemini-2.5-Pro,
-finding >94% inter-judge agreement. See src/run_pseudocode_mcminer.sh for
-ready-to-use presets for all three (native or via OpenRouter).
+Note for anyone comparing against the paper: its main table uses GPT-5 as judge,
+so numbers produced here are NOT comparable to it. What this bundle buys instead
+is that the judge is a different model from the miner, which the earlier local
+runs were not.
+
+Correct-only bags never reach the judge at all -- their ground truth is NONE, so
+they are decided by rule (method "correct_bag_rule").
 
 Usage (normally called for you by the evaluator, but runnable standalone):
     python src/compute_eval_metrics_multi.py \
@@ -36,7 +39,7 @@ Usage (normally called for you by the evaluator, but runnable standalone):
         --input-dir dataset/pseudocode_track/pseudocode_codes \
         --output-dir temp_eval_output \
         --use-claude-eval \
-        --judge-provider openai --judge-model gpt-5
+        --judge-model gpt-oss-judge:latest
 """
 
 import argparse
@@ -48,12 +51,11 @@ from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
 from tqdm import tqdm
-from dotenv import load_dotenv
 
-load_dotenv(override=True)
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.llm_clients import OpenAIClient, VLLMClient, AnthropicClient, GeminiClient
+from utils import ollama_client
+from utils.ollama_client import OllamaClient, OllamaError
 
 
 # ------------------------------------------------------------------ templates
@@ -180,56 +182,28 @@ def format_predicted(pred: Dict[str, Any]) -> str:
 
 # --------------------------------------------------------------------- judge
 def create_judge_client(provider: str, model: str):
-    if provider == "anthropic":
-        key = os.getenv("ANTHROPIC_API_KEY")
-        if not key:
-            raise ValueError("ANTHROPIC_API_KEY not set (judge provider=anthropic)")
-        return AnthropicClient(api_key=key)
-    if provider == "openai":
-        key = os.getenv("OPENAI_API_KEY")
-        if not key:
-            raise ValueError("OPENAI_API_KEY not set (judge provider=openai)")
-        return OpenAIClient(api_key=key)
-    if provider == "gemini":
-        key = os.getenv("GEMINI_API_KEY")
-        if not key:
-            raise ValueError("GEMINI_API_KEY not set (judge provider=gemini)")
-        return GeminiClient(api_key=key, model=model)
-    if provider == "openrouter":
-        key = os.getenv("OPENROUTER_API_KEY")
-        if not key:
-            raise ValueError("OPENROUTER_API_KEY not set (judge provider=openrouter)")
-        # OpenAI-compatible; force Chat Completions (OpenRouter has no Responses API).
-        return OpenAIClient(api_key=key, model=model,
-                            base_url=os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1"),
-                            use_responses_api=False)
-    if provider == "vllm":
-        return VLLMClient(api_key=os.getenv("VLLM_API_KEY", "NONE"),
-                          base_url=os.getenv("VLLM_BASE_URL", "http://localhost:8000/v1"))
-    raise ValueError(f"Unsupported judge provider: {provider}")
+    """The judge is a local Ollama model. `provider` is accepted and ignored,
+    so the inherited call sites keep working; there is only one backend."""
+    return OllamaClient(model=model, host=os.getenv("OLLAMA_HOST_URL"))
 
 
 def call_judge(client, provider: str, model: str, prompt: str) -> str:
     """Send one judge prompt; return the raw text response.
 
-    JUDGE_MAX_TOKENS raises the 1500-token default. Reasoning judges (GPT-5,
-    gpt-oss, o-series) spend part of this budget thinking before they answer,
-    and when it runs out the reply is truncated or empty — which
-    parse_judge_response then turns into a score via its non-neutral defaults.
-    1500 is ample for a non-reasoning judge and too tight for a reasoning one.
+    JUDGE_MAX_TOKENS raises the 1500-token default. Reasoning judges spend part
+    of this budget thinking before they answer, and when it runs out the reply
+    is truncated or empty -- which parse_judge_response would then turn into a
+    score via its non-neutral defaults. The client raises on an empty reply
+    rather than returning "", so that failure surfaces as a judge error instead
+    of a fabricated verdict.
 
-    JUDGE_TEMPERATURE set to an empty string omits `temperature` entirely, for
-    endpoints that reject it on reasoning models.
+    JUDGE_TEMPERATURE set to an empty string omits temperature entirely.
     """
     messages = [{"role": "user", "content": prompt}]
     kwargs = {"model": model, "max_tokens": int(os.getenv("JUDGE_MAX_TOKENS", "1500"))}
     temp = os.getenv("JUDGE_TEMPERATURE", "0.0")
     if temp != "":
         kwargs["temperature"] = float(temp)
-    if provider == "anthropic":
-        return client.create_message(messages, kwargs=kwargs, reasoning=False)
-    if provider == "openai":
-        return client.create_message(messages, kwargs=kwargs, reasoning=False)
     return client.create_message(messages, kwargs=kwargs)
 
 
@@ -285,12 +259,12 @@ def main() -> int:
     parser.add_argument("--use-claude-eval", action="store_true",
                         help="Accepted for compatibility with the evaluator (always LLM-judged)")
     parser.add_argument("--judge-provider",
-                        default=os.getenv("JUDGE_PROVIDER", "openai"),
-                        choices=["anthropic", "openai", "gemini", "vllm", "openrouter"],
-                        help="Judge LLM provider (default: $JUDGE_PROVIDER or openai)")
+                        default="ollama", choices=["ollama"],
+                        help="Kept so existing call sites keep working; the only backend "
+                             "is local Ollama.")
     parser.add_argument("--judge-model",
-                        default=os.getenv("JUDGE_MODEL", "gpt-5"),
-                        help="Judge LLM model (default: $JUDGE_MODEL or gpt-5, the paper's main-table judge)")
+                        default=os.getenv("JUDGE_MODEL", "gpt-oss-judge:latest"),
+                        help="Judge model tag (default: $JUDGE_MODEL)")
     args = parser.parse_args()
 
     predictions = load_json(args.predictions_file)
@@ -306,10 +280,9 @@ def main() -> int:
 
     # Only misconception predictions (with a real GT) need judging; empty
     # predictions are auto-scored as non-match without an API call.
-    judge_endpoint = (args.judge_provider == "openrouter"
-                       and os.getenv("OPENROUTER_BASE_URL", "https://openrouter.ai/api/v1")
-                       or f"{args.judge_provider} native API")
-    print(f"🔌 JUDGE ACCESS -> provider={args.judge_provider}  model={args.judge_model}  endpoint={judge_endpoint}")
+    judge_endpoint = os.getenv("OLLAMA_HOST_URL", "http://localhost:11434")
+    print(f"🔌 JUDGE -> model={args.judge_model}  host={judge_endpoint}  "
+          f"think={ollama_client.think_for(args.judge_model)!r}")
 
     # Mirror the loop's own skip rules exactly. This banner used to count only
     # empty predictions, so a correct-only bag that DID predict something was

@@ -11,7 +11,9 @@ two *different* local Ollama models:
 Neither model grades its own output. That is the difference from the earlier
 runs in the parent repo, where the mining model was also the judge.
 
-Nothing here calls a paid API. No API key is required.
+**Local Ollama only.** No paid API, no API key, and no OpenAI / Anthropic /
+Gemini SDK anywhere in the folder — the only dependencies are `requests` and
+`tqdm`.
 
 Two runs live in this folder:
 
@@ -42,9 +44,15 @@ On Windows use Git Bash and point `PYTHON` at your interpreter:
 PYTHON=../.venv/Scripts/python.exe bash run_all.sh
 ```
 
-Dependencies: `pandas openai anthropic requests python-dotenv tqdm google-genai`.
-Do **not** `pip install -r` the parent repo's `requirements.txt` — it lists
-`pathlib` and `argparse`, stdlib backports that fail to build on Python 3.13.
+Dependencies are **`requests` and `tqdm`**, and that is the whole list:
+
+```bash
+pip install -r requirements.txt
+```
+
+No AI-vendor SDK is involved — see "How it reaches Ollama". Do **not**
+`pip install -r` the parent repo's `requirements.txt`: it lists `pathlib` and
+`argparse`, stdlib backports that fail to build on Python 3.13.
 
 Results land in `results/<tag>/`, metrics in
 `results/evaluations/<tag>/{single_multi,multi}/evaluation_metrics.json`, and
@@ -162,32 +170,39 @@ but the ids are now usable.
 
 ---
 
-## The two "stop thinking" switches, and why they must not leak
+## Reasoning control: one setting, decided per model
 
 Both models reason before answering, and **those tokens come out of the same
 budget as the answer**. When the budget runs out the reply is truncated — and
-the parsers' defaults are not neutral, so a clipped reply silently becomes a
-*score*, or a "no misconception predicted", rather than an error.
+the parsers' defaults are not neutral, so a clipped reply would silently become
+a *score*, or a "no misconception predicted", rather than an error.
 
-There is no single flag. Each family exposes a different one:
+**`think: false` is not the universal off switch.** Measured here against Ollama
+0.32.14:
 
-| Model | Switch | Measured consequence of getting it wrong |
+| Model | `think` | Result |
 |---|---|---|
-| `qwen3.6` (miner) | `chat_template_kwargs.enable_thinking: false` | with thinking on, one call took **>10 min** vs ~160 s |
-| `gpt-oss` (judge) | top-level `reasoning_effort: low` | at default `medium` it spent **4000/4000** tokens reasoning and returned **empty content**, recorded as "no misconception predicted" |
+| `gpt-oss` | `false` | `content=''`, `thinking='The user says…'`, `done_reason=length` — reasoned until the budget ran out and returned **nothing** |
+| `gpt-oss` | `"low"` | answered in **17 tokens, 5.5 s** |
+| `qwen3.6` | `false` | thinking off (with it on, a call was measured at **>10 min** vs ~160 s) |
 
-Because the miner and judge are different families *in the same pipeline*, these
-cannot be exported once at the top. `scripts/_common.sh` defines `miner_env` and
-`judge_env`, which unset one and set the other, and every pipeline step is
-preceded by the right one. Leaving qwen's `extra_body` set while gpt-oss judges
-(or the reverse) means one of the two silently runs at its default.
+A reasoning-only model needs a *level*; a model that reasons optionally needs the
+*boolean*. That mapping lives in one place — `THINK_BY_MODEL` in
+[utils/ollama_client.py](utils/ollama_client.py) — and is applied by model name,
+so there is nothing to export per step and nothing that can leak from the miner
+into the judge.
 
-Override per run to measure the cost of thinking:
+Override for a whole run to measure the cost of thinking:
 
 ```bash
-GPTOSS_REASONING_EFFORT=medium bash run_all.sh
-QWEN_EXTRA_BODY='{}'           bash run_all.sh   # leave qwen thinking ON
+OLLAMA_THINK=medium  bash run_all.sh    # force a level
+OLLAMA_THINK=default bash run_all.sh    # leave each model's own default
 ```
+
+Related: the client **raises** on an empty or truncated reply instead of
+returning `""`. The old client returned `""` for both a genuine "no
+misconception" and a blown token budget, and the parser recorded both as a
+confident negative.
 
 ---
 
@@ -331,16 +346,32 @@ an interrupted run resumes without re-mining or re-forming bags.
 
 ## How it reaches Ollama
 
-There is no `ollama` provider in this codebase and none was added. The pipeline
-uses the existing **`openrouter`** provider, which is just `OpenAIClient` with a
-settable `base_url` ([utils/llm_clients.py](utils/llm_clients.py)), pointed at
-Ollama's OpenAI-compatible `/v1` endpoint. `OPENROUTER_API_KEY` is set to the
-dummy value `ollama` because `create_llm_client()` raises when it is unset; the
-Ollama server ignores it.
+Directly. [utils/ollama_client.py](utils/ollama_client.py) POSTs to Ollama's
+**native** `/api/chat`, with `requests` as its only dependency:
 
-Do **not** switch to `--llm vllm`: the scripts build the model flag as
-`--${PROVIDER}-model`, and `--vllm-model` puts `VLLMClient` into *offline* mode,
-which imports the real `vllm` package and loads weights into GPU memory.
+```json
+{ "model": "...", "messages": [...], "stream": false,
+  "think": false, "options": { "temperature": 0.1, "num_predict": 4000 } }
+```
+
+There is no provider switch, no API key, and no OpenAI-compatible `/v1` shim.
+Nothing in this folder imports `openai`, `anthropic` or `google-genai` — the
+four-provider client the bundle inherited was deleted, along with the ~1,900
+lines of Anthropic / Gemini / vLLM code that never ran here.
+
+`python-dotenv` is gone too, and that one was not just tidiness: every entry
+script used to call `load_dotenv(override=True)`, so a `.env` file **beat** the
+environment the scripts set. A stray `.env` with a real key and base URL could
+silently redirect the judge to a paid endpoint. There is now no `.env` path at
+all.
+
+Two consequences worth stating plainly:
+
+- **Nothing can leave the machine.** The only host in the code is
+  `OLLAMA_HOST_URL`, default `http://localhost:11434`.
+- **The reply shape is richer.** `/api/chat` returns `thinking` separately from
+  `content`, which is how the client can tell "the model reasoned itself out of
+  a budget" from "the model answered nothing" and report the difference.
 
 ---
 
@@ -368,7 +399,7 @@ local_judge_qwen3.6-27b/
     prompt_templates/mining-pseudocode/       8 mining templates (4 arms x S/M)
     prompt_templates/evaluation-pseudocode/   judge_prediction_match.md
     evaluation-from-mcmining/                 upstream evaluation prompts
-  utils/llm_clients.py        provider clients + LLM_EXTRA_BODY passthrough
+  utils/ollama_client.py      the only backend: Ollama /api/chat over requests
   dataset/pseudocode_track/   209 corrupted + 96 correct pseudocode files,
                               22-misconception bank, problem descriptions
   dataset/*.csv               RAG retrieval + APR reference sources

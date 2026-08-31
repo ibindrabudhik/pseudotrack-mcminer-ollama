@@ -31,16 +31,15 @@ import random
 import subprocess
 import sys
 import time
-import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "src")
 
-# Per-model "stop thinking" switches. Kept in sync with scripts/_common.sh --
-# see the long comment there for why each family needs a different one.
-QWEN_NO_THINK = json.dumps({"chat_template_kwargs": {"enable_thinking": False}})
-MINER_ENV = {"LLM_EXTRA_BODY": QWEN_NO_THINK}
-JUDGE_ENV = {"LLM_REASONING_EFFORT": "low"}
+ollama_client = None  # bound in main() once sys.path includes the bundle root
+
+# Reasoning control now lives in ONE place -- THINK_BY_MODEL in
+# utils/ollama_client.py, applied by model name. Nothing to mirror here, and
+# nothing that can leak from one pipeline step into the next.
 
 # arm -> (single template, multi template, needs rag, needs ref)
 ARM_SPEC = {
@@ -65,41 +64,6 @@ def load_module(name, path):
     return m
 
 
-def http_json(url, timeout=15):
-    with urllib.request.urlopen(urllib.request.Request(url), timeout=timeout) as r:
-        return json.load(r)
-
-
-def http_post_json(url, payload, timeout=60):
-    req = urllib.request.Request(
-        url, data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.load(r)
-
-
-def num_ctx_of(host, model):
-    """Ask Ollama what context window a model was actually built with.
-
-    Worth checking because the failure it prevents is silent: a prompt longer
-    than num_ctx is truncated by the server with no error, and the model then
-    answers confidently about a clipped program.
-    """
-    try:
-        info = http_post_json(host + "/api/show", {"model": model})
-    except Exception:  # noqa: BLE001
-        return None
-    params = info.get("parameters") or ""
-    for line in params.splitlines():
-        bits = line.split()
-        if len(bits) == 2 and bits[0] == "num_ctx":
-            return int(bits[1])
-    # Fall back to the base architecture's training context if no override.
-    for k, v in (info.get("model_info") or {}).items():
-        if k.endswith(".context_length"):
-            return int(v)
-    return None
-
-
 def stop_model(name):
     try:
         subprocess.run(["ollama", "stop", name], capture_output=True, timeout=60)
@@ -122,16 +86,19 @@ def main():
     os.chdir(ROOT)
     sys.path.insert(0, SRC)
     sys.path.insert(0, ROOT)
+    # Imported here rather than at module scope: sys.path is only correct now.
+    global ollama_client
+    from utils import ollama_client  # noqa: PLC0415
+    os.environ.setdefault("OLLAMA_HOST_URL", args.host)
     fail, warn = [], []
 
     print("=== 1. Ollama + models ===")
     try:
-        tags = http_json(args.host + "/api/tags")
+        names = set(ollama_client.list_models(args.host))
     except Exception as e:  # noqa: BLE001
         print("FAIL  Ollama not reachable at %s -- %s" % (args.host, e))
         print("      Start it with:  ollama serve")
         return 1
-    names = {m["name"] for m in tags.get("models", [])}
     print("OK    Ollama up at %s; %d models installed" % (args.host, len(names)))
 
     # num_ctx is checked against the MEASURED prompt sizes in step 3, not against
@@ -143,7 +110,7 @@ def main():
         if not any(n == model or n.startswith(model.split(":")[0] + ":") for n in names):
             fail.append("%s model '%s' not built. Run: bash scripts/build_models.sh" % (role, model))
             continue
-        ctx = num_ctx_of(args.host, model)
+        ctx = ollama_client.num_ctx_of(model, args.host)
         ctx_of[role] = ctx
         print("OK    %-5s '%s' present, num_ctx=%s"
               % (role, model, ctx if ctx else "unknown"))
@@ -292,43 +259,43 @@ def main():
         else:
             print("  OK    miner num_ctx=%d covers the worst case (%d tokens), %.1fx headroom"
                   % (ctx, worst, ctx / float(worst)))
-            if ctx > worst * 3:
-                warn.append("miner num_ctx=%d is %.1fx more than the measured worst case (%d). "
-                            "Every extra token costs KV cache, which is what decides whether the "
-                            "model stays resident. 16384 is enough here."
+            # Only worth flagging above the bundle's own 16K build: below that
+            # the headroom is cheap, and the ratio looks inflated whenever you
+            # run a subset of arms (rag_ref is the one with the long prompts).
+            if ctx > 16384 and ctx > worst * 3:
+                warn.append("miner num_ctx=%d is %.1fx the measured worst case (%d) for the arms "
+                            "checked here. Every extra token costs KV cache, which is what decides "
+                            "whether the model stays resident. Rebuild at 16384: "
+                            "bash scripts/build_models.sh"
                             % (ctx, ctx / float(worst), worst))
 
     # ------------------------------------------------------------ 4. probe
     if not args.no_probe and not fail:
         print("\n=== 4. live probe: one real call per model ===")
         cem = load_module("cem", os.path.join(SRC, "compute_eval_metrics_multi.py"))
-        os.environ["OPENROUTER_BASE_URL"] = args.host + "/v1"
-        os.environ.setdefault("OPENROUTER_API_KEY", "ollama")
+        os.environ["OLLAMA_HOST_URL"] = args.host
 
         # -- miner: a real bag prompt, through the real parser ---------------
-        for k in MINER_ENV:
-            os.environ.pop(k, None)
-        os.environ.pop("LLM_REASONING_EFFORT", None)
-        os.environ.update(MINER_ENV)
         tpl = rim.load_prompt_template("zeroshot-no-reasoning-multi", tpl_dir)
         bag = correct_bags[0] if correct_bags else None
         if bag is None:
             warn.append("no correct bags to probe the miner with")
         else:
             prompt = rim.create_multi_mining_prompt(tpl, problems, bag)
-            client = cem.create_judge_client("openrouter", args.miner)
+            client = ollama_client.OllamaClient(model=args.miner, host=args.host)
             t0 = time.time()
             try:
-                raw = cem.call_judge(client, "openrouter", args.miner, prompt)
+                raw = client.create_message(
+                    [{"role": "user", "content": prompt}],
+                    kwargs={"model": args.miner, "max_tokens": 4000, "temperature": 0.1})
                 dt = time.time() - t0
                 parsed = rim.parse_multi_mining_response(raw)
                 ok = parsed.get("parse_success") or parsed.get("no_predicted_misconceptions")
-                print("  %-22s %s %6.1fs  %5d chars  parse_ok=%s  prompt=%d chars (~%d tok)"
-                      % (args.miner, "OK " if ok else "BAD", dt, len(raw or ""), bool(ok),
-                         len(prompt), int(len(prompt) / 3.7)))
+                print("  %-24s %s %6.1fs  think=%-7r %5d chars  parse_ok=%s"
+                      % (args.miner, "OK " if ok else "BAD", dt,
+                         ollama_client.think_for(args.miner), len(raw or ""), bool(ok)))
                 if not ok:
-                    fail.append("miner '%s' returned nothing parseable -- check its thinking "
-                                "switch (LLM_EXTRA_BODY) and num_ctx" % args.miner)
+                    fail.append("miner '%s' returned nothing parseable" % args.miner)
                     print("      raw head: %r" % (raw or "")[:200])
                 elif dt > 120:
                     print("      WARNING: %.0fs for ONE call. x%d calls x%d arms = ~%.1fh. "
@@ -336,53 +303,49 @@ def main():
                           % (dt, per_arm_mining, len(args.arms),
                              dt * per_arm_mining * len(args.arms) / 3600.0))
             except Exception as e:  # noqa: BLE001
-                print("  %-22s FAILED after %.0fs: %s: %s"
-                      % (args.miner, time.time() - t0, type(e).__name__, e))
+                print("  %-24s FAILED after %.0fs: %s" % (args.miner, time.time() - t0, e))
                 fail.append("miner '%s' could not complete a call" % args.miner)
+        ollama_client.unload(args.miner, args.host)
         stop_model(args.miner)
 
         # -- judge: a real judge prompt, through the real parser -------------
         # Probed even in correct-only mode. It makes no calls during that run,
         # but a broken judge would only surface on the next full run, hours
         # later, and this costs one request.
-        for k in JUDGE_ENV:
-            os.environ.pop(k, None)
-        os.environ.pop("LLM_EXTRA_BODY", None)
-        os.environ.update(JUDGE_ENV)
         misc_map = cem.load_misc_map(MISC)
         code_index = cem.build_code_index(IN)
-        sample_file = sorted(code_index)[0]
-        sample = code_index[sample_file]
+        sample = code_index[sorted(code_index)[0]]
         gt = misc_map.get(sample.get("misconception_id"), "an off-by-one loop bound")
         code = ""
         for sol in sample.get("solutions", []) or []:
             if sol.get("generated_code") and sol["generated_code"] != "NONE":
                 code = sol["generated_code"]
                 break
-        jtpl = cem.load_judge_template()
-        prompt = (jtpl.replace("{code}", code or "READ n\nFOR i = 1 TO n\n  PRINT i")
-                      .replace("{gt_description}", gt if isinstance(gt, str) else str(gt))
-                      .replace("{predicted}", "1. Loop bound is off by one, so the last "
-                                              "element is never processed."))
-        client = cem.create_judge_client("openrouter", args.judge)
+        prompt = (cem.load_judge_template()
+                  .replace("{code}", code or "READ n / FOR i = 1 TO n / PRINT i")
+                  .replace("{gt_description}", gt if isinstance(gt, str) else str(gt))
+                  .replace("{predicted}", "1. Loop bound is off by one, so the last "
+                                          "element is never processed."))
+        client = cem.create_judge_client("ollama", args.judge)
         t0 = time.time()
         try:
-            raw = cem.call_judge(client, "openrouter", args.judge, prompt)
+            raw = cem.call_judge(client, "ollama", args.judge, prompt)
             dt = time.time() - t0
             pr = cem.parse_judge_response(raw)
-            print("  %-22s %s %6.1fs  %5d chars  parse_ok=%s  match=%s"
-                  % (args.judge, "OK " if pr["parse_ok"] else "BAD", dt, len(raw or ""),
+            print("  %-24s %s %6.1fs  think=%-7r %5d chars  parse_ok=%s  match=%s"
+                  % (args.judge, "OK " if pr["parse_ok"] else "BAD", dt,
+                     ollama_client.think_for(args.judge), len(raw or ""),
                      pr["parse_ok"], pr["match"]))
             if not pr["parse_ok"]:
                 fail.append("judge '%s' returned no parseable <evaluation> block -- raise "
-                            "JUDGE_MAX_TOKENS or check its reasoning_effort switch" % args.judge)
+                            "JUDGE_MAX_TOKENS or check its think setting" % args.judge)
                 print("      raw head: %r" % (raw or "")[:200])
             elif dt > 90 and args.mode == "full":
                 print("      WARNING: %.0fs/call. Thinking may still be on." % dt)
         except Exception as e:  # noqa: BLE001
-            print("  %-22s FAILED after %.0fs: %s: %s"
-                  % (args.judge, time.time() - t0, type(e).__name__, e))
+            print("  %-24s FAILED after %.0fs: %s" % (args.judge, time.time() - t0, e))
             fail.append("judge '%s' could not complete a call" % args.judge)
+        ollama_client.unload(args.judge, args.host)
         stop_model(args.judge)
 
     for w in warn:

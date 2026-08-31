@@ -1,0 +1,17 @@
+# Everything this bundle needs. No AI-vendor SDK: the only model backend is a
+# local Ollama server, reached over its native HTTP API by utils/ollama_client.py.
+#
+# Deliberately NOT here, and no longer imported anywhere:
+#   openai, anthropic, google-genai  -- the four-provider client this bundle
+#                                       inherited; all dead code once the
+#                                       backend is Ollama only
+#   python-dotenv                    -- there are no keys to load, and its
+#                                       load_dotenv(override=True) let a stray
+#                                       .env silently redirect the endpoint
+#   pandas                           -- the retrieval loaders use stdlib csv
+#
+# Do NOT install the parent repo's requirements.txt: it lists `pathlib` and
+# `argparse`, stdlib backports that fail to build on Python 3.13.
+
+requests>=2.28.0
+tqdm>=4.64.0
