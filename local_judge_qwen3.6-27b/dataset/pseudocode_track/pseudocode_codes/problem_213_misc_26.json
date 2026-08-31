@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\n  umurValid : boolean\nalgoritma\n  input(umur)\n  if umur >= 0 then\n    umurValid <- true\n  else\n    umurValid <- false\n  endif\n  if umurValid then\n    if umur <= 2 then\n      umurAnjing <- umur * 10.5\n    else\n      umurAnjing <- 21 + (umur - 2) * 4\n    endif\n    output(umurAnjing)\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student refactored the negative age check into a helper function `is_valid_age()` that returns a boolean. Due to their misconception, they believe they must use if/else to return True/False rather than simply returning the conditional expression `age >= 0`. The code functions correctly but is unnecessarily verbose. The student genuinely thinks this is the proper way to create a function that returns a boolean value."
+      },
+      "parse_success": true
+    }
+  ]
+}

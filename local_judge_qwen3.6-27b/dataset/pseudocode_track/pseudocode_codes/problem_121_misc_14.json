@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 14,
+  "misconception_description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang, terakhirDicek : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  terakhirDicek <- 0\n  for i <- 1 to n do\n    input(kata)\n    terakhirDicek <- i\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student creates a variable 'last_checked' to track the loop variable 'i' throughout the iteration because they believe 'i' will be destroyed after the loop completes. They update 'last_checked = i' at the start of each iteration to \"preserve\" the value. While the original problem doesn't require using the word after the loop (only its length), the student defensively creates this tracking variable as a habit, believing they cannot access 'i' after the loop ends. If they later needed to verify the result or debug by checking the last word processed, they would use 'last_checked' instead of 'i'. This demonstrates the misconception without changing the functional behavior, as the student is preemptively avoiding reliance on the loop variable persisting after loop completion."
+      },
+      "parse_success": true
+    }
+  ]
+}

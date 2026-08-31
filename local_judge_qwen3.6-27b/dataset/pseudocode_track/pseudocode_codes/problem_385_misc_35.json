@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  n <- integer(n)\n  if integer(n) < 2 then\n    prima <- boolean(false)\n  else\n    prima <- boolean(true)\n    for i <- 2 to integer(n) - 1 do\n      if integer(n) mod integer(i) == 0 then\n        prima <- boolean(false)\n      endif\n    endfor\n  endif\n  output(boolean(prima))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit int() conversions throughout the code to \"ensure type safety\" even though the values are already integers. This includes converting num to int at the start, wrapping num and literal 1 in int() for the comparison, converting the range bounds and i itself within the loop, and converting num and i in the modulo operation. The student genuinely believes these conversions are necessary or good practice to guarantee that all values are properly typed as integers. While verbose and unnecessary, these conversions don't break the functionality - the code still performs the same logical operations. Note that the original code itself has a logical bug (returning True too early), but that bug is preserved as it's unrelated to the misconception being demonstrated."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, j : integer\nalgoritma\n  input(s)\n  j <- 0\n  for i <- 1 to panjang(s) - 2 do\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      j <- j + 1\n    endif\n  endfor\n  output(j)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has renamed all multi-letter identifiers to single letters: 'count_occurance' becomes 'c', and 'count' becomes 'n'. The variables 's' and 'i' were already single letters. The code functions identically to the original but with reduced readability. This is a benign misconception as it only affects code style and readability, not functionality. The student genuinely believes this is the correct (and perhaps only valid) way to name variables and functions."
+      },
+      "parse_success": true
+    }
+  ]
+}

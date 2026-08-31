@@ -1,0 +1,18 @@
+{
+  "problem_id": 242,
+  "problem_title": "Array Inversion Counter",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungInversi\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if (a > b) == true then\n    jumlah <- jumlah + 1\n  endif\n  if (a > c) == true then\n    jumlah <- jumlah + 1\n  endif\n  if (b > c) == true then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds an explicit '== True' comparison to the conditional statement in the if block. The student believes that the comparison expression (arr[i] > arr[j]) must be explicitly compared to True to be used in an if statement. While this is redundant and not Pythonic, the code functions correctly because (arr[i] > arr[j]) evaluates to a boolean, and comparing it to True yields the same boolean value. This is purely a stylistic issue that demonstrates a misunderstanding of how Python evaluates conditions, but does not introduce any logical errors."
+      },
+      "parse_success": true
+    }
+  ]
+}

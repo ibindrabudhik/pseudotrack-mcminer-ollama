@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah : 0\n  for i <- 1 to n do\n    jumlah : jumlah + 1 / i\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student rewrote the solution to store the intermediate result in a variable before returning it. Due to their misconception that colons are used for variable assignment, they wrote 'result : 1 / n + harmonic_sum(n - 1)' instead of 'result = 1 / n + harmonic_sum(n - 1)'. This results in a SyntaxError. The student believes this is the correct way to assign values to variables and expects the code to work perfectly. They may have confused the assignment operator with type annotation syntax (which uses colons) or simply learned the wrong syntax for assignment."
+      },
+      "parse_success": true
+    }
+  ]
+}

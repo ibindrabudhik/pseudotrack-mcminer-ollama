@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- kandidat\n    hasilBalik <- 0\n    while sisa > 0 do\n      hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    if hasilBalik == kandidat then\n      sudahKetemu <- true\n    endif\n    if hasilBalik != kandidat then\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution to handle different magnitude ranges of palindromes separately, but used separate `if` statements instead of `elif`. The student believes each range needs its own independent check. For numbers resulting in single-digit palindromes (e.g., 5->6), the first condition `result < 10` matches and returns correctly, but this is only by luck. The logic is flawed because multiple non-exclusive conditions are evaluated sequentially when they should be mutually exclusive using `elif`. While this particular implementation happens to work due to early returns, it demonstrates a fundamental misunderstanding of control flow - the student thinks checking each range separately with `if` is correct rather than using `elif` for mutually exclusive conditions. The code is inefficient and shows poor understanding of conditional logic structure."
+      },
+      "parse_success": true
+    }
+  ]
+}

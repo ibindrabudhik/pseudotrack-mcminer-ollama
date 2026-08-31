@@ -1,0 +1,14 @@
+{
+  "problem_id": 60,
+  "problem_title": "Integer Product Calculator",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

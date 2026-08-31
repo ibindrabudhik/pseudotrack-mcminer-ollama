@@ -1,0 +1,18 @@
+{
+  "problem_id": 242,
+  "problem_title": "Array Inversion Counter",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungInversi\nkamus\n  a, b, c, jumlah : integer\n  terbalik : boolean\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if a > b then\n    terbalik <- true\n  else\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  if a > c then\n    terbalik <- true\n  else\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  if b > c then\n    terbalik <- true\n  else\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student created a helper function `is_inversion` to check if two elements form an inversion. Due to their misconception that boolean expressions must be wrapped in if/else statements to return boolean values, they wrote `if val1 > val2: return True else: return False` instead of simply `return val1 > val2`. The code functions correctly but is unnecessarily verbose. From the student's perspective, this is the proper way to return a boolean value from a conditional expression."
+      },
+      "parse_success": true
+    }
+  ]
+}

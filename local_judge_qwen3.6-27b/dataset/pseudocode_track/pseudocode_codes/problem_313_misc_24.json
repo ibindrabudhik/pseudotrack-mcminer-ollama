@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  i <- 0\n  for i <- 1 to panjang(s) do\n    if s[i] != ' ' then\n      hasil <- hasil + s[i]\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student rewrote the solution using a for loop instead of regex. Following their misconception that loop variables must be initialized before the loop, they added `char = ''` before the for loop. The student believes this initialization is necessary for the loop to work properly. Despite being unnecessary, this initialization doesn't affect the program's correctness - the for loop will still properly iterate through each character in text1 and the function will work as intended."
+      },
+      "parse_success": true
+    }
+  ]
+}

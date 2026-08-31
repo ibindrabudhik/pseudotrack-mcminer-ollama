@@ -1,0 +1,14 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

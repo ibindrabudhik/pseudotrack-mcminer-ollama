@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  n <- integer(n)\n  for i <- 1 to integer(n) do\n    baris <- string(\"\")\n    for j <- 1 to integer(n) do\n      if integer(i) == integer(j) then\n        baris <- string(baris) + \"1 \"\n      else\n        baris <- string(baris) + \"0 \"\n      endif\n    endfor\n    output(string(baris))\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds unnecessary type conversions throughout the code to ensure \"type safety\". They convert: (1) the parameter n to int at the start, (2) loop variable i to int, (3) the literal 0 to int(0), (4) n to int when used in expressions, (5) i and j to int before using them as indices, (6) the literal 1 to int(1), and (7) the return value matrix to list. From the student's perspective, these conversions are necessary safeguards to ensure everything is the correct type. The code still functions correctly despite being unnecessarily verbose, making this a benign misconception that results in working but stylistically poor code."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  for i <- 1 to panjang(s) do\n    if s[i] != ' ' then\n      hasil <- hasil + s[i]\n    else\n      i <- i + 1\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution to use a for loop instead of regex. They believe that incrementing `i` when encountering a whitespace will cause the loop to skip to the next position, effectively \"jumping over\" the space character. In reality, the `i += 1` has no effect on the next iteration since Python's for loop controls the iteration variable independently. However, the code still works correctly because the logic simply checks each character and only adds non-whitespace characters to the result. The `i += 1` line is unnecessary but doesn't cause any bugs - it's a stylistic issue showing a misunderstanding of how for loops work."
+      },
+      "parse_success": true
+    }
+  ]
+}

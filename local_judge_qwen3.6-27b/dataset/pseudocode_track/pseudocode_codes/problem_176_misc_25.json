@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  for i <- 1 to n do\n    input(x)\n    if i >= awal and i <= akhir then\n      total <- total + x\n    endif\n    i <- i + 1\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student added `i += 1` at the end of the loop body, believing this is necessary to advance the loop counter or that it will affect which index is accessed in the next iteration. From their perspective, they might think this line ensures the loop properly moves through the indices, or they believe they're explicitly controlling the iteration progression. In reality, the for loop automatically manages the iteration variable, and this assignment is simply overwritten on each iteration with no effect on the loop's behavior. While this produces working code, it demonstrates a fundamental misunderstanding of how for loops work in Python - the student doesn't realize that the loop variable is automatically updated by the range iterator regardless of any modifications made to it within the loop body."
+      },
+      "parse_success": true
+    }
+  ]
+}

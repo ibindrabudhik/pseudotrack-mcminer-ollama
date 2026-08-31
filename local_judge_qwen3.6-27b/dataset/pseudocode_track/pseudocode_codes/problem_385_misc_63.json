@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 63,
+  "misconception_description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation /.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    prima <- false\n  else\n    prima <- true\n    for i <- 2 to n + 1 / 2 do\n      if n mod i == 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student modified the range limit from `num//2` to `num + 1 // 2`. The student believes that addition has higher precedence than division, so they think this expression evaluates as `(num + 1) // 2`, which would check divisors up to roughly half of (num+1). However, due to actual operator precedence, this evaluates as `num + (1 // 2)` = `num + 0` = `num`, which changes the loop to check divisors up to num-1 instead of num//2-1. This makes the algorithm less efficient and potentially changes its behavior for edge cases, though the student believes they're just slightly adjusting the upper bound for thoroughness."
+      },
+      "parse_success": true
+    }
+  ]
+}

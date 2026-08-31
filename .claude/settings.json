@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m venv .venv)",
+      "Bash(./.venv/Scripts/python.exe -m pip install --quiet --upgrade pip)",
+      "Bash(./.venv/Scripts/python.exe --version)",
+      "Bash(./.venv/Scripts/python.exe -m pip install \"pandas>=1.5.0\" \"openai>=1.0.0\" \"anthropic>=0.18.0\" \"requests>=2.28.0\" \"python-dotenv>=1.0.0\" \"tqdm>=4.64.0\" google-genai)",
+      "Bash(./.venv/Scripts/python.exe -c \"import pandas,openai,anthropic,dotenv,tqdm,requests,google.genai; print\\('imports ok'\\)\")",
+      "Bash(./.venv/Scripts/python.exe -c \"import sys; sys.path.insert\\(0,'.'\\); import utils.llm_clients; print\\('llm_clients ok'\\)\")",
+      "Bash(ollama create *)",
+      "Bash(ollama list *)",
+      "Bash(curl -sf --max-time 5 http://localhost:11434/api/tags)",
+      "Bash(./.venv/Scripts/python.exe -c ' *)",
+      "Bash(grep -oE '\"path\": *\"[^\"]*\"' /tmp/tree.json | grep -iE \"judge|evaluation-pseudo|prompt_templates\" | head -40)",
+      "Read(//tmp/**)",
+      "Bash(curl -s --max-time 20 \"https://raw.githubusercontent.com/taisazero/mcminer/main/src/prompt_templates/evaluation/check_misconception_exhibited_simple.md\")",
+      "Bash(curl -s --max-time 900 http://localhost:11434/api/generate -d '{\"model\":\"qwen3.6-mcminer:latest\",\"prompt\":\"Count from 1 to 40, numbers only.\",\"stream\":false,\"think\":false,\"options\":{\"num_predict\":150}}')",
+      "PowerShell($p = Get-Process -Id 27680 -ErrorAction SilentlyContinue; if \\($p\\) { Write-Output \"llama-server PID 27680\"; Write-Output \\(\"  WorkingSet  : {0} GB\" -f [math]::Round\\($p.WorkingSet64/1GB,2\\)\\); Write-Output \\(\"  PrivateBytes: {0} GB\" -f [math]::Round\\($p.PrivateMemorySize64/1GB,2\\)\\); Write-Output \\(\"  VirtualMem  : {0} GB\" -f [math]::Round\\($p.VirtualMemorySize64/1GB,2\\)\\) } else { Write-Output \"llama-server no longer running\" }; Write-Output \"\"; $os = Get-CimInstance Win32_OperatingSystem; Write-Output \\(\"Commit used : {0} GB of {1} GB limit\" -f [math]::Round\\(\\($os.TotalVirtualMemorySize-$os.FreeVirtualMemory\\)/1MB,2\\), [math]::Round\\($os.TotalVirtualMemorySize/1MB,2\\)\\); Write-Output \"\"; Write-Output \"--- ollama processes ---\"; Get-Process | Where-Object { $_.ProcessName -match 'ollama|llama' } | Select-Object ProcessName, Id, @{N='WS_GB';E={[math]::Round\\($_.WorkingSet64/1GB,2\\)}} | Format-Table -AutoSize)",
+      "Bash(ollama stop *)",
+      "Bash(ollama ps *)"
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "id": 46,
+    "title": "Find Minimum in List",
+    "description": "Write a python function to find the smallest number from the given list.",
+    "solutions": [
+      "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    else\n      if x < terkecil then\n        terkecil <- x\n      endif\n    endif\n  endfor\n  output(terkecil)\nendprogram"
+    ]
+  },
+  {
+    "id": 54,
+    "title": "Pokemon Battle Damage",
+    "description": "# Programming Problem: Pokemon Damage Calculator\nWrite a function `def pokemon_damage(attacker: Tuple[str, int], defender: Tuple[str, int]) -> int:` that takes in two tuples, each representing a Pokemon's type and level, and calculates the damage dealt by the attacking Pokemon to the defending Pokemon.\n\nThe damage dealt by each Pokemon should be determined based on its type and level, and the level difference between the two battling Pokemon. The effectiveness of each type against another type should be as follows:\n\n* Fire is super effective against Grass.\n* Grass is super effective against Water.\n* Water is super effective against Fire.\n* All other type matchups have a normal effectiveness.\nThe effectiveness of a type against another type can be calculated as follows:\n\n* 2 if the attacking type is super effective against the defending type\n* 0.5 if the attacking type is not very effective against the defending type\n* 1 otherwise\nThe damage calculation formula is as follows:\n\n* damage = max(1, int(((2 * attacker_level) / 5 + 2) * (attacker_level / defender_level) * effectiveness * level_diff / 10))\nThe function should have the following signature:\n\n## Example Cases:\n```\npokemon_damage((\"fire\", 15), (\"water\", 10)) => 3\n```",
+    "solutions": [
+      "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n\n  if attackerTipe == \"fire\" and defenderTipe == \"grass\" then\n    efektivitas <- 2\n  else if attackerTipe == \"grass\" and defenderTipe == \"water\" then\n    efektivitas <- 2\n  else if attackerTipe == \"water\" and defenderTipe == \"fire\" then\n    efektivitas <- 2\n  else if attackerTipe == \"grass\" and defenderTipe == \"fire\" then\n    efektivitas <- 0.5\n  else if attackerTipe == \"water\" and defenderTipe == \"grass\" then\n    efektivitas <- 0.5\n  else if attackerTipe == \"fire\" and defenderTipe == \"water\" then\n    efektivitas <- 0.5\n  else\n    efektivitas <- 1\n  endif\n\n  selisihLevel <- attackerLevel - defenderLevel\n\n  damage <- bulat(((2 * attackerLevel) / 5 + 2) * (attackerLevel / defenderLevel) * efektivitas * selisihLevel / 10)\n\n  if damage < 1 then\n    damage <- 1\n  endif\n\n  output(damage)\nendprogram"
+    ]
+  },
+  {
+    "id": 60,
+    "title": "Integer Product Calculator",
+    "description": "Define a function called `Product(a:int, b:int) -> int` which takes two integer inputs: a and b. The function should return the product of these two values (i.e. a * b).\n\n## Example Cases: \n```\nProduct(1,2) => 2\nProduct(2,4) => 8\nProduct(4,4) => 16\nProduct(5,5) => 25\n```",
+    "solutions": [
+      "program HitungProduk\nkamus\n  a, b : integer\nalgoritma\n  input(a, b)\n  output(a * b)\nendprogram"
+    ]
+  },
+  {
+    "id": 73,
+    "title": "Create Identity Matrix",
+    "description": "Write a function `identity(n: int) -> list(list(int))` that creates an identity matrix of size `n`.\n\n## Example Cases:\n```\nidentity(2) => [[1,0],[0,1]]\nidentity(3) => [[1, 0, 0], [0, 1, 0], [0, 0, 1]]\n```",
+    "solutions": [
+      "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if i == j then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram"
+    ]
+  },
+  {
+    "id": 93,
+    "title": "Largest Number from Digits",
+    "description": "Write a python function to find the largest number that can be formed with the given list of digits.",
+    "solutions": [
+      "program BilanganTerbesarDariDigit\nkamus\n  d1, d2, d3, d4, temp : integer\nalgoritma\n  input(d1, d2, d3, d4)\n\n  { urutkan d1..d4 menurun (descending) dengan bandingkan-tukar }\n  if d1 < d2 then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if d2 < d3 then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if d3 < d4 then\n    temp <- d3\n    d3 <- d4\n    d4 <- temp\n  endif\n  if d1 < d2 then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if d2 < d3 then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if d1 < d2 then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n\n  output(d1 * 1000 + d2 * 100 + d3 * 10 + d4)\nendprogram"
+    ]
+  },
+  {
+    "id": 94,
+    "title": "Check Opposite Signs",
+    "description": "Write a python function to check whether the given two integers have opposite sign or not.",
+    "solutions": [
+      "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  if (a < 0 and b > 0) or (a > 0 and b < 0) then\n    hasil <- true\n  else\n    hasil <- false\n  endif\n  output(hasil)\nendprogram"
+    ]
+  },
+  {
+    "id": 121,
+    "title": "Longest Word Length",
+    "description": "Write a python function to find the length of the longest word.",
+    "solutions": [
+      "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  for i <- 1 to n do\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram"
+    ]
+  },
+  {
+    "id": 130,
+    "title": "Next Palindrome Number",
+    "description": "Write a function to find the next smallest palindrome of a specified integer, returned as an integer.",
+    "solutions": [
+      "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- kandidat\n    hasilBalik <- 0\n    while sisa > 0 do\n      hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    if hasilBalik == kandidat then\n      sudahKetemu <- true\n    else\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram"
+    ]
+  },
+  {
+    "id": 152,
+    "title": "Filter Words by Length",
+    "description": "Write a function to find words that are longer than n characters from a given list of words.",
+    "solutions": [
+      "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata > n then\n      output(kata)\n    endif\n  endfor\nendprogram"
+    ]
+  },
+  {
+    "id": 176,
+    "title": "Range Sum Calculator",
+    "description": "Write a function to find the sum of numbers in a list within a range specified by two indices.",
+    "solutions": [
+      "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  for i <- 1 to n do\n    input(x)\n    if i >= awal and i <= akhir then\n      total <- total + x\n    endif\n  endfor\n  output(total)\nendprogram"
+    ]
+  },
+  {
+    "id": 178,
+    "title": "Count 'std' String Occurrences",
+    "description": "Write a function to count the number of occurence of the string 'std' in a given string.",
+    "solutions": [
+      "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  for i <- 1 to panjang(s) - 2 do\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      jumlah <- jumlah + 1\n    endif\n  endfor\n  output(jumlah)\nendprogram"
+    ]
+  },
+  {
+    "id": 200,
+    "title": "Calculate Harmonic Sum",
+    "description": "Write a function that takes in an integer n and calculates the harmonic sum of n-1.",
+    "solutions": [
+      "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  for i <- 1 to n do\n    jumlah <- jumlah + 1 / i\n  endfor\n  output(jumlah)\nendprogram"
+    ]
+  },
+  {
+    "id": 213,
+    "title": "Dog Age Calculator",
+    "description": "Write a function to calculate a dog's age in dog's years.",
+    "solutions": [
+      "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  if umur <= 2 then\n    umurAnjing <- umur * 10.5\n  else\n    umurAnjing <- 21 + (umur - 2) * 4\n  endif\n  output(umurAnjing)\nendprogram"
+    ]
+  },
+  {
+    "id": 242,
+    "title": "Array Inversion Counter",
+    "description": "Write a python function to count inversions in an array.",
+    "solutions": [
+      "program HitungInversi\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if a > b then\n    jumlah <- jumlah + 1\n  endif\n  if a > c then\n    jumlah <- jumlah + 1\n  endif\n  if b > c then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram"
+    ]
+  },
+  {
+    "id": 313,
+    "title": "Remove String Whitespace",
+    "description": "Write a function to remove all whitespaces from the given string.",
+    "solutions": [
+      "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  for i <- 1 to panjang(s) do\n    if s[i] != ' ' then\n      hasil <- hasil + s[i]\n    endif\n  endfor\n  output(hasil)\nendprogram"
+    ]
+  },
+  {
+    "id": 335,
+    "title": "Array Min-Max Sum",
+    "description": "Write a python function to find the sum of the largest and smallest value in a given array.",
+    "solutions": [
+      "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n  endfor\n  output(minimum + maksimum)\nendprogram"
+    ]
+  },
+  {
+    "id": 348,
+    "title": "Count Unequal Integer Pairs",
+    "description": "Write a python function which takes a list of integers and counts the number of possible unordered pairs where both elements are unequal.",
+    "solutions": [
+      "program HitungPasanganTidakSama\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if a != b then\n    jumlah <- jumlah + 1\n  endif\n  if a != c then\n    jumlah <- jumlah + 1\n  endif\n  if b != c then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram"
+    ]
+  },
+  {
+    "id": 385,
+    "title": "Prime Number Checker",
+    "description": "Write a function to check if the given integer is a prime number.",
+    "solutions": [
+      "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    prima <- false\n  else\n    prima <- true\n    for i <- 2 to n - 1 do\n      if n mod i == 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram"
+    ]
+  },
+  {
+    "id": 501,
+    "title": "Coin Flip Game",
+    "description": "Implement two functions for a coin flip game simulation:\n\n1. `flip_coin()` - A function that randomly returns either 'Heads' or 'Tails'. This function takes no parameters and returns a string.\n\n2. `coin_game()` - A function that simulates flipping a coin once and returns an appropriate message. If the coin lands on 'Heads', return 'Got heads!'. If the coin lands on 'Tails', return 'Got tails!'.\n\nFunction signatures:\n- def flip_coin() -> str\n- def coin_game() -> str\n\n## Example Cases:\n```\n# With random.seed(7):\ncoin_game() => 'Got tails!'\ncoin_game() => 'Got heads!'\ncoin_game() => 'Got tails!'\n```",
+    "solutions": [
+      "program PesanLemparKoin\nkamus\n  hasil : string\nalgoritma\n  input(hasil)\n  if hasil == \"Heads\" then\n    output(\"Got heads!\")\n  else\n    output(\"Got tails!\")\n  endif\nendprogram"
+    ]
+  }
+]

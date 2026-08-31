@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata = n then\n      output(kata)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student changed the comparison operator from `>` to what they believe is an equality check. Since they misunderstood the problem as finding words equal to n characters (or thought they needed to check equality for some reason), they used `=` instead of `==` for the comparison. This demonstrates the core misconception that `=` is used for equality comparison in conditional statements. The code will result in a SyntaxError: \"cannot assign to function call\" because Python interprets this as attempting to assign a value to the result of `len(x)`, which is not allowed."
+      },
+      "parse_success": true
+    }
+  ]
+}

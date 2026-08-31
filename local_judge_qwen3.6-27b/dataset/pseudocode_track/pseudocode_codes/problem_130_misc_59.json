@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, cnt, sisa, hslBlk : integer\n  strval : string\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  cnt <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- cnt\n    hslBlk <- 0\n    while sisa > 0 do\n      hslBlk <- hslBlk * 10 + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    strval <- string(cnt)\n    if hslBlk == cnt then\n      sudahKetemu <- true\n    else\n      cnt <- cnt + 1\n    endif\n  endwhile\n  output(cnt)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student renamed variables according to their misconception about vowels and data types. Variables storing integers ('n', 'cnt') now have consonant-only names, while variables storing strings ('numstr', 'strval') have names containing vowels. The student believes 'num' (with vowel 'u') could only hold strings, so they changed the parameter to 'n'. Similarly, 'i' (a vowel itself) was changed to 'cnt' (consonant-only) since it holds integer values from range(). The variable 'strval' was introduced to replace the inline str(cnt) expressions - the student believes this string value needs a vowel-containing variable name. Despite the unusual naming convention, the code functions correctly, making this a benign misconception."
+      },
+      "parse_success": true
+    }
+  ]
+}

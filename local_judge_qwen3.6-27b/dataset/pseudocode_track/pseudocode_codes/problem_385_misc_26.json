@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 26,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima, valid : boolean\nalgoritma\n  input(n)\n  if n >= 2 then\n    valid <- true\n  else\n    valid <- false\n  endif\n  if valid == false then\n    prima <- false\n  else\n    prima <- true\n    for i <- 2 to n - 1 do\n      if n mod i == 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student exhibits the misconception by unnecessarily wrapping boolean conditions in if/else statements instead of using the boolean expressions directly. At the beginning, instead of just checking the condition inline, they explicitly assign True/False to is_valid based on if/else. They also check `is_valid == False` with another if statement instead of directly using the boolean. At the end, instead of simply `return True`, they wrap it in `if num >= 2: return True else: return False` even though the code has already verified num >= 2 earlier. From the student's perspective, this is the proper way to handle boolean values - they must be explicitly checked with if/else to return True or False, rather than returning the boolean expression directly."
+      },
+      "parse_success": true
+    }
+  ]
+}

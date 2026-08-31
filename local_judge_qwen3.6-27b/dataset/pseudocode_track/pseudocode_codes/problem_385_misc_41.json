@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n >= 1 then\n    prima <- true\n    i <- 2\n    if i < n div 2 then\n      if n mod i == 0 then\n        prima <- false\n      else\n        i <- i + 1\n      endif\n    endif\n  else\n    prima <- false\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for-loop with an if-statement, believing it will behave like a while-loop. They initialize i=2 and use 'if i < num//2:' expecting it to repeatedly execute while the condition holds true. Inside, they increment i (i = i + 1) thinking this will allow the if-statement to check the next value automatically. From the student's perspective, this should check all values from 2 to num//2 just like the original loop did. However, the if-statement only executes once, so the function only checks divisibility by 2 and then returns True for any number not divisible by 2 (incorrectly marking composites like 9, 15, 21, etc. as prime)."
+      },
+      "parse_success": true
+    }
+  ]
+}

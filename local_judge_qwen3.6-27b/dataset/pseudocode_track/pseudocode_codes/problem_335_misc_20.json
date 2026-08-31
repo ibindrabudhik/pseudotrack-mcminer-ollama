@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 20,
+  "misconception_description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum, hasil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n  endfor\n  hasil <- minimum + maksimum\n  for hasil <- 1 to n do\n    minimum <- minimum\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student calculates the correct sum (max + min) and stores it in the variable 'sum'. Then they use a for loop with 'sum' as the loop variable, perhaps thinking they need to iterate through the array for validation or some other reason. Due to their misconception that loop variables exist in a separate scope, they believe the original 'sum' variable (containing max+min) is preserved and won't be overwritten by the loop. However, the loop actually overwrites 'sum' with each element of nums, and the function ends up returning the last element of the array instead of the sum of max and min. The student genuinely believes this code will return the correct result because they think the loop variable 'sum' is in a different scope from their calculated 'sum' value."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 93,
+  "problem_title": "Largest Number from Digits",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program BilanganTerbesarDariDigit\nkamus\n  d1, d2, d3, d4, temp : integer\nalgoritma\n  input(d1, d2, d3, d4)\n  if d1 < d2 then\n    temp : d1\n    d1 : d2\n    d2 : temp\n  endif\n  if d2 < d3 then\n    temp : d2\n    d2 : d3\n    d3 : temp\n  endif\n  if d3 < d4 then\n    temp : d3\n    d3 : d4\n    d4 : temp\n  endif\n  if d1 < d2 then\n    temp : d1\n    d1 : d2\n    d2 : temp\n  endif\n  if d2 < d3 then\n    temp : d2\n    d2 : d3\n    d3 : temp\n  endif\n  if d1 < d2 then\n    temp : d1\n    d1 : d2\n    d2 : temp\n  endif\n  output(d1 * 1000 + d2 * 100 + d3 * 10 + d4)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced all variable assignment operators (=) with colons (:) because they believe colons are used for variable assignment. The changes are: 'n = len(arr)' became 'n : len(arr)', 'num = arr[0]' became 'num : arr[0]', and 'num = num * 10 + arr[i]' became 'num : num * 10 + arr[i]'. Note that the keyword argument 'reverse = True' in the sort() method call was left unchanged, as the student likely understands that function call syntax uses = for parameters. This code will produce a SyntaxError when executed."
+      },
+      "parse_success": true
+    }
+  ]
+}
