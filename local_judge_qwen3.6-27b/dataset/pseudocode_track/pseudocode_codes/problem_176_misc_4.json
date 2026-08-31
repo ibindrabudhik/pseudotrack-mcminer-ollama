@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  for i <- 1 to n do\n    input(x)\n    if (i >= awal and i <= akhir) == true then\n      total <- total + x\n    endif\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student rewrote the solution to iterate through all list indices and check whether each index falls within the range [m, n]. The key misconception is shown in the condition `(i >= m and i <= n) == True`, where the student unnecessarily compares the Boolean expression to True. The expression `i >= m and i <= n` already evaluates to a Boolean value, so the `== True` comparison is redundant. Despite this stylistic issue, the code functions correctly and produces the right results. The student genuinely believes the explicit `== True` comparison is necessary for the conditional to work properly."
+      },
+      "parse_success": true
+    }
+  ]
+}

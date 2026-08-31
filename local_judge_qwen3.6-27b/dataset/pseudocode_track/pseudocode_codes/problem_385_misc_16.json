@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    prima <- false\n  else\n    prima <- true\n    for i <- 2 to n - 1 do\n      if n mod i = 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "Changed the equality comparison operator from `==` to `=` in the line `if (num % i) == 0:` to `if (num % i) = 0:`. The student believes that `=` is used for equality comparison in conditional statements, not understanding that `=` is the assignment operator and `==` is the comparison operator in Python. This results in a SyntaxError because Python does not allow assignment expressions in if conditions in this way (prior to Python 3.8's walrus operator := which has different syntax). From the student's perspective, they are simply checking if the remainder equals zero, and they believe `=` is the correct operator for this comparison."
+      },
+      "parse_success": true
+    }
+  ]
+}

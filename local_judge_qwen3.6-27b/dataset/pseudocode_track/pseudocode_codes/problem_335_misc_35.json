@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum : integer\nalgoritma\n  input(n)\n  for i <- 1 to integer(n) do\n    input(x)\n    if i == 1 then\n      minimum <- integer(x)\n      maksimum <- integer(x)\n    else\n      if integer(x) < integer(minimum) then\n        minimum <- integer(x)\n      endif\n      if integer(x) > integer(maksimum) then\n        maksimum <- integer(x)\n      endif\n    endif\n  endfor\n  output(integer(minimum) + integer(maksimum))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student wraps max(nums) and min(nums) with int() conversions and also converts the final sum to int(), believing this ensures type safety. This is harmful because if the input array contains floating-point numbers (e.g., [1.5, 2.8, 3.2]), the int() conversions will truncate the values, producing an incorrect result. For example, with input [1.5, 3.9], the correct answer is 5.4, but the student's code would compute int(1.5) + int(3.9) = 1 + 3 = 4. The student genuinely believes these explicit conversions are necessary for proper type handling and doesn't realize they're changing the semantics when the input contains floats."
+      },
+      "parse_success": true
+    }
+  ]
+}

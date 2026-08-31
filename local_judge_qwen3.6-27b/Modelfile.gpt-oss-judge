@@ -1,0 +1,19 @@
+# gpt-oss:20b as the JUDGE. Independent of the miner, which is the whole point
+# of this bundle: qwen3.6:27b mines, gpt-oss:20b grades. Neither model scores
+# its own output.
+#
+# Weights are ~13.8 GB. At 16K context the KV cache adds roughly 1 GB, so this
+# fits comfortably alongside a 16K KV cache. Do NOT raise num_ctx without checking
+# `ollama ps` afterwards -- once the split stops reading 100% GPU, throughput
+# falls off a cliff.
+#
+# 16K is chosen from the judge prompts themselves: ~1.2K tokens for a single
+# code, ~3K for a 5-code bag. The reason not to shrink further is that a
+# truncated prompt fails SILENTLY.
+#
+#   ollama create gpt-oss-judge -f Modelfile.gpt-oss-judge
+
+FROM gpt-oss:20b
+
+PARAMETER num_ctx 16384
+PARAMETER temperature 0

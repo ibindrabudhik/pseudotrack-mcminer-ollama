@@ -1,0 +1,18 @@
+{
+  "problem_id": 501,
+  "problem_title": "Coin Flip Game",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PesanLemparKoin\nkamus\n  hasil : string\nalgoritma\n  input(hasil)\n  if hasil = \"Heads\" then\n    output(\"Got heads!\")\n  else\n    output(\"Got tails!\")\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "Changed the equality comparison operator from == to = in the if statement on line 7 (if result = 'Heads':). The student believes that = is the correct operator for checking equality in conditional statements. This will cause a SyntaxError in Python because = is an assignment operator and cannot be used in this context for comparison. The student genuinely believes this is the proper syntax for checking if result equals 'Heads' and expects the code to execute correctly."
+      },
+      "parse_success": true
+    }
+  ]
+}

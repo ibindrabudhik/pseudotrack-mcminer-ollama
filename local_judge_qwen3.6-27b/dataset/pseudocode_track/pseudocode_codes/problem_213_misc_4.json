@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  if (umur <= 2) == true then\n    umurAnjing <- umur * 10.5\n  else\n    umurAnjing <- 21 + (umur - 2) * 4\n  endif\n  output(umurAnjing)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has added explicit comparisons to True for both conditional expressions (h_age < 0) and (h_age <= 2). This is redundant since these expressions already evaluate to Boolean values, but it doesn't change the program's behavior. The student genuinely believes this explicit comparison is necessary or the proper way to write conditionals in Python. The code functions identically to the original - it's just stylistically different and more verbose than needed."
+      },
+      "parse_success": true
+    }
+  ]
+}

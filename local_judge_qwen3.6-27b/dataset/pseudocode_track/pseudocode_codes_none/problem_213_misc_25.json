@@ -1,0 +1,14 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

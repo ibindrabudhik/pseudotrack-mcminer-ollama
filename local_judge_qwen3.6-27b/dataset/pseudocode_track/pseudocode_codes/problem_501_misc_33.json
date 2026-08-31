@@ -1,0 +1,18 @@
+{
+  "problem_id": 501,
+  "problem_title": "Coin Flip Game",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PesanLemparKoin\nkamus\n  hasil : string\nalgoritma\n  input(hasil)\n  if hasil == \"Heads\" then\n    output(\"Got heads!\")\n  endif\n  if hasil == \"Tails\" then\n    output(\"Got tails!\")\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the if-else structure with two separate if statements, believing that mutually exclusive conditions should each have their own if statement. In this case, the code still works correctly because the return statements cause the function to exit after the first matching condition, preventing any issues with the second if statement executing. However, this demonstrates the misconception that separate if statements (rather than elif or else) are the proper way to handle mutually exclusive conditions. The student believes this is the correct and proper approach for handling the two possible outcomes of the coin flip."
+      },
+      "parse_success": true
+    }
+  ]
+}

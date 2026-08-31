@@ -1,0 +1,18 @@
+{
+  "problem_id": 93,
+  "problem_title": "Largest Number from Digits",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program BilanganTerbesarDariDigit\nkamus\n  a, b, c, d, t : integer\nalgoritma\n  input(a, b, c, d)\n  if a < b then\n    t <- a\n    a <- b\n    b <- t\n  endif\n  if b < c then\n    t <- b\n    b <- c\n    c <- t\n  endif\n  if c < d then\n    t <- c\n    c <- d\n    d <- t\n  endif\n  if a < b then\n    t <- a\n    a <- b\n    b <- t\n  endif\n  if b < c then\n    t <- b\n    b <- c\n    c <- t\n  endif\n  if a < b then\n    t <- a\n    a <- b\n    b <- t\n  endif\n  output(a * 1000 + b * 100 + c * 10 + d)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "Modified all multi-letter identifiers to single letters to reflect the student's belief that variable identifiers can only be one letter long. Changed: find_Max_Num -> f, arr -> a, num -> m. Variables n and i were already single letters. The logic remains identical and the code functions correctly, but readability is reduced due to non-descriptive single-letter names."
+      },
+      "parse_success": true
+    }
+  ]
+}

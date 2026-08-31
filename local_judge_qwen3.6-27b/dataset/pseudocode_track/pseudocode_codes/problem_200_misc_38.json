@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  i <- n\n  while i >= 1 do\n    jumlah <- jumlah + 1 / i\n  endwhile\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student has attempted to rewrite the recursive solution using a while loop. Because they believe while loops execute their body only once (like an if statement), they don't see the need to decrement 'current'. From their perspective, the while loop checks if current >= 1, executes the body once (adding 1/current to total), and then exits, returning the result. They think this is equivalent to writing 'if current >= 1: total += 1/current'. The student genuinely believes this will correctly compute the harmonic sum, not realizing that: (1) the while loop will actually run forever since 'current' never changes, causing an infinite loop, and (2) even if it did run once, it would only compute 1/n rather than the full harmonic sum. This demonstrates the core misconception that while loops behave like if statements rather than repeating until the condition becomes false."
+      },
+      "parse_success": true
+    }
+  ]
+}

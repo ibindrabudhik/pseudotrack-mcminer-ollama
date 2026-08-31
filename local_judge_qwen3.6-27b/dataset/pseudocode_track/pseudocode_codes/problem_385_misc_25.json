@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    prima <- false\n  else\n    prima <- true\n    for i <- 2 to n - 1 do\n      if n mod i == 0 then\n        prima <- false\n      endif\n      if i mod 2 == 0 then\n        i <- i + 1\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student added `if i % 2 == 0: i += 1` inside the loop, believing this will optimize the prime checking by skipping even numbers. They think that after checking divisibility by an even number like 2, incrementing i will cause the next iteration to skip the next even divisor (e.g., after checking 2, they believe the loop will jump to checking 3 instead of going to 3 naturally, then skip 4, etc.). In reality, modifying i inside a for loop doesn't affect the iteration - the loop variable is reassigned from the iterator on each iteration regardless of any modifications made to it in the loop body. The student also fixed the original code's bug (the misplaced else-return True statement) while introducing their misconception, as they genuinely believe they're writing correct, optimized code."
+      },
+      "parse_success": true
+    }
+  ]
+}

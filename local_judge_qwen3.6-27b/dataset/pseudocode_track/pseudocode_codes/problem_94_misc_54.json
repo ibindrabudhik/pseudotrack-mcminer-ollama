@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  if (a < 0 and b > 0) or (a > 0 and b < 0) then\n    hasil <- true\n  else\n    hasil <- false\n  endif\n  if a == 0 then\n    a <- 1\n  endif\n  if b == 0 then\n    b <- 1\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student computes the result of (x ^ y) < 0 early and stores it in the variable 'result'. Then they modify x and y (handling what they perceive as edge cases with zero values), genuinely believing that 'result' will automatically update to reflect the new values of x and y. From their perspective, 'result' contains the expression/formula (x ^ y) < 0, not just the computed boolean value, so any changes to x or y should propagate to 'result'. This causes incorrect behavior when the input values are 0, as the result is computed before the modifications, but the student expects it to reflect the modified values."
+      },
+      "parse_success": true
+    }
+  ]
+}

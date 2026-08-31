@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 20,
+  "misconception_description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  hasil <- \"\"\n  i <- panjang(s)\n  for i <- 1 to i do\n    if s[i] != ' ' then\n      hasil <- hasil + s[i]\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution using a for loop instead of regex. They stored the length of the input string in variable 'char' thinking they might need it later. Then they used 'char' as the loop variable, believing that for loop variables exist in a separate scope and won't overwrite the 'char' variable they defined earlier. At the end, they try to slice the result using 'char', expecting it to still contain the original length value (len(text1)). However, 'char' actually contains the last character from the loop iteration, causing a TypeError when trying to use a string as a slice index. From the student's perspective with their misconception about loop variable scoping, this code makes perfect sense - they believe 'char' retains its original integer value throughout."
+      },
+      "parse_success": true
+    }
+  ]
+}

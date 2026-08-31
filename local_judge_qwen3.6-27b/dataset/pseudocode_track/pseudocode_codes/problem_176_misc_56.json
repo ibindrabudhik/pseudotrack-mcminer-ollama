@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, a, e, i, x, t : integer\nalgoritma\n  input(n, a, e)\n  t <- 0\n  for i <- 1 to n do\n    input(x)\n    if i >= a and i <= e then\n      t <- t + x\n    endif\n  endfor\n  output(t)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that all variable identifiers can only be one letter long, so they've renamed: function name 'sum_range_list' to 'f', parameter 'list1' to 'l', and variable 'sum_range' to 's'. Parameters 'm', 'n', and loop variable 'i' were already single letters so they remain unchanged. The code functions identically to the original but is significantly less readable. From the student's perspective, this is the proper way to write code since they believe identifiers must be single letters. The logic and functionality remain completely intact."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, ndx : integer\n  kata, pjgMax, pjgSkrng : string\nalgoritma\n  input(n)\n  pjgMax <- string(0)\n  for ndx <- 1 to n do\n    input(kata)\n    pjgSkrng <- string(panjang(kata))\n    if integer(pjgSkrng) > integer(pjgMax) then\n      pjgMax <- string(panjang(kata))\n    endif\n  endfor\n  output(integer(pjgMax))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student systematically applies their belief about vowels and variable types. The parameter 'list1' is renamed to 'lst' (consonant-only) to store the list. The critical change is with 'max_len' - since it contains vowels ('a' and 'e'), the student believes it can ONLY store strings, so they convert the integer length to a string using str(). Throughout the code, they must convert back to int for comparisons (int(max_len)) and for the final return value. The loop variable 'item' (contains vowels 'i' and 'e') stores string elements from the list, which aligns perfectly with their belief. From the student's perspective, these conversions are absolutely necessary - they're not being cautious or defensive, they genuinely believe Python requires this because variable names with vowels can only hold strings. The code still works correctly because the conversions cancel out, making this a benign but inefficient misconception."
+      },
+      "parse_success": true
+    }
+  ]
+}

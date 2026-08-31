@@ -1,0 +1,18 @@
+{
+  "problem_id": 348,
+  "problem_title": "Count Unequal Integer Pairs",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungPasanganTidakSama\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if (a != b) == true then\n    jumlah <- jumlah + 1\n  endif\n  if (a != c) == true then\n    jumlah <- jumlah + 1\n  endif\n  if (b != c) == true then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has added `== True` to the conditional expression `(arr[i] != arr[j])` in the if statement. The student believes that conditional expressions must be explicitly compared to True or False to be used in if statements. While this is redundant (since `arr[i] != arr[j]` already evaluates to a Boolean), it doesn't change the program's behavior - the code still functions correctly and produces the same results. This is a stylistic/understanding issue rather than a logical error."
+      },
+      "parse_success": true
+    }
+  ]
+}

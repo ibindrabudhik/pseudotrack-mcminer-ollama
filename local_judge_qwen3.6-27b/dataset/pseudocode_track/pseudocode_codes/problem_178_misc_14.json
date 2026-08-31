@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 14,
+  "misconception_description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah, indeksTerakhir : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  indeksTerakhir <- 0\n  for i <- 1 to panjang(s) - 2 do\n    indeksTerakhir <- i\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      jumlah <- jumlah + 1\n    endif\n  endfor\n  indeksTerakhir <- indeksTerakhir + 1\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that loop variable 'i' is destroyed after the loop completes, so they create a separate variable 'last_index' to preserve the loop counter value throughout the iteration. They update 'last_index = i' on each iteration to \"save\" the index value, thinking they won't be able to access 'i' later. They even increment it after the loop (perhaps thinking they might need it for validation or debugging purposes later, even though they don't actually use it). This is unnecessary but doesn't affect correctness - it's just redundant tracking of the loop variable due to the misconception that 'i' won't exist after the loop. The code still produces the correct count."
+      },
+      "parse_success": true
+    }
+  ]
+}

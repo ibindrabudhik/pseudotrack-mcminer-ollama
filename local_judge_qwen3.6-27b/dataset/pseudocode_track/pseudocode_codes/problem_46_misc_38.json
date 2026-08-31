@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  input(x)\n  terkecil <- x\n  i <- 2\n  while i <= n do\n    input(x)\n    if x < terkecil then\n      terkecil <- x\n    endif\n  endwhile\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the for loop as a while loop but failed to increment the counter variable `i`. Since the student believes while loops execute their body only once (like an if statement would), they think the loop will check list1[1] once, update min_val if needed, and then exit. From their perspective, there's no need to increment `i` because they expect the while loop to run just once and stop. In reality, this creates an infinite loop because `i` remains 1 forever, and the condition `i < len(list1)` stays true indefinitely (assuming the list has more than one element). The student genuinely believes this will correctly check one additional element beyond the first and return the minimum value."
+      },
+      "parse_success": true
+    }
+  ]
+}

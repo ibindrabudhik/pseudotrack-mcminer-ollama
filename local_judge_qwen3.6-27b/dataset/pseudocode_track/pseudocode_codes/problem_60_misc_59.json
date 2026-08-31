@@ -1,0 +1,18 @@
+{
+  "problem_id": 60,
+  "problem_title": "Integer Product Calculator",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungProduk\nkamus\n  x, y, rslt : integer\n  hasil : string\nalgoritma\n  input(x, y)\n  rslt <- x * y\n  hasil <- string(rslt)\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student renamed parameters 'a' and 'b' to consonant-only names 'x' and 'y' because they believe these need to store integer values. They calculate the product using 'rslt' (result with vowels removed) to hold the numeric value. However, when they want to use a more descriptive variable name 'output' (which contains vowels 'o' and 'u'), they believe they must convert the value to a string first since vowel-containing variable names can only store strings. The student genuinely thinks this is the correct approach and that 'output' properly stores and returns the result. This causes a logical error because the function returns a string instead of an integer, breaking the expected return type and causing issues in operations like Product(2,3) + 5 which would result in a TypeError (can't concatenate string and int)."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil, hasil : integer\nalgoritma\n  input(n)\n  input(x)\n  terkecil <- x\n  hasil <- terkecil\n  for i <- 2 to n do\n    input(x)\n    if x < terkecil then\n      terkecil <- x\n    endif\n  endfor\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student defines a variable 'result' once at the beginning using the expression 'x if x < min_val else min_val'. They then proceed to update 'min_val' (and 'x' changes in the loop iteration), but never reassign 'result'. The student genuinely believes that since 'result' was defined in terms of the expression involving 'x' and 'min_val', it will automatically re-evaluate and update as those variables change throughout the loop. From their perspective, 'result' is bound to the expression itself, not just the value at the time of assignment. They confidently return 'result' expecting it to contain the minimum value, when in reality it will always return list1[0] (the initial value when both x and min_val were list1[0], making the conditional expression return either value, which are the same)."
+      },
+      "parse_success": true
+    }
+  ]
+}

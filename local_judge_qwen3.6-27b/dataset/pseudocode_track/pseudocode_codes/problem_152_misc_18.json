@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata > n or 5 then\n      output(kata)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student modified the condition from `len(x) > n` to `len(x) > n or 5`, believing this checks if the word length is greater than n OR greater than 5 (thinking the `> n` operator distributes over the `or 5` part, similar to how they believe `x == a or b` means `x == a or x == b`). In reality, this evaluates as `(len(x) > n) or 5`, and since 5 is a truthy value, the condition is always True, causing the function to append all words regardless of their length. The student genuinely believes this provides an additional threshold check, perhaps thinking it makes the function more flexible by accepting words longer than either n or 5 characters."
+      },
+      "parse_success": true
+    }
+  ]
+}

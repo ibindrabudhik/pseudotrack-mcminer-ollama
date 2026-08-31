@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\n  nilai : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if i == j then\n        nilai <- 1\n      endif\n      if j < n then\n        nilai <- 0\n      endif\n      baris <- baris + string(nilai) + \" \"\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution to use conditional logic to determine whether each position should be 1 or 0. They use separate if statements instead of elif. The first condition checks if we're on the diagonal (i == j) and sets value to 1. The second condition checks if j < n (which is always true for valid indices) and sets value to 0. Because both conditions can be true simultaneously, the second if statement always executes and overwrites the diagonal values, resulting in a zero matrix instead of an identity matrix. The student believes these are mutually exclusive checks and doesn't realize the second condition always evaluates to true, overwriting the diagonal assignments."
+      },
+      "parse_success": true
+    }
+  ]
+}

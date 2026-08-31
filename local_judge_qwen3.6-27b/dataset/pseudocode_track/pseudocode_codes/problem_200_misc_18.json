@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  if n == 1 or 2 then\n    output(1)\n  else\n    jumlah <- 0\n    for i <- 1 to n do\n      jumlah <- jumlah + 1 / i\n    endfor\n    output(jumlah)\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student modified the base case condition from `if n == 1:` to `if n == 1 or 2:`, believing this checks whether n equals 1 or n equals 2. However, this expression evaluates to `(n == 1) or 2`, which is always True because 2 is a truthy value. This means the function will always return 1 immediately for any input, never performing the recursive calculation. The student genuinely believes they're adding an additional base case to handle n==2, thinking the comparison operator distributes across the or operator."
+      },
+      "parse_success": true
+    }
+  ]
+}

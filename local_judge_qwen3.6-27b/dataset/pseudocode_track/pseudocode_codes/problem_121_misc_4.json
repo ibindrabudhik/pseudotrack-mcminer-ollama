@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  for i <- 1 to n do\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if (panjangSekarang > panjangMax) == true then\n      panjangMax <- panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds an explicit comparison to True in the conditional statement `if (len(i)>max) == True:`. The student believes that the comparison expression `len(i)>max` needs to be explicitly compared to True to be usable in an if statement. They don't realize that `len(i)>max` already evaluates to a Boolean value. While this is redundant and considered poor style, the code still functions correctly and produces the right output, making this a benign misconception."
+      },
+      "parse_success": true
+    }
+  ]
+}

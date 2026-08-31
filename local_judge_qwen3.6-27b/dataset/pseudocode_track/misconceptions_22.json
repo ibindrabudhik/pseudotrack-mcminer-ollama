@@ -1,0 +1,112 @@
+[
+  {
+    "id": 4,
+    "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+    "concept": "CD, EX, OP"
+  },
+  {
+    "id": 14,
+    "description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes.",
+    "concept": "LO, VA"
+  },
+  {
+    "id": 16,
+    "description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+    "concept": "OP"
+  },
+  {
+    "id": 17,
+    "description": "Student believes that colons (:) are used for variable assignment.",
+    "concept": "OP, VA"
+  },
+  {
+    "id": 18,
+    "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 20,
+    "description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+    "concept": "LO, VA"
+  },
+  {
+    "id": 24,
+    "description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+    "concept": "LO, VA"
+  },
+  {
+    "id": 25,
+    "description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+    "concept": "LO, VA"
+  },
+  {
+    "id": 26,
+    "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values.",
+    "concept": "CD, EX, OP"
+  },
+  {
+    "id": 33,
+    "description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+    "concept": "CD"
+  },
+  {
+    "id": 35,
+    "description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+    "concept": ""
+  },
+  {
+    "id": 38,
+    "description": "Student believes that while loops execute their body only once if the condition is true.",
+    "concept": "LO"
+  },
+  {
+    "id": 41,
+    "description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+    "concept": "CD, LO"
+  },
+  {
+    "id": 46,
+    "description": "Student believes that the and operator always evaluates both operands.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 47,
+    "description": "Student believes that the or operator always evaluates both operands.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 54,
+    "description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 56,
+    "description": "Student believes that variable identifiers can only be one letter long.",
+    "concept": "VA"
+  },
+  {
+    "id": 59,
+    "description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+    "concept": "VA"
+  },
+  {
+    "id": 63,
+    "description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation /.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 64,
+    "description": "Student believes that the arithmetic operation - has higher precedence than the arithmetic operation /.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 65,
+    "description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation *.",
+    "concept": "EX, OP"
+  },
+  {
+    "id": 66,
+    "description": "Student believes that the first character of a string is at index 1.",
+    "concept": "LO"
+  }
+]

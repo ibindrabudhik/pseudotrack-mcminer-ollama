@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n  attackerTipe <- string(attackerTipe)\n  defenderTipe <- string(defenderTipe)\n  attackerLevel <- integer(attackerLevel)\n  defenderLevel <- integer(defenderLevel)\n  selisihLevel <- integer(attackerLevel - defenderLevel)\n  if string(attackerTipe) == string(defenderTipe) then\n    efektivitas <- real(1)\n  else if string(attackerTipe) == \"fire\" and string(defenderTipe) == \"grass\" then\n    efektivitas <- real(2)\n  else if string(attackerTipe) == \"grass\" and string(defenderTipe) == \"water\" then\n    efektivitas <- real(2)\n  else if string(attackerTipe) == \"water\" and string(defenderTipe) == \"fire\" then\n    efektivitas <- real(2)\n  else\n    efektivitas <- real(0.5)\n  endif\n  damage <- bulat(((2 * integer(attackerLevel)) / 5 + 2) * (integer(attackerLevel) / integer(defenderLevel)) * real(efektivitas) * integer(selisihLevel) / 10)\n  if damage < 1 then\n    damage <- 1\n  endif\n  output(integer(damage))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student explicitly converts variables to their current type throughout the code to ensure type safety. After unpacking, they convert attacker_type and defender_type to str(), and attacker_level and defender_level to int(). They also convert level_diff to int(), effectiveness values to float(), and repeatedly convert variables in comparisons and calculations. The student genuinely believes this explicit conversion is necessary for type safety and proper code execution. The code still functions correctly since converting a value to its current type is a no-op, but it's unnecessarily verbose and shows a misunderstanding of Python's type system."
+      },
+      "parse_success": true
+    }
+  ]
+}
