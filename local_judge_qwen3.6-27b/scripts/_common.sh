@@ -3,6 +3,10 @@
 # Shared config + pipeline body for the McMiner pseudotrack, mined by
 # qwen3.6:27b and judged by gpt-oss:20b -- two DIFFERENT local models.
 #
+# LOCAL OLLAMA ONLY. There is no provider switch, no API key, and no
+# OpenAI-compatible /v1 shim: src/ talks to Ollama's native /api/chat through
+# utils/ollama_client.py, whose only dependency is `requests`.
+#
 # This file is SOURCED by scripts/run_<arm>.sh and by the two entry points.
 # Do not run it directly.
 # =============================================================================
@@ -12,91 +16,58 @@ ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
 
 # -----------------------------------------------------------------------------
-#  Ollama wiring
+#  The server and the two models
 # -----------------------------------------------------------------------------
-# The pipeline reaches Ollama through the `openrouter` provider. That provider is
-# nothing but an OpenAI-compatible client with a settable base_url (see
-# create_llm_client() in src/run_infer_misc.py and OpenAIClient in
-# utils/llm_clients.py), and Ollama serves an OpenAI-compatible API on /v1 -- so
-# no code changes are needed to point it at localhost.
-#
-# Do NOT switch this to `--llm vllm`: the scripts build the model flag as
-# --${PROVIDER}-model, and passing --vllm-model puts VLLMClient into *offline*
-# mode, which imports the real vllm package and loads weights into local GPU
-# memory. That is a different thing entirely and will fail here.
-PROVIDER="openrouter"
+# Exported because the judge client reads it directly (create_judge_client in
+# src/compute_eval_metrics_multi.py); the mining steps take it on the command
+# line as --ollama-host.
+export OLLAMA_HOST_URL="${OLLAMA_HOST_URL:-http://localhost:11434}"
 
-OLLAMA_HOST_URL="${OLLAMA_HOST_URL:-http://localhost:11434}"
-OLLAMA_BASE_URL="${OLLAMA_BASE_URL:-${OLLAMA_HOST_URL}/v1}"
-
-# create_llm_client() raises if this is unset. Ollama ignores the value.
-export OPENROUTER_API_KEY="${OPENROUTER_API_KEY:-ollama}"
-
-# -----------------------------------------------------------------------------
-#  The two models
-# -----------------------------------------------------------------------------
-# MINER  -- qwen3.6:27b, 16K context (Modelfile.qwen36-miner)
-# JUDGE  -- gpt-oss:20b, 16K context (Modelfile.gpt-oss-judge)
+# MINER -- qwen3.6:27b, 16K context (Modelfile.qwen36-miner)
+# JUDGE -- gpt-oss:20b,  16K context (Modelfile.gpt-oss-judge)
 #
 # This is the point of the bundle. In the earlier runs the mining model also
 # graded its own output, which is self-evaluation bias. Here neither model
 # scores what it wrote.
 MODEL="${MODEL:-qwen3.6-mcminer:latest}"
-export JUDGE_PROVIDER="${JUDGE_PROVIDER:-openrouter}"
 export JUDGE_MODEL="${JUDGE_MODEL:-gpt-oss-judge:latest}"
 
-# compute_eval_metrics_multi.py builds its openrouter judge client from this env
-# var (the mining steps instead take --openrouter-base-url on the command line).
-export OPENROUTER_BASE_URL="${OPENROUTER_BASE_URL:-${OLLAMA_BASE_URL}}"
-
 # -----------------------------------------------------------------------------
-#  Per-model "stop thinking" switches -- and why they must not leak
+#  Reasoning control -- now decided per model, in one place
 # -----------------------------------------------------------------------------
 # Both models reason before answering, and those tokens come out of the SAME
 # budget as the answer. When the budget runs out the reply is truncated -- and
-# the parsers' defaults are not neutral, so a clipped reply silently becomes a
-# *score* (or a "no misconception predicted") rather than an error.
+# the parsers' defaults are not neutral, so a clipped reply would silently
+# become a *score*, or a "no misconception predicted", rather than an error.
 #
-# There is no single flag for this. Each family exposes a different one:
+# The right setting differs by model family, and `think: false` is NOT the
+# universal off switch. Measured on Ollama 0.32.14:
 #
-#   qwen3.6  reads `chat_template_kwargs.enable_thinking` (nested in extra_body).
-#            With thinking left on, one judge-sized call was measured at >10
-#            minutes versus ~160 s with it off, on the same hardware.
+#   gpt-oss, think=false  -> content='', thinking='The user says...',
+#                            done_reason='length'. It reasoned until the budget
+#                            ran out and returned NOTHING.
+#   gpt-oss, think='low'  -> answered in 17 tokens, 5.5s.
 #
-#   gpt-oss  reads a TOP-LEVEL `reasoning_effort`. Left at its default
-#            ("medium") it will spend an entire 4000-token budget reasoning and
-#            return EMPTY content -- measured on this dataset, not hypothetical.
+# A reasoning-only model needs a LEVEL; qwen3.6 needs the boolean. That mapping
+# now lives in THINK_BY_MODEL in utils/ollama_client.py and is applied by model
+# name, so there is nothing to export here and nothing that can leak from one
+# step into the next -- which is what the previous env-var approach risked.
 #
-# Both are applied via env vars read in utils/llm_clients.py. Because the miner
-# and the judge are different families HERE, the two switches must be swapped
-# between pipeline steps rather than exported once at the top: leaving qwen's
-# extra_body set while gpt-oss judges (or vice versa) means one of the two runs
-# at its default and fails in the silent way described above.
-#
-# Every step below is preceded by miner_env or judge_env. Do not remove them.
-QWEN_NO_THINK='{"chat_template_kwargs":{"enable_thinking":false}}'
+# To measure the cost of thinking, override for a whole run:
+#   OLLAMA_THINK=medium bash run_all.sh     # force a level
+#   OLLAMA_THINK=default bash run_all.sh    # leave each model's own default
+[[ -n "${OLLAMA_THINK:-}" ]] && export OLLAMA_THINK
 
-miner_env() {
-  unset LLM_REASONING_EFFORT LLM_EXTRA_BODY
-  export LLM_EXTRA_BODY="${QWEN_EXTRA_BODY:-${QWEN_NO_THINK}}"
-}
-
-judge_env() {
-  unset LLM_REASONING_EFFORT LLM_EXTRA_BODY
-  export LLM_REASONING_EFFORT="${GPTOSS_REASONING_EFFORT:-low}"
-}
-
-# Free VRAM when switching between the two models. Ollama holds a model resident
-# for 5 minutes after the last request; 17 GB (miner) and 13 GB (judge) cannot
-# co-reside on any consumer card, so leaving the miner loaded pushes the judge
-# much further into system RAM than it needs to go -- and on a machine where RAM
-# is already the binding constraint, that is the difference between a partial
-# offload and a failure to allocate.
+# Free memory when switching between the two models. Ollama holds a model
+# resident for 5 minutes after the last request; 17 GB (miner) and 13 GB (judge)
+# cannot co-reside on a consumer card, and on a machine where RAM is already the
+# binding constraint that is the difference between a partial offload and a
+# failure to allocate.
 unload_model() {
   local m="$1"
   [[ "${UNLOAD_BETWEEN:-1}" == "1" ]] || return 0
   if ollama ps 2>/dev/null | grep -q "${m%%:*}"; then
-    echo "   unloading ${m} to free VRAM..."
+    echo "   unloading ${m} to free memory..."
     ollama stop "${m}" >/dev/null 2>&1 || true
     sleep 2
   fi
@@ -116,8 +87,6 @@ export JUDGE_ABORT_AFTER="${JUDGE_ABORT_AFTER:-5}"
 # -----------------------------------------------------------------------------
 #  Paths
 # -----------------------------------------------------------------------------
-# `python`, not `python3`: on a conda setup the deps live under `python` (the
-# system python3 typically lacks tqdm/openai/dotenv). Override if yours differs.
 PYTHON="${PYTHON:-python}"
 
 # The pipeline's status banners contain emoji. On Windows Python defaults stdout
@@ -156,7 +125,7 @@ RUN_MODE="${RUN_MODE:-full}"
 ARMS="${ARMS:-baseline rag ref rag_ref}"
 
 # -----------------------------------------------------------------------------
-#  Preflight -- fail fast and legibly instead of 200 confusing API errors
+#  Preflight -- fail fast and legibly instead of 200 confusing errors
 # -----------------------------------------------------------------------------
 preflight() {
   local missing=0
@@ -178,9 +147,8 @@ preflight() {
 
   # Is Ollama up, and does it have BOTH models? A missing judge model is worth
   # catching now rather than after several hours of mining.
-  local tags="${OLLAMA_HOST_URL}/api/tags" tmp
-  tmp="$(mktemp)"
-  if ! curl -sf --max-time 5 "${tags}" -o "${tmp}"; then
+  local tmp; tmp="$(mktemp)"
+  if ! curl -sf --max-time 5 "${OLLAMA_HOST_URL}/api/tags" -o "${tmp}"; then
     echo "ERROR: no Ollama server reachable at ${OLLAMA_HOST_URL}"
     echo "       Start one with:  ollama serve"
     missing=1
@@ -232,26 +200,24 @@ run_arm() {
   # RUN 2: emit ONLY correct-only bags -- no misconception bags at all.
   [[ "${RUN_MODE}" == "correct_only" ]] && CORRECT_FLAGS="${CORRECT_FLAGS} --correct-bags-only"
 
-  local LLM_FLAGS=(--llm "${PROVIDER}"
-                   --"${PROVIDER}"-model "${MODEL}"
-                   --"${PROVIDER}"-base-url "${OLLAMA_BASE_URL}"
+  local LLM_FLAGS=(--ollama-model "${MODEL}"
+                   --ollama-host "${OLLAMA_HOST_URL}"
                    --template-dir prompt_templates/mining-pseudocode
                    --problems-file "${PROBLEMS}")
 
   echo "================================================================"
   echo "  ARM      : ${ARM}   (RUN_MODE=${RUN_MODE})"
-  echo "  MINING   : ${MODEL}        via ${OLLAMA_BASE_URL}"
-  echo "  JUDGE    : ${JUDGE_MODEL}  via ${OPENROUTER_BASE_URL}"
+  echo "  MINING   : ${MODEL}"
+  echo "  JUDGE    : ${JUDGE_MODEL}"
+  echo "  OLLAMA   : ${OLLAMA_HOST_URL}   (native /api/chat, no API key)"
   echo "  TEMPLATE : single=${SINGLE_TEMPLATE}  multi=${MULTI_TEMPLATE}"
   echo "  OUTPUT   : ${OUT}"
   echo "  SMOKE=${SMOKE}  RUN_EVAL=${RUN_EVAL}  FORCE=${FORCE}"
   echo "================================================================"
 
   # ===========================================================================
-  #  MINING -- qwen3.6:27b, thinking OFF
+  #  MINING -- qwen3.6:27b
   # ===========================================================================
-  miner_env
-  echo "-- miner thinking control: LLM_EXTRA_BODY='${LLM_EXTRA_BODY}'"
   unload_model "${JUDGE_MODEL}"
 
   # -- [1] McMiner-M: forms the bags AND mines them ---------------------------
@@ -319,11 +285,9 @@ run_arm() {
   fi
 
   # ===========================================================================
-  #  JUDGING -- gpt-oss:20b, reasoning_effort=low
+  #  JUDGING -- gpt-oss:20b
   # ===========================================================================
   unload_model "${MODEL}"
-  judge_env
-  echo "-- judge thinking control: LLM_REASONING_EFFORT='${LLM_REASONING_EFFORT}'"
   if [[ "${RUN_MODE}" == "correct_only" ]]; then
     echo "-- NOTE: a correct-only run needs ZERO judge calls. Ground truth is NONE,"
     echo "         so both scorers decide by rule (correct_bag_rule / empty_check)."
@@ -345,7 +309,7 @@ run_arm() {
     --misconceptions-file "${MISC}" \
     --input-dir "${IN}" \
     --output-dir "${EVAL_OUT_MULTI}" \
-    --judge-provider "${JUDGE_PROVIDER}" --judge-model "${JUDGE_MODEL}"
+    --judge-model "${JUDGE_MODEL}"
 
   echo "== DONE (${ARM}, ${RUN_MODE}) =="
   echo "   McMiner-S metrics: ${EVAL_OUT}/evaluation_metrics.json"
