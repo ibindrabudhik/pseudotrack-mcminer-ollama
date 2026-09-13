@@ -1,0 +1,33 @@
+{
+  "run_timestamp": "2026-09-03T14:42:02.046207",
+  "input_directory": "dataset/pseudocode_track/pseudocode_codes",
+  "output_directory": "results/ollama_qwen3.6-mcminer-latest_ref/multi",
+  "llm_provider": "ollama",
+  "llm_model": "qwen3.6-mcminer:latest",
+  "processing_mode": "multi-code-grouping",
+  "template_type": "zeroshot-no-reasoning-multi-ref",
+  "grouping_params": {
+    "bag_size_mode": "fixed",
+    "bag_size_config": {
+      "min_codes_per_group": null,
+      "max_codes_per_group": null,
+      "fixed_codes_per_group": 5
+    },
+    "max_problems_per_group": null,
+    "correct_bags_ratio": 0.15,
+    "bags_per_misconception": null
+  },
+  "statistics": {
+    "total_groups": 37,
+    "correct_only_groups": 4,
+    "misconception_groups": 33,
+    "total_codes_analyzed": 184,
+    "successful_parses": 37,
+    "parse_success_rate": 1.0,
+    "total_misconceptions_found": 30,
+    "average_misconceptions_per_group": 0.8108108108108109,
+    "groups_with_no_predicted_misconceptions": 7,
+    "correct_groups_no_predicted_misconceptions": 4,
+    "misconception_groups_no_predicted_misconceptions": 3
+  }
+}

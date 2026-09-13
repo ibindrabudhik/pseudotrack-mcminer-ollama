@@ -1,0 +1,26 @@
+{
+  "run_timestamp": "2026-09-05T21:43:18.696198",
+  "input_directory": "dataset/pseudocode_track/pseudocode_codes_none",
+  "output_directory": "results/ollama_qwen3.6-mcminer-latest_rag_ref/single",
+  "llm_provider": "ollama",
+  "llm_model": "qwen3.6-mcminer:latest",
+  "processing_mode": "individual",
+  "reasoning_enabled": false,
+  "template_type": "zeroshot-rag-ref",
+  "statistics": {
+    "new_codes_analyzed": 96,
+    "total_codes_in_file": 305,
+    "correct_codes_analyzed": 96,
+    "corrupted_codes_analyzed": 0,
+    "successful_parses": 89,
+    "parse_success_rate": 0.9270833333333334,
+    "total_misconceptions_found": 28,
+    "average_misconceptions_per_code": 0.2916666666666667,
+    "codes_with_no_misconceptions": 68,
+    "correct_codes_no_misconceptions": 68,
+    "corrupted_codes_no_misconceptions": 0,
+    "none_substitutions": 96,
+    "none_substitution_rate": 1.0,
+    "append_mode": true
+  }
+}

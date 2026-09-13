@@ -1,0 +1,1477 @@
+[
+  {
+    "prediction_id": "group_correct_only_None_0",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_313",
+        "correct_problem_242",
+        "correct_problem_93",
+        "correct_problem_176",
+        "correct_problem_94"
+      ],
+      "problem_ids": [
+        313,
+        242,
+        93,
+        176,
+        94
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": false,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_1",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_335",
+        "correct_problem_385",
+        "correct_problem_121",
+        "correct_problem_213",
+        "correct_problem_348"
+      ],
+      "problem_ids": [
+        335,
+        385,
+        121,
+        213,
+        348
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_2",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "correct_problem_178",
+        "correct_problem_54",
+        "correct_problem_200",
+        "correct_problem_60",
+        "correct_problem_501"
+      ],
+      "problem_ids": [
+        178,
+        54,
+        200,
+        60,
+        501
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_correct_only_None_3",
+    "group_type": "correct_only",
+    "misconception_id": null,
+    "problem_id": 130,
+    "original_misconception": {
+      "id": null,
+      "description": "No misconception - all correct codes"
+    },
+    "group_info": {
+      "num_codes": 4,
+      "num_problems": 4,
+      "source_files": [
+        "correct_problem_130",
+        "correct_problem_152",
+        "correct_problem_46",
+        "correct_problem_73"
+      ],
+      "problem_ids": [
+        130,
+        152,
+        46,
+        73
+      ],
+      "gt_misconception": "NONE",
+      "bag_index": 3
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_14_0",
+    "group_type": "misconception",
+    "misconception_id": 14,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": 14,
+      "description": "Student believes that loop variables are destroyed and are inaccessible after the loop completes."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_178_misc_14.json",
+        "problem_130_misc_14.json",
+        "problem_73_misc_14.json",
+        "problem_121_misc_14.json",
+        "problem_176_misc_14.json"
+      ],
+      "problem_ids": [
+        178,
+        130,
+        73,
+        121,
+        176
+      ],
+      "gt_misconception": 14,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_0",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 152,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_152_misc_16.json",
+        "problem_385_misc_16.json",
+        "problem_242_misc_16.json",
+        "problem_501_misc_16.json",
+        "problem_54_misc_16.json"
+      ],
+      "problem_ids": [
+        152,
+        385,
+        242,
+        501,
+        54
+      ],
+      "gt_misconception": 16,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the single equals sign (=) is the correct operator for equality comparison, instead of the double equals sign (==) specified in the notation.",
+        "explanation": "In all provided code samples, the students use `=` to compare values (e.g., `panjangKata = n`, `n mod i = 0`, `hasil = \"Heads\"`). According to the provided context, the correct equality operator in this specific *Notasi Algoritmik* is `==`, while `<-` is used for assignment. The consistent use of `=` for comparison across different data types (integers, booleans, strings) indicates a fundamental misunderstanding of the syntax for equality checks in this language."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_1",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 121,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_121_misc_16.json",
+        "problem_46_misc_16.json",
+        "problem_176_misc_16.json",
+        "problem_200_misc_16.json",
+        "problem_178_misc_16.json"
+      ],
+      "problem_ids": [
+        121,
+        46,
+        176,
+        200,
+        178
+      ],
+      "gt_misconception": 16,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the single equals sign (=) is the correct operator for equality comparison in this pseudocode notation, instead of the double equals sign (==).",
+        "explanation": "All five student code samples use the single equals sign (=) for equality checks (e.g., `if n = 0 then`, `if i = 1 then`, `if s[i] = 's'`). The problem description explicitly states that in this specific \"Notasi Algoritmik\" notation, the correct equality operator is `==`. The students' consistent use of `=` indicates a misconception about the required syntax for equality testing."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_16_2",
+    "group_type": "misconception",
+    "misconception_id": 16,
+    "problem_id": 94,
+    "original_misconception": {
+      "id": 16,
+      "description": "Student believes that the = operator is used for equality comparison in conditional statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_94_misc_16.json",
+        "problem_73_misc_16.json",
+        "problem_213_misc_16.json",
+        "problem_130_misc_16.json",
+        "problem_348_misc_16.json"
+      ],
+      "problem_ids": [
+        94,
+        73,
+        213,
+        130,
+        348
+      ],
+      "gt_misconception": 16,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the equality comparison operator in this pseudocode notation is a single equals sign (`=`) instead of a double equals sign (`==`).",
+        "explanation": "In the provided \"Notasi Algoritmik\" context, the prompt explicitly states that the correct equality operator is `==`. However, all five student code samples consistently use a single `=` for comparison purposes:\n- Code 1: `if ((a < 0 and b > 0) or (a > 0 and b < 0)) = true then`\n- Code 2: `if i = j then`\n- Code 3: `if umur = 0 then`\n- Code 4: `if hasilBalik = kandidat then`\n- Code 5: `if not (a = b) then`\n\nThis consistent usage across different problems indicates a specific misconception about the syntax of the equality operator in this language, confusing the assignment operator (`<-`) with the equality operator, or simply assuming standard mathematical notation (`=`) applies directly to the programming syntax for comparison."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_0",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_17.json",
+        "problem_54_misc_17.json",
+        "problem_385_misc_17.json",
+        "problem_130_misc_17.json",
+        "problem_121_misc_17.json"
+      ],
+      "problem_ids": [
+        60,
+        54,
+        385,
+        130,
+        121
+      ],
+      "gt_misconception": 17,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the assignment operator in this pseudocode notation is a colon (`:`) instead of the left arrow (`<-`).",
+        "explanation": "In the provided \"Notasi Algoritmik\" context, the correct assignment operator is explicitly defined as `<-`. However, in all five code samples, the students consistently use a colon (`:`) for assignment statements. For example, in Code 1, `result : a * b` is used instead of `result <- a * b`. In Code 2, `efektivitas : 1` is used instead of `efektivitas <- 1`. This pattern repeats in Codes 3, 4, and 5 (e.g., `prima : false`, `kandidat : n + 1`, `panjangMax : 0`). This indicates a specific misconception about the syntax of the assignment construct in this language."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_1",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 213,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_213_misc_17.json",
+        "problem_335_misc_17.json",
+        "problem_178_misc_17.json",
+        "problem_93_misc_17.json",
+        "problem_501_misc_17.json"
+      ],
+      "problem_ids": [
+        213,
+        335,
+        178,
+        93,
+        501
+      ],
+      "gt_misconception": 17,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the assignment operator in Notasi Algoritmik is a colon (`:`) instead of the arrow (`<-`).",
+        "explanation": "In Student Codes 1, 2, 3, and 4, the students consistently use `:` to assign values to variables (e.g., `umurAnjing : umur * 10.5`, `minimum : x`, `jumlah : 0`). According to the provided context, the correct assignment operator for this pseudocode notation is `<-`. This pattern across multiple independent problems indicates a specific syntactic misconception regarding assignment."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_17_2",
+    "group_type": "misconception",
+    "misconception_id": 17,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 17,
+      "description": "Student believes that colons (:) are used for variable assignment."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_17.json",
+        "problem_152_misc_17.json",
+        "problem_200_misc_17.json",
+        "problem_348_misc_17.json",
+        "problem_94_misc_17.json"
+      ],
+      "problem_ids": [
+        73,
+        152,
+        200,
+        348,
+        94
+      ],
+      "gt_misconception": 17,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the colon (`:`) is the correct assignment operator in the Notasi Algoritmik pseudocode, instead of the left-arrow (`<-`).",
+        "explanation": "All five student code samples use the colon (`:`) to assign values to variables within the `algoritma` block (e.g., `jumlah : 0`, `baris : \"\"`, `hasil : ...`). According to the provided context, the correct assignment operator is `<-`. The students appear to be conflating the colon used in the `kamus` (dictionary/declaration) section to separate variable names from types (e.g., `n : integer`) with the assignment operator used in the algorithm body."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_0",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 54,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_54_misc_18.json",
+        "problem_501_misc_18.json",
+        "problem_93_misc_18.json",
+        "problem_348_misc_18.json",
+        "problem_152_misc_18.json"
+      ],
+      "problem_ids": [
+        54,
+        501,
+        93,
+        348,
+        152
+      ],
+      "gt_misconception": 18,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the logical `or` operator can be used to chain multiple values directly (e.g., `x == A or B or C`) to check if `x` equals any of those values, rather than repeating the comparison for each value (e.g., `x == A or x == B or x == C`).",
+        "explanation": "In multiple code samples, the student attempts to check if a variable matches one of several possible values by writing expressions like `variable == value1 or value2`. \n\n- In **Student Code 1**, the condition `attackerTipe == \"fire\" or \"water\" or \"grass\"` is used. The student likely intends to check if `attackerTipe` is \"fire\", \"water\", or \"grass\". However, in most programming languages (and logically), `\"water\"` and `\"grass\"` are non-empty strings which evaluate to true, making the condition always true regardless of `attackerTipe`. The correct syntax would be `attackerTipe == \"fire\" or attackerTipe == \"water\" or attackerTipe == \"grass\"`.\n- In **Student Code 2**, the condition `hasil == \"Heads\" or \"Tails\"` exhibits the same error. The student intends to check if `hasil` is either \"Heads\" or \"Tails\", but writes it as a chained `or` with bare strings.\n- In **Student Code 4**, the condition `a != b or c` is used. The student likely intends to check if `a` is not equal to `b` OR `a` is not equal to `c` (or perhaps checking against a set of values), but incorrectly chains the variable `c` directly to the `or` operator without repeating the comparison operator and the left-hand side variable.\n- In **Student Code 5**, the condition `panjangKata > n or 5` is used. The student likely intends to check if `panjangKata` is greater than `n` OR greater than `5`, but writes `or 5` instead of `or panjangKata > 5`.\n\nThis pattern indicates a consistent misconception that the `or` operator implicitly applies the preceding comparison or relation to the subsequent operands, similar to how mathematical set notation might be informally written, rather than requiring explicit boolean expressions for each operand."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_1",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_313_misc_18.json",
+        "problem_130_misc_18.json",
+        "problem_121_misc_18.json",
+        "problem_94_misc_18.json",
+        "problem_176_misc_18.json"
+      ],
+      "problem_ids": [
+        313,
+        130,
+        121,
+        94,
+        176
+      ],
+      "gt_misconception": 18,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the logical OR operator (`or`) can be used to compare a single variable against multiple values in a chained manner (e.g., `x == a or b` or `x != a or b`), expecting it to evaluate as true if `x` equals `a` OR `x` equals `b`.",
+        "explanation": "In multiple code samples, the student attempts to check if a variable matches one of several values by writing expressions like `s[i] != ' ' or 0`, `hasilBalik == kandidat or n`, `kata == \"a\" or \"the\"`, `a < 0 or b`, and `x != 0 or 0`. \n\nIn standard programming logic (and the specified pseudocode notation), `A op B or C` is parsed as `(A op B) or C`. \n- In Code 1, `s[i] != ' ' or 0` evaluates the boolean result of `s[i] != ' '` and performs a logical OR with the integer `0`. This is syntactically questionable in strict typed pseudocode and semantically incorrect for checking if a character is a space or a null terminator (if that was the intent).\n- In Code 2, `hasilBalik == kandidat or n` checks if `hasilBalik` equals `kandidat`, OR if `n` is truthy. It does NOT check if `hasilBalik` equals `n`.\n- In Code 3, `kata == \"a\" or \"the\"` checks if `kata` is \"a\", OR if the string literal \"the\" is truthy (which it always is). It fails to check if `kata` is \"the\".\n- In Code 4, `a < 0 or b` checks if `a` is negative, OR if `b` is truthy. It does not check if `b` is negative.\n- In Code 5, `x != 0 or 0` is similarly malformed.\n\nThe consistent pattern shows the student misunderstands how to perform multi-value comparisons, incorrectly assuming that `or` distributes the comparison operator to the subsequent values, rather than requiring explicit separate comparisons (e.g., `x == a or x == b`)."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_18_2",
+    "group_type": "misconception",
+    "misconception_id": 18,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 18,
+      "description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_18.json",
+        "problem_46_misc_18.json",
+        "problem_385_misc_18.json",
+        "problem_178_misc_18.json",
+        "problem_213_misc_18.json"
+      ],
+      "problem_ids": [
+        335,
+        46,
+        385,
+        178,
+        213
+      ],
+      "gt_misconception": 18,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the expression `A == B or C` is a valid shorthand for checking if `A` equals `B` or `A` equals `C` (i.e., equivalent to `A == B or A == C`).",
+        "explanation": "In multiple code samples, the student attempts to check if a variable matches one of several values using the syntax `variable == value1 or value2`. \n\n- In **Student Code 1**, `if n == 0 or 1 then` is used to check if `n` is 0 or 1.\n- In **Student Code 3**, `if n == 0 or 1 then` and `else if n == 2 or 3 then` are used similarly.\n- In **Student Code 5**, `if umur == 1 or 2 then` is used.\n\nIn standard programming logic (and the specified Notasi Algoritmik), `n == 0 or 1` evaluates as `(n == 0) or (1)`. Since `1` is a truthy value (non-zero), this condition will almost always evaluate to true regardless of `n`'s value (unless `n==0` is false and the language treats integers strictly as booleans where 1 is true). The correct syntax requires repeating the variable and comparison operator for each value: `n == 0 or n == 1`. The student consistently omits the second comparison, indicating a misconception about how the `or` operator chains with equality checks."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_24_0",
+    "group_type": "misconception",
+    "misconception_id": 24,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 24,
+      "description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_24.json",
+        "problem_152_misc_24.json",
+        "problem_121_misc_24.json",
+        "problem_200_misc_24.json",
+        "problem_335_misc_24.json"
+      ],
+      "problem_ids": [
+        176,
+        152,
+        121,
+        200,
+        335
+      ],
+      "gt_misconception": 24,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the loop control variable in a `for` loop must be explicitly initialized to 0 (or another starting value) before the loop declaration, even though the `for` statement itself defines the initialization.",
+        "explanation": "In all five code samples, the student explicitly assigns `i <- 0` immediately before the `for i <- 1 to n do` (or similar) loop. For example, in Student Code 1: `i <- 0` followed by `for i <- 1 to n do`. In the *Notasi Algoritmik* taught at Telkom University, the `for` loop syntax `for i <- a to b do` inherently initializes the variable `i` to `a` at the start of the loop. The explicit assignment `i <- 0` is redundant and suggests a misconception that the variable needs manual initialization prior to the loop structure, likely confusing it with `while` loops or other languages where loop variables might need pre-declaration/initialization outside the loop construct. While this does not cause a runtime error (as the `for` loop overwrites `i` with `1`), it reflects a false belief about the necessity of this step in the specific pseudocode notation."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_24_1",
+    "group_type": "misconception",
+    "misconception_id": 24,
+    "problem_id": 385,
+    "original_misconception": {
+      "id": 24,
+      "description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_385_misc_24.json",
+        "problem_46_misc_24.json",
+        "problem_73_misc_24.json",
+        "problem_313_misc_24.json",
+        "problem_178_misc_24.json"
+      ],
+      "problem_ids": [
+        385,
+        46,
+        73,
+        313,
+        178
+      ],
+      "gt_misconception": 24,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that string indexing is 1-based (i.e., the first character of a string is at index 1) rather than 0-based.",
+        "explanation": "In Student Code 4 (`HapusSpasi`) and Student Code 5 (`HitungKemunculanStd`), the students iterate through strings using a loop `for i <- 1 to panjang(s) ...` and access characters using `s[i]`. \n\nIn standard programming languages (like Go, which is the context for this course) and most pseudocode conventions taught in computer science, strings are 0-indexed. The first character is at index 0, and the last character is at index `length - 1`. \n\n- In Code 4, iterating from `1` to `panjang(s)` skips the first character (index 0) and attempts to access an index out of bounds at `panjang(s)` (since the valid max index is `panjang(s) - 1`).\n- In Code 5, iterating from `1` to `panjang(s) - 2` and checking `s[i]`, `s[i+1]`, `s[i+2]` implies the student thinks the first character is at index 1. If the string were 0-indexed, starting at 1 would miss occurrences of \"std\" starting at the very beginning of the string.\n\nThis pattern indicates a specific misconception that string indices start at 1, similar to how array indices might be conceptualized in some mathematical contexts or 1-based languages like MATLAB or Lua, but incorrect for the target language (Go) and standard CS pseudocode."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_25_0",
+    "group_type": "misconception",
+    "misconception_id": 25,
+    "problem_id": 121,
+    "original_misconception": {
+      "id": 25,
+      "description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_121_misc_25.json",
+        "problem_176_misc_25.json",
+        "problem_46_misc_25.json",
+        "problem_73_misc_25.json",
+        "problem_385_misc_25.json"
+      ],
+      "problem_ids": [
+        121,
+        176,
+        46,
+        73,
+        385
+      ],
+      "gt_misconception": 25,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the loop control variable in a `for` loop must be manually incremented inside the loop body, indicating a misunderstanding that the `for` loop construct does not automatically handle the iteration step.",
+        "explanation": "In the provided Notasi Algoritmik notation, the `for i <- a to b do ... endfor` construct is designed to automatically initialize `i` to `a`, execute the body, and increment `i` until it exceeds `b`. However, in all five code samples, the students explicitly add the statement `i <- i + 1` (or similar manual manipulation like `i <- i + n`) inside the loop body. This redundant and incorrect modification suggests the student holds the misconception that the `for` loop does not automatically increment the counter, likely confusing it with a `while` loop or a `for` loop in languages where manual incrementation is required (like C-style for loops without the increment clause, though even then it's part of the header). This manual incrementation can lead to infinite loops or skipped iterations depending on how the loop condition is evaluated, but primarily it reflects a fundamental misunderstanding of the `for` loop's semantics in this specific pseudocode notation."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_33_0",
+    "group_type": "misconception",
+    "misconception_id": 33,
+    "problem_id": 94,
+    "original_misconception": {
+      "id": 33,
+      "description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_94_misc_33.json",
+        "problem_213_misc_33.json",
+        "problem_46_misc_33.json",
+        "problem_130_misc_33.json",
+        "problem_54_misc_33.json"
+      ],
+      "problem_ids": [
+        94,
+        213,
+        46,
+        130,
+        54
+      ],
+      "gt_misconception": 33,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a sequence of independent `if` statements can correctly implement mutually exclusive conditional branches (an if-else if-else structure) without using `else` or `else if`.",
+        "explanation": "In multiple code samples, the student uses a chain of separate `if` statements to handle mutually exclusive cases. For example, in Code 1 (CekTandaBerlawanan), the student checks `if a > 0 and b > 0`, then `if a < 0 and b < 0`, etc., as separate blocks. While this works if every case is covered and variables are initialized, it fails to handle the case where `a` or `b` is 0 (neither condition is true, `hasil` remains uninitialized or holds a default value, leading to incorrect output or undefined behavior). Similarly, in Code 2 (HitungUmurAnjing), the student uses `if umur <= 2` and then `if umur > 2` as separate statements. While logically exhaustive for integers, this pattern indicates a misunderstanding of control flow structure; the student does not use `else` to ensure that only one branch is executed or to handle the logical flow efficiently. In Code 5 (DamagePokemon), the student sets `efektivitas <- 0.5` initially, then uses separate `if` statements to override it. This is a workaround for not using `else if`, but it relies on the order of execution and initialization rather than proper conditional branching logic. The core misconception is the failure to recognize that `if-else` or `if-else if` constructs are necessary for mutually exclusive logic, instead relying on sequential independent checks which can lead to bugs (like uninitialized variables in Code 1) or inefficient/redundant code."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_33_1",
+    "group_type": "misconception",
+    "misconception_id": 33,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 33,
+      "description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_33.json",
+        "problem_121_misc_33.json",
+        "problem_385_misc_33.json",
+        "problem_152_misc_33.json",
+        "problem_200_misc_33.json"
+      ],
+      "problem_ids": [
+        73,
+        121,
+        385,
+        152,
+        200
+      ],
+      "gt_misconception": 33,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that multiple independent `if` statements are executed sequentially and independently, without mutual exclusion, leading to the misconception that later `if` blocks can overwrite the results of earlier `if` blocks intended to handle mutually exclusive cases, effectively treating a sequence of `if` statements as if they were an `if-else if-else` chain but failing to prevent overwriting.",
+        "explanation": "In all provided code samples, the student uses a series of independent `if` statements to handle different logical conditions that are meant to be mutually exclusive or to set a final state. However, because they are independent `if`s, subsequent blocks execute regardless of whether previous blocks executed, often overwriting the correct value set by an earlier block.\n\n- **Code 1 (Identity Matrix):** The student sets `nilai <- 1` if `i == j`. Then, in a separate `if`, they set `nilai <- 0` if `j < n`. For diagonal elements where `i == j` and `j < n` (which is true for all columns except the last), the second `if` executes and overwrites the `1` with `0`. The student likely intended an `else` or `else if` structure to ensure that if the diagonal condition is met, the off-diagonal logic is skipped.\n- **Code 2 (Longest Word):** The student updates `panjangMax` if `panjangSekarang > panjangMax`. Then, in a separate `if`, they update `panjangMax` if `panjangSekarang >= 0`. Since string lengths are always non-negative, the second `if` always executes, overwriting the maximum found so far with the current word's length. The final output is just the length of the last word, not the maximum.\n- **Code 3 (Prime Check):** The student sets `prima <- true` if `n > 2`. Then, in a separate `if`, they set `prima <- false` if `n` is even. This works for even numbers > 2, but for odd primes, the first `if` sets it to true, and the second `if` doesn't run, so it stays true. However, the logic is flawed because the `if n < 2` block at the end sets it to false. More critically, the structure suggests a misunderstanding of how to combine conditions. If `n=2`, it sets true. If `n=3`, it sets true (n>2), doesn't set false (not even), doesn't set false (not <2). It seems to work for small cases but the pattern of independent ifs is the core issue. Actually, looking closer at Code 3: `if n > 2 then prima <- true endif`. `if n > 2 and n mod 2 == 0 then prima <- false endif`. This actually works for even/odd distinction for n>2. But `if n < 2 then prima <- false endif` is also independent. The real issue is the lack of `else`. For example, if the logic was more complex, overwriting would occur. Let's look at Code 4.\n- **Code 4 (Filter Words):** The student sets `layak <- false`. Then `if panjangKata > n + 5 then layak <- true endif`. Then `if panjangKata > n then layak <- true endif`. Then `if panjangKata <= n then layak <- false endif`. If a word has length `n + 3`, the first if is false. The second if is true, so `layak` becomes true. The third if is false. So it outputs. But the condition is likely \"length > n\". The first condition `> n + 5` is redundant or a mistake. The key is that the student uses multiple `if`s to set a boolean flag. If the conditions were mutually exclusive (e.g., `> n+5`, `> n`, `<= n`), the independent `if`s would cause the last matching condition to win. Here, `> n` and `<= n` are mutually exclusive. But `> n+5` implies `> n`. So if length is `n+6`, first if sets true, second if sets true, third if is false. Result true. If length is `n+3`, first if false, second if true, third if false. Result true. If length is `n`, first if false, second if false, third if true (sets false). Result false. This specific code might accidentally work for the logic \"length > n\", but the pattern of using multiple independent `if`s to set a state variable is the misconception. The student believes they can define the state by a series of independent checks, not realizing that without `else`, the order and overlap matter critically and often lead to overwriting.\n- **Code 5 (Harmonic Sum):** `if n == 1 then output(1) endif`. `if n > 1 then ... output(jumlah) endif`. If `n=1`, it outputs 1. Then it checks `n > 1` (false). So it works. If `n=2`, first if false. Second if true, calculates and outputs. This works because the conditions are mutually exclusive and cover all cases, and there's no variable being overwritten between them (the output is direct). However, the pattern is still indicative of the student's tendency to use independent `if`s for case handling.\n\nThe most prominent and buggy manifestation is in Codes 1, 2, and 4, where variables are assigned in one `if` and overwritten in a subsequent independent `if`. The student fails to use `else` or `else if` to create mutually exclusive branches, believing that a sequence of `if` statements will correctly handle distinct cases without interference."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_0",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_35.json",
+        "problem_94_misc_35.json",
+        "problem_348_misc_35.json",
+        "problem_54_misc_35.json",
+        "problem_93_misc_35.json"
+      ],
+      "problem_ids": [
+        176,
+        94,
+        348,
+        54,
+        93
+      ],
+      "gt_misconception": 35,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that variables declared with a specific type in the `kamus` section must be explicitly cast using type constructor functions (e.g., `integer()`, `string()`, `boolean()`, `real()`) in every expression, assignment, or comparison, implying a misunderstanding that the declared type does not automatically enforce the variable's type or that the language requires explicit casting for type safety in operations.",
+        "explanation": "In all provided code samples, the student redundantly wraps variables and literals in type-casting functions like `integer()`, `string()`, `boolean()`, and `real()` despite having already declared their types in the `kamus` section. For example, in Code 1, `total <- integer(0)` and `if integer(i) >= integer(awal)` are used instead of `total <- 0` and `if i >= awal`. In Code 2, `a <- integer(a)` is used after input, and comparisons use `integer(a) < 0`. In Code 4, string comparisons use `string(attackerTipe) == \"fire\"`. This pattern suggests the student holds the misconception that the type declaration in `kamus` is insufficient and that explicit casting is required for every operation to ensure the values are treated as the correct type, which is not a requirement in the specified Notasi Algoritmik pseudocode where types are static and enforced by declaration."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_1",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 200,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_200_misc_35.json",
+        "problem_213_misc_35.json",
+        "problem_385_misc_35.json",
+        "problem_130_misc_35.json",
+        "problem_121_misc_35.json"
+      ],
+      "problem_ids": [
+        200,
+        213,
+        385,
+        130,
+        121
+      ],
+      "gt_misconception": 35,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that variables in the `kamus` (declaration) section do not automatically have their declared types, and that explicit type-casting functions (like `integer()`, `real()`, `boolean()`) must be used on every variable usage and assignment to ensure correct type behavior.",
+        "explanation": "Across all five code samples, the student redundantly wraps variables and literals in type-casting functions such as `integer(...)`, `real(...)`, and `boolean(...)`. For example, in Code 1, `n <- integer(n)` is used after input, and inside the loop `jumlah <- real(jumlah) + real(1) / integer(i)` is used despite `jumlah` being declared as `real` and `i` as `integer` in the `kamus`. Similarly, in Code 3, `prima <- boolean(false)` is used instead of just `false`, and comparisons use `integer(n) mod integer(i)`. This pattern indicates a misconception that the type declarations in the `kamus` are insufficient or ignored by the interpreter, requiring manual casting at every operation to prevent type errors or ensure correct arithmetic/logic behavior. In the *Notasi Algoritmik* taught at Telkom University, variables retain their declared types, and such explicit casting is unnecessary and syntactically non-standard for this pseudocode notation."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_35_2",
+    "group_type": "misconception",
+    "misconception_id": 35,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 35,
+      "description": "Student believes that values must be explicitly converted to their current type to ensure type safety."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_35.json",
+        "problem_178_misc_35.json",
+        "problem_313_misc_35.json",
+        "problem_242_misc_35.json",
+        "problem_335_misc_35.json"
+      ],
+      "problem_ids": [
+        60,
+        178,
+        313,
+        242,
+        335
+      ],
+      "gt_misconception": 35,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that variables must be explicitly wrapped in a type-casting function (e.g., `integer(...)`, `string(...)`) during assignment, comparison, and output operations to ensure they are treated as the correct data type, even when their types are already declared in the `kamus` (dictionary/variable declaration) section.",
+        "explanation": "Across all provided code samples, the student redundantly applies `integer()` or `string()` wrappers to variables that are already declared as `integer` or `string` in the `kamus` section. For example, in Code 1, `output(integer(a) * integer(b))` is used instead of `output(a * b)`. In Code 2, `jumlah <- integer(0)` and `if string(s[i]) == 's'` are used. In Code 4, comparisons like `if integer(a) > integer(b)` are used. This pattern suggests a misconception that the declared type in `kamus` is insufficient or that the language requires explicit casting for every operation, likely due to confusion with dynamically typed languages or a misunderstanding of how static typing works in this pseudocode notation."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_38_0",
+    "group_type": "misconception",
+    "misconception_id": 38,
+    "problem_id": 178,
+    "original_misconception": {
+      "id": 38,
+      "description": "Student believes that while loops execute their body only once if the condition is true."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_178_misc_38.json",
+        "problem_385_misc_38.json",
+        "problem_200_misc_38.json",
+        "problem_152_misc_38.json",
+        "problem_60_misc_38.json"
+      ],
+      "problem_ids": [
+        178,
+        385,
+        200,
+        152,
+        60
+      ],
+      "gt_misconception": 38,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that a `while` loop does not require an explicit update statement for its loop control variable within the loop body, assuming the loop condition or structure inherently handles iteration or termination.",
+        "explanation": "In Student Code 2 (Prime Check), the variable `pembagi` is initialized to 2, but it is never incremented inside the `while pembagi < n do` loop. This creates an infinite loop if `n > 2` and `n` is not divisible by 2 (or even if it is, it gets stuck checking 2 forever).\nIn Student Code 3 (Harmonic Sum), the variable `i` is initialized to `n`, but it is never decremented inside the `while i >= 1 do` loop. This creates an infinite loop.\nIn Student Code 5 (Product), the loop `while hasil == 0 do` relies on `hasil` changing from 0 to non-zero. While `hasil` is assigned `a * b` inside, if `a` or `b` is 0, `hasil` remains 0, causing an infinite loop. More critically, the logic is flawed because the loop is unnecessary; the assignment happens once. However, the pattern of missing iteration updates is consistent with Codes 2 and 3.\nStudent Code 1 and 4 correctly update their loop variables (`i` is implicitly handled by the `while` condition check against `panjang(s)` but wait, Code 1 also lacks an increment for `i`! Let's re-read Code 1.\nCode 1: `i <- 1`, `while i <= panjang(s) - 2 do`. Inside the loop, `i` is never incremented. This is also an infinite loop (or out of bounds if it didn't loop infinitely).\nCode 4: `i <- 1`, `while i <= m do`. Inside, `i` is never incremented. This is also an infinite loop.\n\nTherefore, the shared misconception across Codes 1, 2, 3, 4, and 5 is the failure to update the loop control variable inside the loop body. The student seems to believe that the `while` loop automatically iterates or that the variable updates itself, or they simply forgot the update step entirely in every single case. This is a fundamental misunderstanding of how `while` loops work: the programmer is responsible for changing the condition's state within the loop to ensure termination."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_0",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 93,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_93_misc_4.json",
+        "problem_54_misc_4.json",
+        "problem_130_misc_4.json",
+        "problem_313_misc_4.json",
+        "problem_121_misc_4.json"
+      ],
+      "problem_ids": [
+        93,
+        54,
+        130,
+        313,
+        121
+      ],
+      "gt_misconception": 4,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that boolean expressions (such as comparisons using `<`, `>`, `==`, `!=`) must be explicitly compared to the boolean literal `true` (e.g., `(a < b) == true`) to be used as conditions in control structures like `if` or `while`.",
+        "explanation": "Across all five code samples, the student consistently wraps boolean conditions in an equality check against `true`. \n- In Code 1, conditions are written as `(d1 < d2) == true`.\n- In Code 2, conditions are written as `(attackerTipe == defenderTipe) == true`.\n- In Code 3, the loop condition is `(sisa > 0) == true` and the palindrome check is `(hasilBalik == kandidat) == true`.\n- In Code 4, the character check is `(s[i] != ' ') == true`.\n- In Code 5, the length comparison is `(panjangSekarang > panjangMax) == true`.\n\nIn standard programming logic and the specified pseudocode notation, comparison operators already evaluate to a boolean value. Writing `(condition) == true` is redundant and suggests a misconception that the comparison operator returns a non-boolean type (like an integer or void) that needs to be explicitly mapped to `true` before being evaluated by the `if` or `while` statement. While this code may function correctly in many languages due to implicit conversion or strict boolean evaluation, it reflects a fundamental misunderstanding of how boolean expressions work as predicates."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_1",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 242,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_242_misc_4.json",
+        "problem_178_misc_4.json",
+        "problem_501_misc_4.json",
+        "problem_213_misc_4.json",
+        "problem_152_misc_4.json"
+      ],
+      "problem_ids": [
+        242,
+        178,
+        501,
+        213,
+        152
+      ],
+      "gt_misconception": 4,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that boolean expressions must be explicitly compared to the value `true` using the equality operator (`== true`) to be used as conditions in control flow statements like `if`.",
+        "explanation": "In all provided code samples, the student writes conditions in the form `(expression) == true` instead of just `expression`. For example, in Code 1, they write `if (a > b) == true then` instead of `if a > b then`. In Code 2, they write `if (s[i] == 's' ...) == true then`. In Code 3, `if (hasil == \"Heads\") == true then`. In Code 4, `if (umur <= 2) == true then`. And in Code 5, `if (panjangKata > n) == true then`. This indicates a misconception that the `if` statement requires an explicit equality check against `true` rather than accepting a boolean expression directly."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_4_2",
+    "group_type": "misconception",
+    "misconception_id": 4,
+    "problem_id": 176,
+    "original_misconception": {
+      "id": 4,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_176_misc_4.json",
+        "problem_94_misc_4.json",
+        "problem_348_misc_4.json",
+        "problem_46_misc_4.json",
+        "problem_73_misc_4.json"
+      ],
+      "problem_ids": [
+        176,
+        94,
+        348,
+        46,
+        73
+      ],
+      "gt_misconception": 4,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that boolean expressions must be explicitly compared to the boolean literal `true` using the equality operator (`== true`) to be used as conditions in control flow statements like `if`.",
+        "explanation": "In all provided code samples, the student writes conditions in the form `(expression) == true` instead of simply using the boolean expression itself. For example, in Code 1, `if (i >= awal and i <= akhir) == true then` is used instead of `if (i >= awal and i <= akhir) then`. Similarly, Code 2 uses `if ((a < 0 and b > 0) or (a > 0 and b < 0)) == true then`, Code 3 uses `if (a != b) == true then`, Code 4 uses `if (x < terkecil) == true then`, and Code 5 uses `if (i == j) == true then`. This indicates a misconception that the `if` statement requires an explicit equality check against `true` rather than accepting a boolean value directly."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_41_0",
+    "group_type": "misconception",
+    "misconception_id": 41,
+    "problem_id": 313,
+    "original_misconception": {
+      "id": 41,
+      "description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_313_misc_41.json",
+        "problem_54_misc_41.json",
+        "problem_152_misc_41.json",
+        "problem_213_misc_41.json",
+        "problem_335_misc_41.json"
+      ],
+      "problem_ids": [
+        313,
+        54,
+        152,
+        213,
+        335
+      ],
+      "gt_misconception": 41,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that an `if` statement can be used to iterate over a range of values or repeat a block of code multiple times, effectively substituting for a `for` or `while` loop.",
+        "explanation": "In all provided code samples, the student attempts to process a sequence of items (characters in a string, multiple words, multiple numbers, or years of age) by initializing an index or counter variable (e.g., `i <- 1` or `tahunTerhitung <- 0`) and then using a single `if` statement with a condition like `i <= n` or `tahunTerhitung < umur`. Inside this `if` block, they perform the processing step and increment the counter. However, because `if` is a conditional branching construct and not a looping construct, the code inside the block executes at most once. The student fails to recognize that to repeat an action `n` times, a loop structure (`for`, `while`, or `repeat`) is required, not a conditional check. This results in the code only processing the first item (or failing to process subsequent items) instead of iterating through the entire input."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_41_1",
+    "group_type": "misconception",
+    "misconception_id": 41,
+    "problem_id": 60,
+    "original_misconception": {
+      "id": 41,
+      "description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_60_misc_41.json",
+        "problem_385_misc_41.json",
+        "problem_73_misc_41.json",
+        "problem_46_misc_41.json",
+        "problem_121_misc_41.json"
+      ],
+      "problem_ids": [
+        60,
+        385,
+        73,
+        46,
+        121
+      ],
+      "gt_misconception": 41,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that an `if` statement can be used to iterate over a range of values or repeat a block of code multiple times, effectively treating it as a loop construct (like `for` or `while`) by manually incrementing a counter inside the `if` block, without realizing that `if` only executes its body once.",
+        "explanation": "In all provided code samples, the student attempts to process a sequence of items (adding `a` repeatedly, checking divisors, printing matrix rows, finding the minimum of `n` numbers, finding the longest word among `n` words) by initializing a counter variable (e.g., `count`, `i`) and placing the processing logic inside an `if` statement that checks the counter against a limit (e.g., `if count < b`, `if i <= n`). Inside this `if` block, they increment the counter (e.g., `count <- count + 1`, `i <- i + 1`). However, because `if` is a conditional branch and not a loop, the code inside executes only once (for the initial value of the counter). The student fails to use `while`, `repeat`, or `for` loops, which are the correct constructs for repetition in this pseudocode notation. This indicates a fundamental misunderstanding of the semantics of the `if` statement versus loop constructs."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_54_0",
+    "group_type": "misconception",
+    "misconception_id": 54,
+    "problem_id": 213,
+    "original_misconception": {
+      "id": 54,
+      "description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_213_misc_54.json",
+        "problem_121_misc_54.json",
+        "problem_46_misc_54.json",
+        "problem_130_misc_54.json",
+        "problem_178_misc_54.json"
+      ],
+      "problem_ids": [
+        213,
+        121,
+        46,
+        130,
+        178
+      ],
+      "gt_misconception": 54,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that variable assignments act as dynamic formulas or bindings that automatically update their values when the variables on the right-hand side of the assignment change, rather than storing a static value at the time of execution.",
+        "explanation": "In Code 2, the student sets `panjangMax <- panjang(kata)` before the loop and expects it to track the length of the current `kata` as `kata` is updated in each iteration, failing to re-assign `panjangMax` inside the loop. In Code 3, `hasil` is assigned `terkecil` initially, and the student expects `hasil` to update when `terkecil` is modified inside the loop, but `hasil` remains the initial value. In Code 4, `hasilBalik` is computed from the initial `kandidat`, and the student expects it to reflect the reverse of the incremented `kandidat` in subsequent loop iterations without re-computing it. In Code 5, `indeksBerikut` is assigned `i + 1` before the loop, and the student expects it to automatically increment as `i` increments in the loop, leading to incorrect index access."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_54_1",
+    "group_type": "misconception",
+    "misconception_id": 54,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 54,
+      "description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_54.json",
+        "problem_73_misc_54.json",
+        "problem_200_misc_54.json",
+        "problem_94_misc_54.json",
+        "problem_385_misc_54.json"
+      ],
+      "problem_ids": [
+        335,
+        73,
+        200,
+        94,
+        385
+      ],
+      "gt_misconception": 54,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the assignment operator `<-` creates a reference or alias, such that a variable assigned the value of another variable (or an expression) will automatically update whenever the source variable(s) change.",
+        "explanation": "In Code 1, the student assigns `hasil <- minimum + maksimum` before the loop, expecting `hasil` to reflect the final min/max values after the loop updates them. In Code 2, the student assigns `posisiDiagonal <- i` before the loop, expecting `posisiDiagonal` to track the current value of `i` during iterations. In both cases, the assigned variables retain their initial values because assignment copies the value at that moment, it does not create a live link."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_0",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 54,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_54_misc_56.json",
+        "problem_178_misc_56.json",
+        "problem_213_misc_56.json",
+        "problem_176_misc_56.json",
+        "problem_121_misc_56.json"
+      ],
+      "problem_ids": [
+        54,
+        178,
+        213,
+        176,
+        121
+      ],
+      "gt_misconception": 56,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": false,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_1",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 93,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_93_misc_56.json",
+        "problem_94_misc_56.json",
+        "problem_152_misc_56.json",
+        "problem_60_misc_56.json",
+        "problem_348_misc_56.json"
+      ],
+      "problem_ids": [
+        93,
+        94,
+        152,
+        60,
+        348
+      ],
+      "gt_misconception": 56,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_56_2",
+    "group_type": "misconception",
+    "misconception_id": 56,
+    "problem_id": 335,
+    "original_misconception": {
+      "id": 56,
+      "description": "Student believes that variable identifiers can only be one letter long."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_335_misc_56.json",
+        "problem_242_misc_56.json",
+        "problem_73_misc_56.json",
+        "problem_46_misc_56.json",
+        "problem_313_misc_56.json"
+      ],
+      "problem_ids": [
+        335,
+        242,
+        73,
+        46,
+        313
+      ],
+      "gt_misconception": 56,
+      "bag_index": 2
+    },
+    "predicted_misconceptions": [],
+    "no_predicted_misconceptions": true,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_59_0",
+    "group_type": "misconception",
+    "misconception_id": 59,
+    "problem_id": 73,
+    "original_misconception": {
+      "id": 59,
+      "description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_73_misc_59.json",
+        "problem_200_misc_59.json",
+        "problem_335_misc_59.json",
+        "problem_130_misc_59.json",
+        "problem_385_misc_59.json"
+      ],
+      "problem_ids": [
+        73,
+        200,
+        335,
+        130,
+        385
+      ],
+      "gt_misconception": 59,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that explicit type-casting functions (such as string(), integer(), and real()) are valid constructs in the pseudocode language for converting between scalar types.",
+        "explanation": "Students 2, 4, and 5 incorrectly use functions like string(), integer(), and real() to convert values between types (e.g., converting an integer to a string or a real number to a string). These functions are not part of the specified Notasi Algoritmik notation, which relies on declared scalar types and standard operators. The students likely confuse this pseudocode with dynamically typed languages like Python or statically typed languages with explicit casting syntax. Student 1 and 3 do not exhibit this specific error because their problems did not require type conversion, or they used standard string concatenation (Student 1) which is a valid operator, whereas the others invoked non-existent conversion functions."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_59_1",
+    "group_type": "misconception",
+    "misconception_id": 59,
+    "problem_id": 348,
+    "original_misconception": {
+      "id": 59,
+      "description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_348_misc_59.json",
+        "problem_60_misc_59.json",
+        "problem_121_misc_59.json",
+        "problem_313_misc_59.json",
+        "problem_94_misc_59.json"
+      ],
+      "problem_ids": [
+        348,
+        60,
+        121,
+        313,
+        94
+      ],
+      "gt_misconception": 59,
+      "bag_index": 1
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that integer values must be stored in string variables and explicitly converted to integers using `integer()` for arithmetic operations or comparisons, and vice versa, implying a confusion between data types and a belief that the language does not support native integer arithmetic or comparison on integer variables.",
+        "explanation": "In Student Code 1, the variable `total` is declared as a `string` but is used to count integers. The student initializes it with `\"0\"`, increments it by converting it to an integer (`integer(total) + 1`), and converts the result back to a string. Similarly, in Student Code 3, `pjgMax` and `pjgSkrng` are declared as `string` but store integer lengths, requiring `integer()` conversion for comparison. In Student Code 5, although `x` and `y` are declared as `integer`, the student redundantly assigns `x <- integer(x)`, suggesting a belief that input or variables need explicit casting to be treated as integers for logic. This pattern across multiple samples indicates a fundamental misconception that the pseudocode language lacks native integer support for arithmetic/comparison or that variables must be strings to hold numeric data, requiring manual casting."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_26_0",
+    "group_type": "misconception",
+    "misconception_id": 26,
+    "problem_id": 242,
+    "original_misconception": {
+      "id": 26,
+      "description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must always be wrapped in if/else statements to be returned as Boolean values."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_242_misc_26.json",
+        "problem_54_misc_26.json",
+        "problem_152_misc_26.json",
+        "problem_385_misc_26.json",
+        "problem_73_misc_26.json"
+      ],
+      "problem_ids": [
+        242,
+        54,
+        152,
+        385,
+        73
+      ],
+      "gt_misconception": 26,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that boolean variables must be explicitly assigned `true` or `false` using an `if-else` block based on a condition, rather than being assigned the result of the boolean expression directly.",
+        "explanation": "In all provided code samples, the student avoids assigning the result of a comparison or logical expression directly to a boolean variable (e.g., `terbalik <- (a > b)`). Instead, they consistently use a verbose pattern:\n1. An `if` statement checks the condition.\n2. The `then` branch assigns `true` to the boolean variable.\n3. The `else` branch assigns `false` to the boolean variable.\n\nThis is seen in:\n- **Code 1**: `if a > b then terbalik <- true else terbalik <- false endif` instead of `terbalik <- (a > b)`.\n- **Code 2**: `if attackerTipe == defenderTipe then samaTipe <- true else samaTipe <- false endif`.\n- **Code 3**: `if panjangKata > n then cukupPanjang <- true else cukupPanjang <- false endif`.\n- **Code 4**: `if n >= 2 then valid <- true else valid <- false endif`.\n- **Code 5**: `if i == j then diagonal <- true else diagonal <- false endif`.\n\nThis indicates a misconception that boolean assignment requires explicit control flow to set the value, rather than recognizing that boolean expressions evaluate to boolean values that can be assigned directly."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  },
+  {
+    "prediction_id": "group_misconception_20_0",
+    "group_type": "misconception",
+    "misconception_id": 20,
+    "problem_id": 200,
+    "original_misconception": {
+      "id": 20,
+      "description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope."
+    },
+    "group_info": {
+      "num_codes": 5,
+      "num_problems": 5,
+      "source_files": [
+        "problem_200_misc_20.json",
+        "problem_335_misc_20.json",
+        "problem_46_misc_20.json",
+        "problem_176_misc_20.json",
+        "problem_178_misc_20.json"
+      ],
+      "problem_ids": [
+        200,
+        335,
+        46,
+        176,
+        178
+      ],
+      "gt_misconception": 20,
+      "bag_index": 0
+    },
+    "predicted_misconceptions": [
+      {
+        "description": "The student believes that the loop control variable in a `for` loop declaration (e.g., `for i <- 1 to n`) can be the same identifier as a variable holding the loop's upper bound, and that the loop will correctly iterate up to the original value of that bound variable, ignoring that the assignment in the header overwrites the bound variable.",
+        "explanation": "In Student Code 1, the variable `n` is used both as the input value (the upper bound) and as the loop counter in `for n <- 1 to n do`. In standard programming semantics (and the implied semantics of this pseudocode notation which mirrors languages like Pascal or C), the loop header initializes the counter variable. If the counter variable is the same as the bound variable, the bound is overwritten in the first iteration (or during initialization), leading to an infinite loop or incorrect iteration count (e.g., `n` becomes 1, then the condition `1 to 1` might execute once, or if evaluated differently, it breaks). The student likely believes that the `n` in the `to n` part refers to the original input value, unaffected by the assignment `n <- 1` in the loop initialization. This misconception is also hinted at in Code 2 and Code 3 where loop variables are reused or confused, but Code 1 is the clearest example of using the bound variable as the iterator. Specifically, in Code 1, `for n <- 1 to n` sets `n` to 1. If the loop condition checks `n <= original_n`, it might work, but typically `for` loops evaluate the bounds at start. If `n` is updated, the upper bound changes. The student's code suggests they think the loop variable name in the `for` statement is distinct from the variable used in the `to` clause, or that the `to` clause captures the value before the loop variable is assigned."
+      }
+    ],
+    "no_predicted_misconceptions": false,
+    "reasoning": "",
+    "analysis": "",
+    "parse_success": true,
+    "metadata": {}
+  }
+]

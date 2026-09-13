@@ -1,0 +1,38 @@
+{
+  "total_groups": 37,
+  "correct_only_groups": 4,
+  "misconception_groups": 33,
+  "total_single_predictions": 184,
+  "groups_with_complete_singles": 37,
+  "groups_with_missing_singles": 0,
+  "coverage_by_group_type": {
+    "correct_only": {
+      "total_groups": 4,
+      "total_expected_singles": 19,
+      "total_found_singles": 19
+    },
+    "misconception": {
+      "total_groups": 33,
+      "total_expected_singles": 165,
+      "total_found_singles": 165
+    }
+  },
+  "misconception_distribution": {
+    "14": 1,
+    "16": 3,
+    "17": 3,
+    "18": 3,
+    "24": 2,
+    "25": 1,
+    "33": 2,
+    "35": 3,
+    "38": 1,
+    "4": 3,
+    "41": 2,
+    "54": 2,
+    "56": 3,
+    "59": 2,
+    "26": 1,
+    "20": 1
+  }
+}

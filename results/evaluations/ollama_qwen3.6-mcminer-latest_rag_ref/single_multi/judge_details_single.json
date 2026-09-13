@@ -1,0 +1,1626 @@
+{
+  "evaluation_timestamp": "2026-09-05T21:55:52.821844",
+  "judge_provider": "ollama",
+  "judge_model": "gpt-oss-judge:latest",
+  "summary": {
+    "total": 165,
+    "match": 99,
+    "match_with_novel": 112,
+    "match_rate": 0.6,
+    "match_with_novel_rate": 0.6787878787878788,
+    "judge_calls": 122,
+    "judge_parse_failures": 2,
+    "judge_parse_success_rate": 0.9836065573770492
+  },
+  "evaluation_details": [
+    {
+      "prediction_id": "problem_121_misc_14.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_121_misc_16.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `:` for assignments (e.g., `panjangMax : 0`), which directly reflects the misconception that colons are assignment operators. The system’s prediction identifies this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_121_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception states that the student thinks the `for` loop does not automatically increment its counter and therefore manually updates `i`. This is the same underlying false belief as the ground truth, which concerns the effect of modifying the loop variable inside the loop body. The code indeed contains `i <- i + 1` inside the `for` loop, demonstrating this misconception. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_25.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns the need for separate if statements for mutually exclusive conditions, which is not reflected in the code. However, the code does contain a second if that unconditionally overwrites the value set in the first if, indicating the student believes assignments inside an if block are temporary. Thus the prediction matches a different real misconception present in the code, warranting a novel match.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception correctly identifies the student’s false belief that explicit casting (e.g., `integer(...)`) is required even when variables are already typed, which matches the ground truth description. The code repeatedly uses `integer(...)` around literals, loop bounds, function results, and variable references, demonstrating this misconception. No other unrelated misconceptions are present. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The system correctly identifies the student’s false belief that a boolean expression must be explicitly compared to `true` before use in an `if` statement, which is exactly the ground truth misconception. The code contains `if (panjangSekarang > panjangMax) == true then`, demonstrating this misconception. No other unrelated misconceptions are claimed or present. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted explanation correctly identifies the student’s mistaken belief that an `if` statement will loop as long as its condition remains true, which is exactly the ground‑truth misconception. The code’s use of a single `if i <= n then … endif` block with an internal increment demonstrates this false mental model, even though the program may still produce a result. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_121_misc_54.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_121_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns variable names containing vowels being restricted to string types. The code does not exhibit any evidence of this belief; the variable names with vowels are used as strings, but there is no indication that the student thinks they cannot hold other types. The system’s prediction instead focuses on unnecessary type conversions, which is a different false belief. No other misconception is present in the code, so the prediction does not match or reveal a novel misconception.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_121_misc_59.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_130_misc_14.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `if hasilBalik = kandidat then`, indicating the student thinks `=` is the equality operator. This is exactly the misconception described in the ground truth, so the prediction matches. The code also exhibits this belief, confirming the novelty criterion.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code consistently uses `:` for all assignment statements (e.g., `kandidat : n + 1`, `sudahKetemu : false`), which reflects the misconception that colons are the assignment operator. The system’s prediction correctly identifies this belief, matching the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code contains the expression `if hasilBalik == kandidat or n then`, which shows the student’s belief that the equality operator distributes over the `or` operator, treating `n` as a second operand of the comparison. This is precisely the misconception described in the ground truth, so the prediction matches. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses two separate `if` statements for mutually exclusive conditions (`hasilBalik == kandidat` and `hasilBalik != kandidat`), reflecting the belief that each case must be handled by its own `if`. This matches the ground‑truth misconception about needing separate `if` statements for exclusive branches. The prediction correctly identifies this pattern, so both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the same false belief that the student thinks explicit type constructors (e.g., integer(...), boolean(...)) are required everywhere, matching the ground truth about unnecessary explicit conversions for type safety.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception explicitly states that the student thinks conditions must be compared to the literal `true`, which is exactly the ground‑truth belief. The code contains `while (sisa > 0) == true do` and `if (hasilBalik == kandidat) == true then`, directly reflecting that false mental model. Thus the prediction matches the ground truth and is also a valid observation of the code’s style.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_130_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_130_misc_54.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_130_misc_59.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `=` in a conditional (`if panjangKata = n then`), which directly reflects the misconception that `=` is the equality comparison operator. The system’s prediction identifies this exact belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses a colon (`:`) in the assignment `panjangKata : panjang(kata)`, which directly reflects the misconception that colons are assignment operators. The system’s prediction identifies this exact false belief, so it matches the ground truth and is also a valid observation of the code’s misconception.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_152_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly assigns the result of the comparison `panjangKata > n` to a boolean variable `cukupPanjang` via an `if‑else` block, then uses that variable in a subsequent `if`. This pattern reflects the misconception that a conditional expression cannot be used directly in control flow and must first be wrapped in an `if/else` to produce a Boolean value. The system’s prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_26.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses three independent `if` statements to handle mutually exclusive conditions (`panjangKata > n + 5`, `panjangKata > n`, and `panjangKata <= n`). This pattern directly reflects the misconception that each mutually exclusive branch must be written as a separate `if`, matching the ground truth belief. Thus the prediction correctly identifies the same false belief, and no additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_38.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the Boolean result of `panjangKata > n` to `true`, indicating the student believes a conditional expression must be compared to a Boolean literal. This matches the ground‑truth misconception exactly. No other distinct misconception is present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that an `if` statement will loop as long as its condition remains true, which is exactly the ground‑truth misconception. The code uses `if i <= m then … i <- i + 1 endif`, showing the misconception in the same place. No other unrelated misconception is claimed, so novelty is not needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_152_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_152_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses a separate variable `indeksSekarang` to track the current iteration instead of the loop variable `i`, indicating the student believes the loop variable is not accessible or usable after the loop starts. This directly reflects the ground‑truth misconception that loop variables are destroyed and inaccessible after the loop completes. The prediction therefore matches the false belief, and no additional novel misconception is required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_14.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that the single equals sign (=) is used for equality comparison in the pseudocode, which is exactly the misconception described in the ground truth. The code uses `if n = 0 then`, reflecting this belief. No other misconceptions are present or incorrectly claimed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns the misuse of the `or` operator in a chained comparison (e.g., `x == a or b`). The predicted misconception is about treating an integer literal as a boolean operand (`if x != 0 or 0 then`). These are distinct false beliefs, so `match` is N. However, the code does contain the predicted pattern—using `or 0` in a condition—which reflects the student's misunderstanding about boolean operands, so `match_with_novel` is Y. The code would not compile or behave correctly in a language that requires boolean operands, confirming the presence of the predicted misconception.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The code does not exhibit the misconception that loop variables have a separate scope; the loop variable `i` is used both inside and after the loop, indicating the student understands its scope. The system’s prediction about unnecessary explicit initialization is unrelated to the ground truth misconception and is not supported by the code. Therefore, neither match nor novelty is warranted.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_20.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code contains an explicit initialization `i <- 0` before the `for i <- 1 to n` loop, indicating the student believes the loop variable must be initialized beforehand. This matches the ground‑truth misconception that loop variables need not be explicitly initialized. The system’s prediction correctly identifies this false belief, so both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_24.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that the `for` loop does not automatically increment its control variable, leading to an unnecessary manual increment (`i <- i + 1`). This is the same misconception as the ground truth, which states that modifying the loop variable inside the body does not affect the next iteration. The code indeed contains the redundant increment, confirming the misconception. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_25.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code repeatedly casts every variable and literal with `integer(...)`, reflecting the belief that explicit conversion is required for type safety, which is exactly the ground‑truth misconception. Thus the prediction matches the injected misconception. No additional novel misconceptions are needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean expression to `true` (`if (i >= awal and i <= akhir) == true then`), which directly reflects the misconception that a condition must be compared to a boolean constant. The prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_176_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_176_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_178_misc_14.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses the single equals sign `=` in the conditional `if s[i] = 's' and s[i+1] = 't' and s[i+2] = 'd' then`, which directly reflects the misconception that `=` is the equality operator in this pseudocode notation. The system’s prediction identifies this exact belief, so it matches the ground truth and is also a valid observation of the code’s behavior. No other misconceptions are present or incorrectly claimed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `:` for assignment (`jumlah : 0`, `jumlah : jumlah + 1`) instead of the correct `<-`, directly reflecting the misconception that colons perform assignment. The system’s prediction captures this same false belief, so it matches the ground truth and is also a valid observation of the code’s style.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns loop‑variable scope, yet the code uses the same variable `i` for both the upper bound and the loop counter, which does not reveal a belief that loop variables are in a separate scope. The system’s prediction about the loop bound being a pre‑assigned variable is unrelated to the injected misconception and is not supported by the code. Therefore, neither match nor novelty applies.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_20.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_178_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception states that the student unnecessarily casts variables to their declared types (e.g., using `string()` or `integer()`) before using them, which is exactly the same false belief described in the ground truth. The code shows repeated casts such as `s <- string(s)`, `panjang(string(s))`, and `string(s[i])`, confirming this misconception. No other unrelated misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_38.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean expression to `true` in the `if` statement, which directly reflects the misconception that a condition must be compared to a boolean literal. The system’s prediction identifies this exact pattern, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student assumes `indeksBerikut` and `indeksBerikut2`, initialized as `i + 1` and `i + 2` before the loop, will automatically track the changing loop counter `i`. This matches the ground‑truth misconception that a variable assigned an arithmetic expression involving other variables will update automatically when those variables change. The code indeed exhibits this pattern, so the prediction is accurate and the novelty check is satisfied.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_178_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_178_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `if n = 1 then`, which indicates the student thinks `=` is the equality operator, whereas the language specifies `==` for comparison. This matches the ground‑truth misconception exactly, so the prediction is correct and no additional novel misconception is needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `jumlah : 0` and `jumlah : jumlah + 1 / i`, which directly reflects the misconception that `:` is an assignment operator. The system’s prediction identifies this exact belief, so it matches the ground truth and is also a valid observation of the code’s style. No other misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `for n <- 1 to n do`, reusing the same identifier for the loop counter and the loop bound, which directly reflects the misconception that loop variables exist in a separate scope and do not affect the outer variable. The system’s prediction captures this exact false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_20.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_200_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_200_misc_33.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code repeatedly casts variables and literals with `integer()` and `real()`, reflecting the belief that explicit conversion is necessary for type safety, which matches the ground‑truth misconception. The prediction correctly identifies this pattern, so both match and novelty judgments are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code shows a missing update of the loop variable `i`, implying the student thinks a `while` loop automatically changes its control variable. This is the same false belief as the ground truth (that a `while` loop executes its body only once when the condition is true), so the prediction matches. The code indeed exhibits this misconception, confirming the novelty judgment.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_38.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_200_misc_54.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns variable names containing vowels being restricted to strings, which is not reflected in the code (the variable name “value” contains a vowel but is intentionally declared as a string). The system’s prediction instead identifies a different misconception: the student believes a division result must be converted to a string and back to a real before accumulation. The code indeed performs that redundant conversion, so while it does not match the ground truth, it does exhibit a valid, distinct misconception, warranting a novel match.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_200_misc_59.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s misuse of the single equals sign `=` for equality comparison in the `if umur = 0 then` statement, which matches the ground truth misconception that the student believes `=` is the equality operator. The code indeed exhibits this pattern, so the prediction is accurate and no additional novel misconception is required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code assigns values to `umurAnjing` using `:` (e.g., `umurAnjing : umur * 10.5`), which directly reflects the misconception that colons are assignment operators. The system’s prediction identifies this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s mistaken belief that the comparison operator distributes over the `or` operator, as evidenced by the line `if umur == 1 or 2 then`. This matches the ground‑truth misconception exactly. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses two independent `if` statements for complementary conditions (`umur <= 2` and `umur > 2`), which directly reflects the misconception that mutually exclusive branches must each be written as separate `if` statements rather than using an `else`. This matches the ground truth belief, so the prediction is correct and no additional novel misconception is needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that explicit casting functions (e.g., `integer()` and `real()`) are required to enforce type safety, which is exactly the ground‑truth misconception. The code repeatedly casts variables to their declared types, demonstrating this misconception even though the program remains syntactically and logically correct.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly writes `if (umur <= 2) == true then`, which shows the student thinks a boolean expression must be compared to the literal `true`. This matches the ground‑truth misconception. The prediction correctly identifies this pattern, so both match and match_with_novel are Y. No other misconceptions are evident.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction explicitly states that the student thinks an if‑statement will repeat its body while the condition remains true, which is exactly the misconception described in the ground truth. The code uses two separate if blocks that increment a counter, mimicking a loop, thereby revealing the same false belief. No other distinct misconception is present, so novelty is not required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_213_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_213_misc_54.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_213_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_242_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code repeatedly uses an `if`/`else` to assign a boolean flag (`terbalik`) and then a separate `if terbalik` to perform the action, which directly reflects the misconception that a condition must be wrapped in an `if`/`else` to produce a Boolean value. The system’s prediction identifies this exact pattern, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_242_misc_26.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that values read by `input` are untyped (or strings) and must be explicitly cast to `integer` before use, which is exactly the misconception described in the ground truth. The code shows repeated `integer(a)`, `integer(b)`, `integer(c)` casts after input, confirming this belief. No other unrelated misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_242_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares each boolean expression to the literal `true` (e.g., `if (a > b) == true then`), which directly reflects the misconception that conditions must be compared to `true`. The prediction identifies this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_242_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_242_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns the misuse of the `or` operator with a chained comparison (e.g., `x == a or b`). The code contains `s[i] != ' ' or 0`, which reflects a different belief: treating boolean results as integers and combining them with an integer literal. This does not match the ground‑truth misconception, and the code does not exhibit the predicted integer‑boolean misconception either. Therefore, neither match nor novelty applies.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_313_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_313_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that every variable or expression must be wrapped in a `string()` cast even when its type is already known, which is exactly the ground‑truth misconception. The code repeatedly casts `s`, `hasil`, and `s[i]` to `string`, demonstrating this belief. No other unrelated misconceptions are present, so novelty is not required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_313_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_313_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception states that the student thinks an `if` statement can be used to iterate over a sequence, which is exactly the belief that the body of an `if` executes repeatedly as long as the condition holds. The code uses `if i <= panjang(s)` with an increment inside, showing this false belief. Thus the prediction matches the ground truth and is also a valid observation of the code’s structure.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_313_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_313_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_313_misc_59.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `:` for assignments (`minimum : x`, `maksimum : x`), which directly reflects the misconception that colons are assignment operators. The system’s prediction identifies this exact false belief, so it matches the ground truth and is also a valid observation of the code’s style. No other misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code contains the expression `if n == 0 or 1 then`, which directly reflects the misconception that `x == a or b` is a shorthand for `x == a or x == b`. The system’s prediction identifies this exact pattern, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The code does not show any evidence that the student thinks loop variables are in a separate scope; the loop variable `i` is used normally and no shadowing or scope confusion occurs. The system’s prediction about an unnecessary loop is unrelated to the ground‑truth misconception, and the code does not exhibit that pattern either. Therefore neither match nor novelty applies.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_20.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_335_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that declared integer variables still require explicit casting with `integer()`. The code repeatedly casts `n`, `x`, `minimum`, and `maksimum` despite their type declarations, directly reflecting the same misconception described in the ground truth.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception states that the student uses an `if` statement to attempt iteration, believing that the condition will cause repeated execution. This is exactly the same false belief as the ground truth: thinking that an `if` body repeats as long as the condition holds. The code indeed contains a single `if i <= n then` block that only executes once, confirming the misconception. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student expects `hasil` to reflect the updated values of `minimum` and `maksimum` after the loop, implying a belief that the assignment is dynamically linked. This matches the ground‑truth misconception that a variable assigned an expression containing other variables automatically updates when those variables change. The code indeed exhibits this pattern, so the prediction is accurate and no additional novel misconception is needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_335_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_335_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_335_misc_59.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_348_misc_16.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the same false belief that colons are used for assignment, matching the ground truth misconception. The code indeed uses `jumlah : 0` and `jumlah : jumlah + 1`, demonstrating this misconception. No other unrelated misconceptions are claimed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_348_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses expressions like `a != b or c`, which reflects the same false belief that the `or` operator distributes over comparisons and that an integer can stand in for a boolean. The system’s prediction captures this misconception by pointing out the implicit truthiness of `c`, which is essentially the same underlying misunderstanding. Thus both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_348_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that all values need explicit `integer(...)` casts even though the variables are declared as integers. The code repeatedly casts inputs and literals, matching the ground‑truth misconception. No other unrelated misconceptions are present, so novelty is not required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_348_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares boolean expressions to the literal `true` in each `if` statement, which directly reflects the misconception that conditions must be compared to `true` or `false`. The prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_348_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_348_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "The system’s prediction focuses on unnecessary type conversions, which is a different false belief than the ground truth about vowel‑named variables being string‑only. However, the code does exhibit the ground‑truth misconception: the variable `total` (a vowel‑containing name) is declared as a string and used to hold numeric values, matching the student’s belief that such names can only store strings. Thus, while the prediction does not match the ground truth, it correctly identifies a misconception present in the code, warranting a “Y” for match_with_novel. The confidence is medium because the prediction is not a direct match but still captures a real issue in the code.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_348_misc_59.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `=` in the condition `if n mod i = 0 then`, which indicates the student believes `=` is the equality operator in this pseudocode language. This matches the ground‑truth misconception that the student thinks `=` is used for equality comparison. The prediction correctly identifies this false belief, so both match and match_with_novel are Y. The code is syntactically and logically correct, but the misconception is evident in the operator choice.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_385_misc_17.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception correctly identifies the student’s belief that the equality operator applies to both operands of the `or` operator, as evidenced by the line `if n == 0 or 1 then`. This matches the ground truth misconception exactly, and the code indeed exhibits this pattern, so both match and novelty judgments are positive.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the misconception that the loop counter must be initialized before the `for` loop, which is the same false belief as the ground truth. The code contains an unnecessary `i <- 0` before the loop, demonstrating this misconception. No other unrelated misconceptions are claimed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_24.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly changes the loop counter `i` inside the `for` loop (`i <- i + 1`), which demonstrates the misconception that altering the loop variable within the body does not influence the next iteration. The system’s prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present beyond this one.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_25.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction identifies that the student uses an explicit equality comparison (`if valid == false`) instead of using the boolean directly, which reflects the same underlying belief that conditions must be explicitly wrapped or compared to return a Boolean. This matches the ground truth misconception and is clearly exhibited in the code. No additional novel misconceptions are needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_26.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code repeatedly wraps variables and literals in type constructors (e.g., `integer(n)`, `boolean(false)`, `boolean(prima)`), directly reflecting the misconception that values must be explicitly converted to their declared type. This matches the ground truth belief and is evident throughout the program, so both match and novelty judgments are positive.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "The ground‑truth misconception is that a `while` loop runs its body only once when the condition is true. The system’s prediction instead identifies a missing loop‑control update, which is a different false belief. However, the code indeed lacks an increment of `pembagi`, causing an infinite loop, so the predicted misconception is present even though it is not the injected one.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_38.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction explicitly states that the student thinks an `if` block repeats while its condition is true, which is exactly the misconception described in the ground truth. The code contains an `if i < n div 2` that is intended to act like a loop but only runs once, matching the false belief. No other distinct misconception is present, so novelty is not needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code assigns `terbagi` once using `n mod 2` and never updates it inside the loop, implying the student believes a variable holding an arithmetic expression automatically reflects changes in its operands. This matches the ground‑truth misconception. The prediction explicitly describes this same false belief, so both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The system’s prediction concerns a misunderstanding of the `input` construct, which is unrelated to the injected misconception that variable names containing vowels can only hold strings. However, the code clearly demonstrates the vowel‑name misconception: the variable `value` (containing a vowel) is declared as a string, while all other variables with consonant‑only names are integers. Thus the prediction does not match the ground truth, but the code does exhibit the predicted misconception, warranting a novel match.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_385_misc_59.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `if i = 1 then`, indicating the student thinks `=` is the equality operator in conditional statements, which is exactly the ground‑truth misconception. The prediction captures this same false belief, so it matches and is also novel‑aware. No other misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code contains the condition `x < terkecil or x == 0 or -1`, which demonstrates the student’s belief that the equality operator can be omitted in a chained `or` expression (i.e., `x == 0 or -1` is interpreted as `x == 0 or x == -1`). This is exactly the misconception described in the ground truth. The prediction correctly identifies this pattern, so both match and match_with_novel are Y. No other misconceptions are evident.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_20.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_46_misc_24.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code contains an explicit `i <- i + 1` inside the `for` loop, indicating the student thinks the loop counter is not automatically updated. This is exactly the same misconception described in the ground truth: that changing the loop variable inside the body does not affect the next iteration. Thus the prediction matches the ground truth and is also a valid observation of the code’s behavior.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_25.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_46_misc_33.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean expression `(x < terkecil)` to `true` in the `if` statement, which directly reflects the misconception that conditions must be compared to a boolean literal. This matches the ground truth belief, so the prediction is correct. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s mistaken belief that an `if` statement will repeatedly execute its body while the condition remains true, which is exactly the ground‑truth misconception. The code’s single `if i <= n then … endif` block with an increment inside demonstrates this false mental model, even though the program is syntactically correct.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student assigns `hasil <- terkecil` before the loop and then never updates `hasil`, implying a belief that the assignment creates a persistent link that updates automatically when `terkecil` changes. This matches the ground‑truth misconception that a variable assigned an expression containing other variables automatically updates when those variables change. The code indeed exhibits this pattern, so the prediction is accurate and no additional novel misconception is needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_46_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_46_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `=` in the conditional `if hasil = \"Heads\" then`, which directly reflects the misconception that `=` is an equality operator. The system’s prediction identifies this same false belief, so it matches the ground truth and is also a valid observation of the code’s misconception. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_501_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_501_misc_17.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception correctly identifies the student’s false belief that a single equality can be chained with `or` (i.e., `hasil == \"Heads\" or \"Tails\"`), which matches the ground truth. The code indeed contains this pattern, so the prediction is accurate and no additional novel misconception is needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_501_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean result of `hasil == \"Heads\"` to `true`, which directly reflects the misconception that a condition must be compared to a boolean literal. The system’s prediction identifies this exact pattern, so it matches the ground truth and is also a valid observation of the misconception present in the code. No additional novel misconceptions are needed.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_501_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses the single equals sign `=` in all conditional comparisons (e.g., `if attackerTipe = defenderTipe then`). This directly reflects the misconception that `=` is the equality operator in conditional statements, matching the ground truth. The prediction identifies this same belief, so it is a correct match. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_54_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code consistently uses `:` to assign values (e.g., `efektivitas : 1`, `damage : 1`), which matches the ground‑truth misconception that colons are assignment operators. This pattern is clear and intentional, so the prediction correctly identifies the same false belief. No additional novel misconceptions are evident beyond this.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_54_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception explicitly states that the student thinks `x == a or b` is equivalent to `x == a or x == b`, which is exactly the false belief described in the ground truth. The code contains the line `else if attackerTipe == \"fire\" or \"water\" or \"grass\" then`, demonstrating this misconception. Therefore the prediction matches the ground truth and is also a valid observation of the code’s behavior. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_54_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_54_misc_26.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_54_misc_33.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the same false belief that values should be explicitly cast to their declared type, as shown by the repeated use of `string(...)`, `integer(...)`, and `real(...)` on already typed variables. This matches the ground truth misconception exactly.",
+      "parse_ok": false,
+      "method": "llm_judge",
+      "raw_response": "<evaluation>\n<match>Y</match>\n<match_with_novel>Y</match_withnovel>\n<confidence>high</confidence>\n<rationale>The prediction correctly identifies the same false belief that values should be explicitly cast to their declared type, as shown by the repeated use of `string(...)`, `integer(...)`, and `real(...)` on already typed variables. This matches the ground truth misconception exactly.</rationale>\n</evaluation>",
+      "prediction_id": "problem_54_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares boolean expressions to the literal `true` in each `if` statement (e.g., `if (attackerTipe == defenderTipe) == true then`). This pattern directly reflects the misconception that conditionals require an explicit comparison to `true`, matching the ground truth belief. No other distinct misconception is evident, so novelty is not required. The prediction accurately identifies the false belief present in the code.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_54_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_54_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_54_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses a colon in the assignment line (`result : a * b`), which directly reflects the misconception that colons are assignment operators. The system’s prediction identifies this exact belief, so it matches the ground truth and is also a valid observation of the code’s misconception.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_60_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s belief that values must be explicitly cast to their current type (here, `integer(a)` and `integer(b)`) before arithmetic, which matches the ground truth misconception. The code indeed contains unnecessary explicit conversions, confirming the misconception. No other unrelated misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_60_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "The predicted misconception concerns the belief that a product cannot be zero, which is unrelated to the ground‑truth belief that a while loop runs only once when its condition is true. However, the code does exhibit the zero‑product misconception: it loops forever when a*b equals zero, indicating the student treats zero as an invalid or uninitialized state.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_60_misc_38.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The predicted misconception explicitly states that the student thinks an `if` statement will repeatedly execute its body while the condition remains true, which is exactly the false belief described in the ground truth. The code uses a single `if` to attempt repeated addition, demonstrating this misunderstanding. No other misconceptions are present or needed for novelty credit.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_60_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_60_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns variable naming: vowel‑containing names are assumed to hold only strings, consonant‑only names can hold any type. The code indeed follows this pattern (x, y, rslt are integers; hasil is a string). The system’s prediction instead describes an unnecessary type conversion before output, which is unrelated to the naming belief. Thus no predicted misconception matches the ground truth, and the system’s claim is not supported by the code, so both match and match_with_novel are N.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_60_misc_59.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_73_misc_14.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `if i = j then`, which directly reflects the misconception that the single equals sign is the correct operator for equality comparison in conditional statements. The system’s prediction identifies this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code assigns values using the colon (`:`) inside the algorithm block (e.g., `baris : \"\"`), which matches the ground‑truth misconception that colons are used for assignment. The system’s prediction explicitly identifies this same false belief, so it is a correct match. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the false belief that loop variables must be explicitly initialized before a `for` loop, which matches the ground‑truth misconception. The code shows `i <- 0` and `j <- 0` before the loops, indicating the student holds this misconception even though the loops themselves initialize the variables. No other unrelated misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_24.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_73_misc_25.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_26.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student uses two separate `if` statements for mutually exclusive cases (diagonal vs. off‑diagonal) and fails to prevent the second condition from overwriting the first. This matches the ground‑truth misconception that such cases must be handled with separate `if`s rather than an `else` or mutually exclusive structure. The code indeed exhibits this pattern, so the prediction is accurate and novel.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean result of `i == j` to `true` (`if (i == j) == true then`), which directly reflects the misconception that a conditional expression must be compared to a literal boolean. The system’s prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that an `if` statement can act as a loop when the loop counter is manually incremented inside it, which is exactly the misconception that the body of an `if` executes repeatedly as long as the condition holds. The code shows this pattern, so the prediction matches the ground truth and is also a valid observation of the misconception.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_41.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code assigns `posisiDiagonal <- i` before the loop and never updates it inside the loop, implying the student thinks the initial assignment will keep `posisiDiagonal` in sync with the changing loop index. This matches the ground‑truth misconception that a variable automatically updates when the variables it depends on change. The system’s prediction captures this exact belief, so both match and match_with_novel are Y.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_73_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_73_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "prediction_id": "problem_73_misc_59.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student uses `:` as an assignment operator in the algorithm body (e.g., `temp : d1`), which matches the ground‑truth misconception that colons are used for variable assignment. The code indeed exhibits this pattern, so the prediction aligns with the false belief. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_93_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "The ground‑truth misconception concerns the misuse of the `or` operator in a comparison like `x == a or b`. The code contains `if d1 < d2 or 0 then`, which reflects a different misunderstanding: treating an integer literal as a boolean operand. This does not match the distribution belief, and the code does not exhibit the ground‑truth misconception. The predicted misconception about using `0` as a boolean is also not present in the code, so no novel misconception is identified.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_93_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that every variable must be explicitly cast to its declared type (e.g., using `integer()`), which matches the ground‑truth misconception. The code repeatedly wraps `d1`–`d4` in `integer()` in comparisons and assignments, demonstrating this unnecessary type conversion. No other unrelated misconception is introduced, so novelty is not required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_93_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code repeatedly writes `if (d1 < d2) == true then`, explicitly comparing the boolean result of a comparison to the literal `true`. This is exactly the false belief that a condition must be compared to `true` to be valid, matching the ground‑truth misconception. The prediction therefore correctly identifies the misconception, and no additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_93_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_93_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses `= true` in the `if` condition, indicating the student thinks the equality operator is required to test a Boolean expression. This is the same misconception as the ground truth, which states the student believes `=` is used for equality comparison in conditionals. Thus the prediction correctly identifies the underlying false belief. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_16.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies that the student uses a colon (`:`) to assign the boolean expression to `hasil`, which reflects the same false belief that colons are assignment operators. This matches the ground truth misconception exactly, so both match and match_with_novel are Y. The code indeed exhibits this misconception, even though it is syntactically and logically correct.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_17.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code uses the logical operator `or` between a boolean expression `a < 0` and an integer variable `b`, reflecting the misconception that the comparison operator distributes over `or`. This matches the ground truth belief. The prediction also correctly identifies this pattern, so it is both a match and a novel correct observation.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_18.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s belief that each mutually exclusive case must be handled by a separate `if` statement, rather than using compound conditions or an `else` chain. This matches the ground‑truth misconception, and the code indeed uses four independent `if` blocks for the mutually exclusive sign combinations, confirming the pattern. No additional novel misconceptions are required.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_33.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The prediction correctly identifies the student’s false belief that values (here, booleans) must be explicitly converted to their type using a constructor or cast. The code repeatedly casts integers and booleans, matching the ground‑truth misconception that explicit conversion is required for type safety.",
+      "parse_ok": false,
+      "method": "llm_judge",
+      "raw_response": "<evaluation>\n<match>Y</match>\n<match_with_novel>Y</match_withnovel>\n<confidence>high</confidence>\n<rationale>The prediction correctly identifies the student’s false belief that values (here, booleans) must be explicitly converted to their type using a constructor or cast. The code repeatedly casts integers and booleans, matching the ground‑truth misconception that explicit conversion is required for type safety.</rationale>\n</evaluation>",
+      "prediction_id": "problem_94_misc_35.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": true,
+      "match_with_novel": true,
+      "confidence": "high",
+      "rationale": "The code explicitly compares the boolean expression to `true` (`== true`) inside the `if` statement, which directly reflects the misconception that conditions must be compared to a boolean constant. The system’s prediction captures this same false belief, so it matches the ground truth. No additional novel misconceptions are present.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_4.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "The code does not show the injected misconception that a variable assigned an expression automatically updates when its components change; instead it uses an explicit if/else to assign the boolean result. However, the prediction about requiring an if/else to assign a boolean expression is evident in the code, so the system correctly identified a different real misconception present in the sample.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_54.json_0",
+      "group_type": "misconception"
+    },
+    {
+      "prediction_id": "problem_94_misc_56.json_0",
+      "group_type": "misconception",
+      "match": false,
+      "match_with_novel": false,
+      "confidence": "high",
+      "rationale": "Model predicted no misconception.",
+      "method": "empty_prediction"
+    },
+    {
+      "match": false,
+      "match_with_novel": true,
+      "confidence": "medium",
+      "rationale": "The ground‑truth misconception concerns variable naming and type expectations, which is not reflected in the code. However, the code does show the predicted misconception: the student uses an explicit if‑else to assign a boolean value instead of assigning the boolean expression directly, indicating a belief that booleans cannot be assigned directly. Thus, the prediction does not match the ground truth, but it correctly identifies a real misconception present in the code.",
+      "parse_ok": true,
+      "method": "llm_judge",
+      "prediction_id": "problem_94_misc_59.json_0",
+      "group_type": "misconception"
+    }
+  ]
+}
