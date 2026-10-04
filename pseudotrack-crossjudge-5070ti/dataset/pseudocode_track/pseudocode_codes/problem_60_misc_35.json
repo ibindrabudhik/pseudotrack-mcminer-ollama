@@ -1,0 +1,18 @@
+{
+  "problem_id": 60,
+  "problem_title": "Integer Product Calculator",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungProduk\nkamus\n  a, b : integer\nalgoritma\n  input(a, b)\n  output(integer(a) * integer(b))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student explicitly converts both parameters a and b to int before multiplying them, even though the function signature indicates they should already be integers. The student believes this explicit conversion is necessary for type safety and proper functioning. This is unnecessary but doesn't break the code - it still produces correct results when called with integer arguments. The student sees this as a best practice to ensure the values are definitely integers before performing the multiplication operation."
+      },
+      "parse_success": true
+    }
+  ]
+}

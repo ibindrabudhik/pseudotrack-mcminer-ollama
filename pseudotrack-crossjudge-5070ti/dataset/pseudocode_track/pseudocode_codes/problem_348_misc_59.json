@@ -1,0 +1,18 @@
+{
+  "problem_id": 348,
+  "problem_title": "Count Unequal Integer Pairs",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungPasanganTidakSama\nkamus\n  a, b, c : integer\n  total : string\nalgoritma\n  input(a, b, c)\n  total <- \"0\"\n  if a != b then\n    total <- string(integer(total) + 1)\n  endif\n  if a != c then\n    total <- string(integer(total) + 1)\n  endif\n  if b != c then\n    total <- string(integer(total) + 1)\n  endif\n  output(integer(total))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes variable names with vowels can only store strings, so they store the count as a string in 'total' (contains vowels 'o' and 'a'). They use consonant-only names 'k' and 'j' for the integer loop counters. The parameter 'lst' has no vowels and can store the list. When incrementing, they must convert the string 'total' to int, add 1, then convert back to string. Finally, they convert to int for the return value. The student genuinely believes this pattern is necessary - vowel-containing names like 'total' require string storage, while consonant-only names like 'k', 'j' can store integers directly. This creates unnecessary string conversions throughout the code, making it inefficient and introducing potential for errors, though in this case it still produces correct output."
+      },
+      "parse_success": true
+    }
+  ]
+}

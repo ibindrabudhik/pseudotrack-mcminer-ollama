@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  for i <- 1 to panjang(s) - 2 do\n    if (s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd') == true then\n      jumlah <- jumlah + 1\n    endif\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that conditional expressions must be explicitly compared to True or False to work in if statements. They added '== True' to the condition, which is redundant but doesn't affect the correctness of the code. The expression (s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd') already evaluates to a Boolean value, so comparing it to True is unnecessary. However, the code still functions correctly and produces the right output."
+      },
+      "parse_success": true
+    }
+  ]
+}

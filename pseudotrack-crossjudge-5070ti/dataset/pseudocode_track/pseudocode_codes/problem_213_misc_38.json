@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  while umur <= 2 do\n    umurAnjing <- umur * 10.5\n  endwhile\n  while umur > 2 do\n    umurAnjing <- 21 + (umur - 2) * 4\n  endwhile\n  output(umurAnjing)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the elif-else conditional structure with two separate while loops, believing that while loops execute their body only once when the condition is true (like an if statement would). From the student's perspective, the first while checks if h_age <= 2 and executes once to calculate d_age, and the second while checks if h_age > 2 and executes once to calculate d_age. However, this causes an infinite loop when h_age <= 2 because the loop condition never becomes false (h_age is never modified inside the loop body). The code will hang indefinitely for any valid input where h_age is between 0 and 2."
+      },
+      "parse_success": true
+    }
+  ]
+}

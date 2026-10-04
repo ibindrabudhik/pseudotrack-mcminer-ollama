@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n  if attackerTipe = defenderTipe then\n    efektivitas <- 1\n  else if attackerTipe = \"fire\" and defenderTipe = \"grass\" then\n    efektivitas <- 2\n  else if attackerTipe = \"grass\" and defenderTipe = \"water\" then\n    efektivitas <- 2\n  else if attackerTipe = \"water\" and defenderTipe = \"fire\" then\n    efektivitas <- 2\n  else\n    efektivitas <- 0.5\n  endif\n  selisihLevel <- attackerLevel - defenderLevel\n  damage <- bulat(((2 * attackerLevel) / 5 + 2) * (attackerLevel / defenderLevel) * efektivitas * selisihLevel / 10)\n  if damage < 1 then\n    damage <- 1\n  endif\n  output(damage)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced the equality comparison operator `==` with the assignment operator `=` in the first if statement (line 6: `if attacker_type = defender_type:`). This reflects their misconception that `=` is used for equality comparison in conditional statements. The student would apply this to at least one comparison to demonstrate their belief, though they might be inconsistent. This results in a SyntaxError because Python does not allow assignment expressions in traditional if statement conditions (prior to Python 3.8's walrus operator `:=`, and even then `=` itself is still invalid). The student genuinely believes this is the correct syntax for checking if two values are equal."
+      },
+      "parse_success": true
+    }
+  ]
+}

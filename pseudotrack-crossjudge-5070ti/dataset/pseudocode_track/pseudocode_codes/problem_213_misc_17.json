@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  if umur <= 2 then\n    umurAnjing : umur * 10.5\n  else\n    umurAnjing : 21 + (umur - 2) * 4\n  endif\n  output(umurAnjing)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaces the assignment operator (=) with colons (:) in the two variable assignment statements where d_age is being assigned a value. The student believes this is the correct syntax for variable assignment in Python. The colons after if, elif, and else are left unchanged because those are part of control structure syntax, not assignment. This code will produce a SyntaxError when executed because Python does not accept `:` as a standalone assignment operator."
+      },
+      "parse_success": true
+    }
+  ]
+}

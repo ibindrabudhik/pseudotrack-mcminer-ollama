@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  if ((a < 0 and b > 0) or (a > 0 and b < 0)) == true then\n    hasil <- true\n  else\n    hasil <- false\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that the conditional expression ((x ^ y) < 0) must be explicitly compared to True before it can be used in an if statement. They then explicitly return True or False based on this comparison, not realizing that the expression already evaluates to a boolean value that could be returned directly. The code still works correctly but is unnecessarily verbose with redundant comparisons."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  if a > 0 and b > 0 then\n    hasil <- false\n  endif\n  if a < 0 and b < 0 then\n    hasil <- false\n  endif\n  if a > 0 and b < 0 then\n    hasil <- true\n  endif\n  if a < 0 and b > 0 then\n    hasil <- true\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrites the solution using conditional statements instead of bitwise operations. Due to their misconception that mutually exclusive conditions must be written as separate if statements, they use four separate if statements to check all cases (both positive, both negative, opposite signs). This causes a logical error because when x or y is 0, none of the conditions are true, resulting in an uninitialized variable error (NameError) since 'result' is never assigned. Even ignoring the zero case, the student believes this is the proper way to handle mutually exclusive conditions rather than using elif or a single expression. The student is confident this approach correctly handles all the different sign combinations."
+      },
+      "parse_success": true
+    }
+  ]
+}

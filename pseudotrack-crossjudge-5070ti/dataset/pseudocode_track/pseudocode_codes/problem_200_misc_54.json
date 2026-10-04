@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i, sekarang, berikut : integer\n  jumlah : real\nalgoritma\n  input(n)\n  sekarang <- n\n  berikut <- sekarang - 1\n  jumlah <- 1 / sekarang\n  for i <- 1 to berikut do\n    jumlah <- jumlah + 1 / i\n  endfor\n  berikut <- 1\n  sekarang <- 2\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student first correctly computes result as 1/current_n + harmonic_sum(next_n). Then they change both current_n and next_n to different values (2 and 1 respectively). The student believes that because result was defined as an expression involving these variables, changing current_n to 2 and next_n to 1 will cause result to automatically recalculate and become 1/2 + harmonic_sum(1). From the student's perspective with this misconception, they might think they're \"adjusting\" or \"correcting\" the calculation by modifying the underlying variables. In reality, result already holds the computed value from before the variable changes, so these reassignments have no effect and the function still works correctly. The misconception is clearly exhibited by the seemingly purposeless variable reassignments after result is computed but before it's returned - the student genuinely expects these changes to affect result's value."
+      },
+      "parse_success": true
+    }
+  ]
+}

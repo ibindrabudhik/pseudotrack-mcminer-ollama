@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax : integer\n  kata : string\nalgoritma\n  input(n)\n  input(kata)\n  panjangMax <- panjang(kata)\n  for i <- 2 to n do\n    input(kata)\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student initializes variable i to the first element and sets max = len(i). They then iterate through the list updating i, believing that because max was defined as len(i), it will automatically recalculate and update whenever i changes in the loop. From their perspective, they don't need to explicitly reassign max in the loop body - they think the expression len(i) is \"bound\" to max and will keep evaluating. This results in max always containing only the length of the first word rather than tracking the maximum length across all words."
+      },
+      "parse_success": true
+    }
+  ]
+}

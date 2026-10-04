@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur, tahunTerhitung : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  umurAnjing <- 0\n  tahunTerhitung <- 0\n  if tahunTerhitung < 2 and tahunTerhitung < umur then\n    umurAnjing <- umurAnjing + 10.5\n    tahunTerhitung <- tahunTerhitung + 1\n  endif\n  if tahunTerhitung < umur then\n    umurAnjing <- umurAnjing + 4\n    tahunTerhitung <- tahunTerhitung + 1\n  endif\n  output(umurAnjing)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution using if-statements with counters, genuinely believing that the if-statements would execute repeatedly as long as their conditions remain true (like while loops). They expect the first if-statement to loop and add 10.5 for each of the first 2 years, then the second if-statement to loop and add 4 for each remaining year. In reality, each if-statement executes at most once, so for a dog older than 2 years, this code would return 14.5 (10.5 + 4) instead of the correct value. For example, a 5-year-old dog should be 33 in dog years, but this code returns 14.5."
+      },
+      "parse_success": true
+    }
+  ]
+}

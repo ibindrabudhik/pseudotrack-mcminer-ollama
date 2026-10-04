@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  i <- 1\n  if i <= n then\n    input(x)\n    if i >= awal and i <= akhir then\n      total <- total + x\n    endif\n    i <- i + 1\n  endif\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for loop with an if-statement, genuinely believing that the if-statement will execute repeatedly as long as the condition (i <= n) remains true. From the student's perspective, the if-statement should keep checking the condition and executing its body (adding list1[i] to sum_range and incrementing i) until i exceeds n, effectively iterating through all indices from m to n. In reality, the if-statement only executes once, so only the element at index m gets added to sum_range, making the function return an incorrect result for any range with more than one element."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 94,
+  "problem_title": "Check Opposite Signs",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekTandaBerlawanan\nkamus\n  a, b : integer\n  hasil : boolean\nalgoritma\n  input(a, b)\n  a <- integer(a)\n  b <- integer(b)\n  if (integer(a) < 0 and integer(b) > 0) or (integer(a) > 0 and integer(b) < 0) then\n    hasil <- boolean(true)\n  else\n    hasil <- boolean(false)\n  endif\n  output(boolean(hasil))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student explicitly converts x and y to int type even though they are already expected to be integers, and converts the boolean result to bool type even though comparison operators already return booleans. The student believes these conversions are necessary for type safety and proper code structure. The code functions correctly but includes unnecessary type conversions. This reflects the student's belief that explicit type conversion ensures type safety even when the values are already of the correct type."
+      },
+      "parse_success": true
+    }
+  ]
+}

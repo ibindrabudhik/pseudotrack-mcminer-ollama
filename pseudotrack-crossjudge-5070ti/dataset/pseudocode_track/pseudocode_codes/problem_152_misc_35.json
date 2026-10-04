@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  for i <- 1 to integer(m) do\n    input(kata)\n    kata <- string(kata)\n    panjangKata <- integer(panjang(string(kata)))\n    if integer(panjangKata) > integer(n) then\n      output(string(kata))\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit type conversions throughout the code to ensure type safety, even though the values are already of the correct type. They convert: list([]) to ensure word_len is a list, list() around split() result since they want to ensure it's a list, int() around len(x) and n since they need integers for comparison, str(x) when appending since they want strings in the list, and list() around the return value to ensure returning a list. From the student's perspective, these conversions are necessary safeguards to ensure type correctness, and they believe this is good programming practice. The code functions correctly because converting a value to its current type is a no-op in Python, making this a benign misconception that results in verbose but working code."
+      },
+      "parse_success": true
+    }
+  ]
+}

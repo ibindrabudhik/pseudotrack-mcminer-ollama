@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  if n = 1 then\n    output(1)\n  else\n    jumlah <- 0\n    for i <- 1 to n do\n      jumlah <- jumlah + 1 / i\n    endfor\n    output(jumlah)\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "Changed the equality comparison operator from `==` to `=` in the conditional statement `if n == 1:` to `if n = 1:`. The student believes that `=` is the correct operator for checking equality in conditional statements. This causes a SyntaxError in Python because `=` is the assignment operator and cannot be used in this context. The student is confident this is correct syntax for comparison."
+      },
+      "parse_success": true
+    }
+  ]
+}

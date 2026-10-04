@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  for i <- 1 to n do\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n    if panjangSekarang >= 0 then\n      panjangMax <- panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes they need to write separate if statements for different conditions when finding the maximum length. They write one condition to check if the current word is longer than max, and then a separate if statement to handle \"valid\" word lengths (>= 0). Since these are written as separate if statements rather than elif, the second condition (which is always true for valid strings) overwrites the work of the first condition. This causes the function to return the length of the last word in the list rather than the longest word, similar to how in the example the grade gets overwritten. The student genuinely believes both conditions need to be checked separately and doesn't realize the second if will always execute and overwrite max with the current word's length."
+      },
+      "parse_success": true
+    }
+  ]
+}

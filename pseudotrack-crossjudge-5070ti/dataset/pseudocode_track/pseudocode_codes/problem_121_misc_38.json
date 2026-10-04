@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  input(kata)\n  panjangMax <- panjang(kata)\n  i <- 2\n  while i <= n do\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n  endwhile\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the for loop as a while loop but failed to increment the index variable i inside the loop body. From their perspective, since they believe while loops execute their body only once when the condition is true, they think the loop will check the second element (list1[1]) once and then exit, returning the maximum. They don't realize the loop will actually run infinitely because i never changes, keeping the condition i < len(list1) always true (assuming the list has more than one element). The student genuinely believes this is the correct way to check the next element after the first one, thinking the while loop works similarly to an if statement that executes once."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 20,
+  "misconception_description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  for n <- 1 to n do\n    jumlah <- jumlah + 1 / n\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the recursive solution as an iterative one using a for loop. They reused the parameter name 'n' as the loop variable, believing that loop variables exist in a separate scope and won't overwrite the parameter. From their perspective, they think 'n' inside the loop is different from the parameter 'n', so using 'for n in range(1, n)' seems perfectly fine to them. Interestingly, this code actually works correctly because Python evaluates 'range(1, n)' before the loop starts (when n still has its original parameter value), creating a range object with the correct bounds. The loop then iterates from 1 to n-1 (since range is exclusive of the upper bound), calculating the harmonic sum of n-1 as required. This is a case where the misconception doesn't cause a bug due to how Python evaluates the range expression before variable reassignment occurs."
+      },
+      "parse_success": true
+    }
+  ]
+}

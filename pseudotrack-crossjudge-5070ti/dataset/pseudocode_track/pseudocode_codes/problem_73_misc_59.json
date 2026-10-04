@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, ndx, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for ndx <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if ndx == j then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes variable names with vowels can only store strings, so they renamed all variables storing non-string values to consonant-only names: 'matrix' → 'mtrx', 'i' → 'ndx', 'row' → 'rw', 'tup' → 'tp'. They kept 'j' and 'n' unchanged since those already lack vowels. The code still functions correctly - this misconception only affects naming style in this case, not logic or behavior. The student genuinely believes this naming scheme is required by Python's type system and that their consonant-only variable names are the proper way to store integers, lists, and tuples."
+      },
+      "parse_success": true
+    }
+  ]
+}

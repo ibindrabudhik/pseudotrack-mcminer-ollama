@@ -1,0 +1,18 @@
+{
+  "problem_id": 501,
+  "problem_title": "Coin Flip Game",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PesanLemparKoin\nkamus\n  hasil : string\nalgoritma\n  input(hasil)\n  if hasil == \"Heads\" or \"Tails\" then\n    output(\"Got heads!\")\n  else\n    output(\"Got tails!\")\n  endif\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student modified the condition from `result == 'Heads'` to `result == 'Heads' or 'Tails'`. The student believes this checks if result equals 'Heads' or equals 'Tails', with the comparison operator distributing across the or. However, this actually evaluates as `(result == 'Heads') or 'Tails'`, and since 'Tails' is a non-empty string (truthy value), the entire condition always evaluates to True. This causes the function to always return 'Got heads!' regardless of the actual flip result, making the else branch unreachable."
+      },
+      "parse_success": true
+    }
+  ]
+}

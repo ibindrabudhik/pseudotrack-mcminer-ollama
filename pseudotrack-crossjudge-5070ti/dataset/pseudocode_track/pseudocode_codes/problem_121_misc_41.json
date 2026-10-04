@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  i <- 1\n  if i <= n then\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n    i <- i + 1\n  endif\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for loop with an if-statement, using an index-based approach. They increment the index (idx) within the if-statement body and check if idx < len(list1). The student genuinely believes this if-statement will continue executing repeatedly as long as idx < len(list1), similar to how a while loop would behave. From their perspective, this should iterate through all elements in the list and find the maximum length. In reality, the if-statement only executes once, so the code will only check at most the second element (index 1) and then return, missing all other elements in the list."
+      },
+      "parse_success": true
+    }
+  ]
+}

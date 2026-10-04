@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  for i <- 1 to n do\n    input(x)\n    if i >= awal and i <= akhir then\n      if x != 0 or 0 then\n        total <- total + x\n      endif\n    endif\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student added a condition to check if the list element is not 0 or None before adding it to the sum. However, they wrote `list1[i] != 0 or None` believing the comparison operator distributes, thinking it means \"list1[i] is not equal to 0 and list1[i] is not None\". In reality, this expression evaluates to `(list1[i] != 0) or None`. When list1[i] is not 0, the first part is True and the whole expression is True. When list1[i] is 0, the expression becomes `False or None`, which evaluates to None (a falsy value), so the condition fails. This causes the code to incorrectly skip adding 0 values to the sum, even though 0s should be included in the sum according to the problem specification."
+      },
+      "parse_success": true
+    }
+  ]
+}

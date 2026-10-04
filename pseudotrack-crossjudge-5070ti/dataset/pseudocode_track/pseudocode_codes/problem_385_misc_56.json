@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  p : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    p <- false\n  else\n    p <- true\n    for i <- 2 to n - 1 do\n      if n mod i == 0 then\n        p <- false\n      endif\n    endfor\n  endif\n  output(p)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that all variable identifiers must be one letter long. Therefore, they renamed 'prime_num' to 'p' (for prime) and 'num' to 'n' (for number). The loop variable 'i' was already one letter so it remained unchanged. This makes the code less readable but doesn't affect its functionality. The student genuinely believes this is the proper way to write code and that longer variable names are not allowed."
+      },
+      "parse_success": true
+    }
+  ]
+}

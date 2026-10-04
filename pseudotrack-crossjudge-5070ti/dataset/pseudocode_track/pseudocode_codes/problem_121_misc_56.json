@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, m, s : integer\n  k : string\nalgoritma\n  input(n)\n  m <- 0\n  for i <- 1 to n do\n    input(k)\n    s <- panjang(k)\n    if s > m then\n      m <- s\n    endif\n  endfor\n  output(m)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "Changed all variable identifiers to single letters: function name 'len_log' became 'f', parameter 'list1' became 'l', and variable 'max' became 'm'. The loop variable 'i' was already a single letter. The built-in function 'len' remains unchanged as it's not a student-created identifier. The code functions correctly but is less readable due to non-descriptive single-letter variable names. The student believes this is the proper way to name variables and would see nothing wrong with this approach."
+      },
+      "parse_success": true
+    }
+  ]
+}

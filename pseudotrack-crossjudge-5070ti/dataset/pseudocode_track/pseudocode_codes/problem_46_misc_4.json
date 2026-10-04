@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    else\n      if (x < terkecil) == true then\n        terkecil <- x\n      endif\n    endif\n  endfor\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student explicitly compares the conditional expression (x < min_val) to True using == True. This is redundant but doesn't affect the correctness of the code. The student genuinely believes that conditional expressions must be explicitly compared to True or False to be used in if statements, not realizing that x < min_val already evaluates to a Boolean value. The code still functions correctly and produces the right output."
+      },
+      "parse_success": true
+    }
+  ]
+}

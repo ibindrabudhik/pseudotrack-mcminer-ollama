@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 20,
+  "misconception_description": "Student believes that for loop variables exist in a separate scope and won't affect variables with the same name in the enclosing scope.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  i <- 100\n  terkecil <- 0\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    else\n      if x < terkecil then\n        terkecil <- x\n      endif\n    endif\n  endfor\n  output(i)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student stores the first element in a variable called `first`, then reuses that variable name as the loop variable. They believe the loop variable `first` exists in a separate scope and won't overwrite the original `first` variable that holds `list1[0]`. At the end, they return `first` thinking it still contains the first element of the list, when in reality it contains the last element iterated over by the loop. This will return incorrect results when the last element is not the smallest. For example, with [5, 1, 3], the function would return 3 instead of 1."
+      },
+      "parse_success": true
+    }
+  ]
+}

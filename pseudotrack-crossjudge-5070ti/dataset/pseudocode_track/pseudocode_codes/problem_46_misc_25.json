@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    else\n      if x < terkecil then\n        terkecil <- x\n      endif\n    endif\n    i <- i + 1\n  endfor\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student adds a line `x = min_val` when encountering a value larger than the current minimum, believing this will \"skip\" or \"optimize\" the iteration by resetting x to the minimum value. The student thinks this modification affects subsequent loop iterations, making the loop more efficient by avoiding unnecessary comparisons with large values. In reality, modifying the loop variable x has no effect on the iteration - the for loop will continue with the next element from list1 regardless. The code still functions correctly and finds the minimum value, so this is a benign misconception that results in unnecessary but harmless code."
+      },
+      "parse_success": true
+    }
+  ]
+}

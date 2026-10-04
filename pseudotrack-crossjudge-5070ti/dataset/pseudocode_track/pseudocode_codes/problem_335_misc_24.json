@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum : integer\nalgoritma\n  input(n)\n  i <- 0\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n  endfor\n  output(minimum + maksimum)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student rewrote the solution to manually find the maximum and minimum values using for loops instead of using the built-in max() and min() functions. Before each for loop, they initialized the loop variables (i = 0 and j = 0), believing this is necessary for the loop to work. In reality, Python's for loop automatically creates and manages these variables, making the initialization redundant but harmless. The code functions correctly despite the unnecessary initializations."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax : 0\n  for i <- 1 to n do\n    input(kata)\n    panjangSekarang : panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax : panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced the assignment operator (=) with colons (:) in both variable assignments. They believe this is the correct syntax for assigning values to variables. This will cause a SyntaxError because Python interprets this as malformed type annotation syntax without an actual assignment. The student is confident this is correct, possibly confusing assignment syntax with type annotations, dictionary syntax, or other uses of colons in Python."
+      },
+      "parse_success": true
+    }
+  ]
+}

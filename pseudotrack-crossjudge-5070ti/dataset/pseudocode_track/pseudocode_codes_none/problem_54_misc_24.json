@@ -1,0 +1,14 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "NONE",
+      "metadata": {},
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\n  layak : boolean\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    layak <- false\n    if panjangKata > n + 5 then\n      layak <- true\n    endif\n    if panjangKata > n then\n      layak <- true\n    endif\n    if panjangKata <= n then\n      layak <- false\n    endif\n    if layak then\n      output(kata)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student restructured the code to check mutually exclusive length conditions using separate if statements instead of elif. They believe each condition should be checked independently with its own if statement. For words with length > n, the first two conditions set should_add to True, but then the third condition (len(x) <= n) is also evaluated and overwrites should_add to False, incorrectly excluding words that should be included. The student thinks this approach is clearer because \"each condition gets its own if statement,\" not realizing that all conditions are being evaluated and later ones overwrite earlier results. This demonstrates the misconception that mutually exclusive conditions should use separate if statements rather than elif."
+      },
+      "parse_success": true
+    }
+  ]
+}

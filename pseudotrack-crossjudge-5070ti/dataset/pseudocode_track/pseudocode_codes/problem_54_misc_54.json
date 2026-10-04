@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n  selisihLevel <- attackerLevel - defenderLevel\n  damage <- bulat(((2 * attackerLevel) / 5 + 2) * (attackerLevel / defenderLevel) * efektivitas * selisihLevel / 10)\n  if attackerTipe == defenderTipe then\n    efektivitas <- 1\n  else if attackerTipe == \"fire\" and defenderTipe == \"grass\" then\n    efektivitas <- 2\n  else if attackerTipe == \"grass\" and defenderTipe == \"water\" then\n    efektivitas <- 2\n  else if attackerTipe == \"water\" and defenderTipe == \"fire\" then\n    efektivitas <- 2\n  else\n    efektivitas <- 0.5\n  endif\n  if damage < 1 then\n    damage <- 1\n  endif\n  output(damage)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student calculates the damage before determining the effectiveness value, believing that the damage variable will automatically update once effectiveness is assigned later in the code. From the student's perspective, they're just organizing the code by calculating the damage formula first, then determining what the effectiveness should be. They genuinely believe that since damage contains an expression with effectiveness in it, damage will automatically reflect the correct effectiveness value once it's determined by the if-elif-else logic. This results in a NameError at runtime because effectiveness is referenced before it's defined."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# The entire dependency list. No AI-vendor SDK is involved: utils/ollama_client.py
+# talks to Ollama's native /api/chat over plain HTTP.
+#
+# Do NOT install the parent repo's requirements.txt -- it lists `pathlib` and
+# `argparse`, stdlib backports that fail to build on Python 3.13.
+requests>=2.31
+tqdm>=4.66

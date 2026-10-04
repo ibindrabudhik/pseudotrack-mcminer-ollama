@@ -1,0 +1,18 @@
+{
+  "problem_id": 242,
+  "problem_title": "Array Inversion Counter",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungInversi\nkamus\n  a, b, c, jumlah : integer\n  terbalik : boolean\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  terbalik <- false\n  if a > b then\n    terbalik <- true\n  endif\n  if a <= b then\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  terbalik <- false\n  if a > c then\n    terbalik <- true\n  endif\n  if a <= c then\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  terbalik <- false\n  if b > c then\n    terbalik <- true\n  endif\n  if b <= c then\n    terbalik <- false\n  endif\n  if terbalik then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes that mutually exclusive conditions (arr[i] > arr[j] vs arr[i] <= arr[j]) must each be written as separate if statements. They use a flag variable is_inversion to track whether an inversion exists. However, because they use separate if statements instead of elif, both conditions are always evaluated. When arr[i] > arr[j] is true, the first if sets is_inversion to True, but then the second if (checking arr[i] <= arr[j]) still runs and overwrites it to False, preventing any inversions from being counted. The student genuinely believes this approach is correct because they think each condition needs its own if statement to be properly checked."
+      },
+      "parse_success": true
+    }
+  ]
+}

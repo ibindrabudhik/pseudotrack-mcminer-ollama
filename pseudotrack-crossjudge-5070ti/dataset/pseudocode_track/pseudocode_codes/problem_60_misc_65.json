@@ -1,0 +1,18 @@
+{
+  "problem_id": 60,
+  "problem_title": "Integer Product Calculator",
+  "misconception_id": 65,
+  "misconception_description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation *.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungProduk\nkamus\n  a, b : integer\nalgoritma\n  input(a, b)\n  output(a + 0 * b)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes that addition has higher precedence than multiplication, so they write `a + 0 * b` expecting it to be evaluated as `(a + 0) * b = a * b`. From their perspective, adding 0 to a first, then multiplying by b, gives the correct product. However, with correct operator precedence, this expression actually evaluates as `a + (0 * b) = a + 0 = a`, which just returns the first parameter and completely ignores the second parameter in the multiplication. The student genuinely believes this code will compute the product correctly."
+      },
+      "parse_success": true
+    }
+  ]
+}

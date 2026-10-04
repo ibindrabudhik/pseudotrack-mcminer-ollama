@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- integer(x)\n    else\n      if integer(x) < integer(terkecil) then\n        terkecil <- integer(x)\n      endif\n    endif\n  endfor\n  output(integer(terkecil))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit int() conversions throughout the code, believing this ensures type safety. They convert list1[0] to int, convert x and min_val to int in comparisons, convert x to int when assigning, and convert the return value to int. The student genuinely believes these conversions are necessary for proper type handling and correctness. However, this causes logical errors when the list contains floating-point numbers, as int() truncates decimal values. For example, with input [3.9, 2.1, 4.5], the function would compare int(3.9)=3, int(2.1)=2, int(4.5)=4, potentially returning 2 instead of 2.1 as the smallest value. The student is unaware of this precision loss and believes the explicit conversions make the code more robust."
+      },
+      "parse_success": true
+    }
+  ]
+}

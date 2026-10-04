@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  for i <- 1 to n do\n    i <- i + 1\n    jumlah <- jumlah + 1 / i\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the recursive solution as an iterative one using a for loop. They know they need to compute 1/1 + 1/2 + ... + 1/n, but range(n) produces values 0 to n-1. The student believes that by incrementing i inside the loop body (i += 1), they're modifying the loop variable to make it start from 1 instead of 0, and they think this modification will affect how the loop progresses. In reality, modifying i inside the loop doesn't affect the next iteration - the loop still iterates n times with range values 0 to n-1, but the local modification of i within each iteration happens to produce the correct calculation. The code works correctly, but for the wrong reason the student believes. This demonstrates the misconception that loop variable modifications inside the body affect subsequent iterations, though in this case it doesn't cause a bug."
+      },
+      "parse_success": true
+    }
+  ]
+}

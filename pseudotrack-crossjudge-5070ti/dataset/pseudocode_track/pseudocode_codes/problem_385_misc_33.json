@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima : boolean\nalgoritma\n  input(n)\n  prima <- false\n  if n == 2 then\n    prima <- true\n  endif\n  if n > 2 then\n    prima <- true\n  endif\n  if n > 2 and n mod 2 == 0 then\n    prima <- false\n  endif\n  if n < 2 then\n    prima <- false\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes that mutually exclusive conditions must be written as separate if statements rather than using elif/else. They check: if num==2 set True, if num>2 set True, if num>2 and even set False, if num<2 set False. Each condition is a separate if statement, which the student believes is the correct way to handle different cases. However, this causes a logical error: composite odd numbers greater than 2 (like 9, 15, 21, etc.) will be incorrectly identified as prime because they match the \"if num > 2: result = True\" condition but don't match the \"if num > 2 and num % 2 == 0\" condition, so the result stays True. The student doesn't realize that elif would prevent later conditions from being evaluated and that they need comprehensive checking for all divisors, not just 2. From the student's perspective with this misconception, they believe separating each condition into its own if statement is the proper way to handle the different cases of prime checking."
+      },
+      "parse_success": true
+    }
+  ]
+}

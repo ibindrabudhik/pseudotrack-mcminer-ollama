@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sudahKetemu <- false\n  while not sudahKetemu do\n    sisa <- kandidat\n    hasilBalik <- 0\n    while sisa > 0 do\n      hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n      sisa <- sisa div 10\n    endwhile\n    if hasilBalik = kandidat then\n      sudahKetemu <- true\n    else\n      kandidat <- kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "Changed the equality comparison operator from `==` to `=` in the if statement condition. The student believes that `=` is the correct operator for checking equality in conditional statements. This results in a SyntaxError because Python does not allow assignment statements in simple if conditions (only the walrus operator `:=` is allowed for assignment expressions). From the student's perspective with this misconception, using `=` to check if str(i) equals its reverse is the natural and correct way to write this comparison."
+      },
+      "parse_success": true
+    }
+  ]
+}

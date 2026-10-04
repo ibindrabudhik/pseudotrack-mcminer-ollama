@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\nalgoritma\n  input(n)\n  kandidat <- n + 1\n  sisa <- kandidat\n  hasilBalik <- 0\n  while sisa > 0 do\n    hasilBalik <- hasilBalik * 10 + (sisa mod 10)\n    sisa <- sisa div 10\n  endwhile\n  if hasilBalik != kandidat then\n    kandidat <- kandidat + 1\n  endif\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaces the for loop with an if-statement, believing it will behave like a while loop. They think that as long as `i` is NOT a palindrome (the condition is true), the if-statement will keep executing and incrementing `i`. Once `i` becomes a palindrome, they expect the condition to become false, the if-statement to stop executing, and then the function returns the palindrome. In reality, the if-statement only executes once, so the function will just increment `i` by 1 (if it's not already a palindrome) and return it, which will usually not be a palindrome. The student genuinely believes this is the correct and elegant way to solve the problem without needing an explicit loop."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 93,
+  "problem_title": "Largest Number from Digits",
+  "misconception_id": 4,
+  "misconception_description": "Student believes that conditional statements, i.e., Python statements that evaluate to either True or False, must be explicitly compared to True or False to be used in conditionals.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program BilanganTerbesarDariDigit\nkamus\n  d1, d2, d3, d4, temp : integer\nalgoritma\n  input(d1, d2, d3, d4)\n  if (d1 < d2) == true then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if (d2 < d3) == true then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if (d3 < d4) == true then\n    temp <- d3\n    d3 <- d4\n    d4 <- temp\n  endif\n  if (d1 < d2) == true then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  if (d2 < d3) == true then\n    temp <- d2\n    d2 <- d3\n    d3 <- temp\n  endif\n  if (d1 < d2) == true then\n    temp <- d1\n    d1 <- d2\n    d2 <- temp\n  endif\n  output(d1 * 1000 + d2 * 100 + d3 * 10 + d4)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "Modified the solution to use explicit conditional checks and replaced the for loop with a while loop. Added an if statement to check if the array has elements, and used a while loop for iteration - both with explicit `== True` comparisons. The student believes that conditions like `len(arr) > 0` and `i < n` must be explicitly compared to True to be used in if/while statements. From the student's perspective, this is the proper and correct way to write conditional logic. The code still functions correctly despite the redundant comparisons, making this a benign misconception that affects code style rather than correctness."
+      },
+      "parse_success": true
+    }
+  ]
+}

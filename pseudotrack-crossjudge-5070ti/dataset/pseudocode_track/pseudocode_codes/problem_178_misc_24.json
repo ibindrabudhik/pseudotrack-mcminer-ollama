@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  i <- 0\n  for i <- 1 to panjang(s) - 2 do\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      jumlah <- jumlah + 1\n    endif\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student initializes the loop variable `i` to 0 before the for loop, believing this is necessary or proper practice. This is unnecessary since the for loop automatically assigns values to `i` from the range, but it doesn't break the functionality. The initialization is simply overwritten when the loop starts executing. The student genuinely believes that loop variables must be declared/initialized before use, similar to some other programming languages like C or Java where variable declarations are more explicit."
+      },
+      "parse_success": true
+    }
+  ]
+}

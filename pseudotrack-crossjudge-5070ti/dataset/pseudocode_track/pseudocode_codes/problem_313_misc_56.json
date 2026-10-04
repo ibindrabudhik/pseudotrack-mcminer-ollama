@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, h : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  h <- \"\"\n  for i <- 1 to panjang(s) do\n    if s[i] != ' ' then\n      h <- h + s[i]\n    endif\n  endfor\n  output(h)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student believes that all variable identifiers (including function names and parameters) can only be one letter long. Therefore, they renamed the function from 'remove_whitespaces' to 'r' and the parameter from 'text1' to 't'. The code still functions correctly but is significantly less readable. The 're' module name remains unchanged as it's an imported module name and already short. This is a stylistic misconception that doesn't affect program correctness."
+      },
+      "parse_success": true
+    }
+  ]
+}

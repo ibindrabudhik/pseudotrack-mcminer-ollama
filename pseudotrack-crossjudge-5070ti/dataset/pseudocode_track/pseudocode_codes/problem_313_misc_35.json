@@ -1,0 +1,18 @@
+{
+  "problem_id": 313,
+  "problem_title": "Remove String Whitespace",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HapusSpasi\nkamus\n  s, hasil : string\n  i : integer\nalgoritma\n  inputBaris(s)\n  s <- string(s)\n  hasil <- string(\"\")\n  for i <- 1 to panjang(string(s)) do\n    if string(s[i]) != ' ' then\n      hasil <- string(hasil) + string(s[i])\n    endif\n  endfor\n  output(string(hasil))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student unnecessarily converts the input parameter text1 to str, the empty string '' to str, and wraps the entire re.sub() result in str(). All of these conversions are redundant since text1 is already expected to be a string, '' is already a string literal, and re.sub() already returns a string. However, the code functions correctly despite these unnecessary conversions. From the student's perspective, they are ensuring type safety by explicitly converting values to their intended types, not realizing these values are already of the correct type."
+      },
+      "parse_success": true
+    }
+  ]
+}
