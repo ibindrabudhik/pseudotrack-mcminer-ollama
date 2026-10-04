@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  s <- string(s)\n  jumlah <- integer(0)\n  for i <- 1 to panjang(string(s)) - 2 do\n    if string(s[i]) == 's' and string(s[i+1]) == 't' and string(s[i+2]) == 'd' then\n      jumlah <- integer(jumlah + 1)\n    endif\n  endfor\n  output(integer(jumlah))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit type conversions throughout the code to ensure type safety. They convert s to str at the beginning even though it's expected to be a string, wrap 0 in int(), convert s to str again when getting its length, convert each character access s[i] to str even though string indexing already returns strings, wrap the incremented count in int(), and convert the return value to int. All these conversions are redundant since the values are already of the correct type, but the code still functions correctly. The student believes this is good practice to ensure type safety and prevent potential type-related issues."
+      },
+      "parse_success": true
+    }
+  ]
+}

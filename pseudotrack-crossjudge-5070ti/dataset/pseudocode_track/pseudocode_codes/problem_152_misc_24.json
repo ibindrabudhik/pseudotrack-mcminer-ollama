@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  i <- 0\n  for i <- 1 to m do\n    input(kata)\n    panjangKata <- panjang(kata)\n    if panjangKata > n then\n      output(kata)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student initialized the loop variable 'x' to an empty string before the for loop, believing this is necessary. In reality, the for loop automatically creates and manages the loop variable, so this initialization is redundant but harmless. The code functions identically to the original - the initial value of x is immediately overwritten when the loop begins iterating. This is a stylistic misconception that doesn't affect program correctness."
+      },
+      "parse_success": true
+    }
+  ]
+}

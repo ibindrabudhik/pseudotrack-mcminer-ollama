@@ -1,0 +1,20 @@
+# gpt-oss:20b as the MINER, sized for a 16 GB card (RTX 5070 Ti).
+#
+# ~13.8 GB of weights + ~1 GB of KV cache at 16K => fits in 16 GB VRAM with
+# headroom. Check `ollama ps` after the first load: it should read 100% GPU.
+#
+# Temperature is deliberately NOT pinned here. The mining scripts pass
+# --temperature 0.1 (the value used in every prior pseudotrack run), and a
+# PARAMETER here would silently override nothing but would mislead the reader.
+#
+# Reasoning: gpt-oss is a reasoning model and needs a LEVEL, not a boolean.
+# think='low' is applied by name via THINK_BY_MODEL in utils/ollama_client.py.
+# At its default ('medium') it spends the entire token budget reasoning and
+# returns EMPTY content, which the miner records as "no misconception" -- a
+# silent false negative. Do not change this without re-reading README "Thinking".
+#
+#   ollama create gpt-oss-mcminer -f Modelfile.gpt-oss-miner
+
+FROM gpt-oss:20b
+
+PARAMETER num_ctx 16384

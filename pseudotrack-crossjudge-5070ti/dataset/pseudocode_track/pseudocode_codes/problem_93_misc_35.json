@@ -1,0 +1,18 @@
+{
+  "problem_id": 93,
+  "problem_title": "Largest Number from Digits",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program BilanganTerbesarDariDigit\nkamus\n  d1, d2, d3, d4, temp : integer\nalgoritma\n  input(d1, d2, d3, d4)\n  d1 <- integer(d1)\n  d2 <- integer(d2)\n  d3 <- integer(d3)\n  d4 <- integer(d4)\n  if integer(d1) < integer(d2) then\n    temp <- integer(d1)\n    d1 <- integer(d2)\n    d2 <- integer(temp)\n  endif\n  if integer(d2) < integer(d3) then\n    temp <- integer(d2)\n    d2 <- integer(d3)\n    d3 <- integer(temp)\n  endif\n  if integer(d3) < integer(d4) then\n    temp <- integer(d3)\n    d3 <- integer(d4)\n    d4 <- integer(temp)\n  endif\n  if integer(d1) < integer(d2) then\n    temp <- integer(d1)\n    d1 <- integer(d2)\n    d2 <- integer(temp)\n  endif\n  if integer(d2) < integer(d3) then\n    temp <- integer(d2)\n    d2 <- integer(d3)\n    d3 <- integer(temp)\n  endif\n  if integer(d1) < integer(d2) then\n    temp <- integer(d1)\n    d1 <- integer(d2)\n    d2 <- integer(temp)\n  endif\n  output(integer(d1) * 1000 + integer(d2) * 100 + integer(d3) * 10 + integer(d4))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds explicit int() conversions throughout the code even though the values are already integers. They convert len(arr) to int even though len() returns an int, convert arr[0] and arr[i] to int even though array elements are already ints, convert n to int in the range, convert num to int before operations, and even convert the literal 10 and final return value to int. The student genuinely believes these conversions are necessary for type safety and proper functioning. The code still works correctly since converting an integer to an integer is a no-op, just with unnecessary overhead."
+      },
+      "parse_success": true
+    }
+  ]
+}

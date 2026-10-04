@@ -1,0 +1,18 @@
+{
+  "problem_id": 348,
+  "problem_title": "Count Unequal Integer Pairs",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungPasanganTidakSama\nkamus\n  a, b, c, jumlah, hasil : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  hasil <- jumlah\n  if a != b then\n    jumlah <- jumlah + 1\n  endif\n  if a != c then\n    jumlah <- jumlah + 1\n  endif\n  if b != c then\n    jumlah <- jumlah + 1\n  endif\n  output(hasil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student assigns `result = cnt` at the beginning when cnt is 0, genuinely believing that result will automatically update whenever cnt changes throughout the loops. They think they're creating a dynamic link between result and cnt rather than copying a value. From their perspective, this is a cleaner approach - set up result to \"track\" cnt at the start, then return result at the end. They don't realize that result is frozen at 0 and will always return 0 regardless of how many times cnt is incremented. The student believes their code is correct and equivalent to the original."
+      },
+      "parse_success": true
+    }
+  ]
+}

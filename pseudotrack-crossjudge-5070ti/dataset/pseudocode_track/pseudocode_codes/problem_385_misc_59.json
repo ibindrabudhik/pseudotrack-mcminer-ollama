@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  nmbr, j, lmt, rmndr : integer\n  value : string\n  prima : boolean\nalgoritma\n  input(nmbr)\n  value <- string(nmbr)\n  nmbr <- integer(value)\n  if nmbr < 2 then\n    prima <- false\n  else\n    prima <- true\n    lmt <- nmbr - 1\n    for j <- 2 to lmt do\n      rmndr <- nmbr mod j\n      if rmndr == 0 then\n        prima <- false\n      endif\n    endfor\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student systematically applies their vowel-based naming belief: 'value' (contains vowels a, u, e) is used for the string conversion, while all numeric variables use consonant-only names: 'nmbr' (number), 'lmt' (limit), 'j' (loop counter), and 'rmndr' (remainder). The student converts num to a string stored in 'value' because they believe vowel-containing names can only hold strings, then converts to int and stores in consonant-only 'nmbr' to perform numeric operations. This pattern demonstrates their belief that Python enforces type restrictions based on vowel presence in variable names. The code will cause a runtime TypeError when called with an integer argument since str() works but the unnecessary conversion reveals the flawed understanding."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, pembagi : integer\n  prima : boolean\nalgoritma\n  input(n)\n  if n < 2 then\n    prima <- false\n  else\n    prima <- true\n    pembagi <- 2\n    while pembagi < n do\n      if n mod pembagi == 0 then\n        prima <- false\n      endif\n    endwhile\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the solution using a while loop to check divisors, but placed the `return True` statement inside the while loop body, right after incrementing the divisor. This demonstrates the misconception that while loops execute only once - the student believes the loop will check divisor=2, increment it to 3, and then return True (thinking the loop exits after one iteration like an if statement would). They don't realize the loop should continue checking all divisors from 2 to num-1. From the student's perspective, they're checking \"if 2 doesn't divide the number, then it's prime\" which they believe is sufficient. This causes a logical error where composite numbers like 9, 15, 21, etc. are incorrectly identified as prime because only divisor=2 is checked before returning True. The student genuinely believes this single check is all that's needed since they think the while loop executes once."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris <- \"\"\n    for j <- 1 to n do\n      if i = j then\n        baris <- baris + \"1 \"\n      else\n        baris <- baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student rewrote the solution using nested loops with a conditional check to determine if the current position should be 1 (on the diagonal) or 0 (off the diagonal). Due to their misconception that `=` is used for equality comparison, they wrote `if i = j:` instead of `if i == j:`. This causes a SyntaxError because `=` is the assignment operator in Python, not a comparison operator. The student believes this is the correct syntax for checking if i equals j and expects the code to work properly."
+      },
+      "parse_success": true
+    }
+  ]
+}

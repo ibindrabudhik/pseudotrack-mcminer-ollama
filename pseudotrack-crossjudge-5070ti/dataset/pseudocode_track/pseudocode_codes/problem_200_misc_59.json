@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 59,
+  "misconception_description": "Student believes that variable names containing vowels can only store string values, while consonant-only names can store any type.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, ndx : integer\n  value : string\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  for ndx <- 1 to n do\n    value <- string(1 / ndx)\n    jumlah <- jumlah + real(value)\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student introduces an intermediate variable 'value' (which contains vowels 'a', 'u', 'e') to store the numeric result of 1/n. Following their misconception, they believe 'value' can only store strings, so they convert the numeric result to a string using str(). They then store the recursive result in 'rst' (no vowels), which they're comfortable storing as a number. When performing the addition, they convert 'value' back to float. The parameter 'n' has a vowel 'u', but the student accepts it as a parameter name (perhaps believing parameters are special). The code still produces correct results despite the unnecessary string conversions, making this a benign misconception that results in inefficient but functional code."
+      },
+      "parse_success": true
+    }
+  ]
+}

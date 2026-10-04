@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 41,
+  "misconception_description": "Student believes that the body of an if-statement executes repeatedly as long as the condition holds.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, levelBonus, tempDiff, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n  if attackerTipe == defenderTipe then\n    efektivitas <- 1\n  else if attackerTipe == \"fire\" and defenderTipe == \"grass\" then\n    efektivitas <- 2\n  else if attackerTipe == \"grass\" and defenderTipe == \"water\" then\n    efektivitas <- 2\n  else if attackerTipe == \"water\" and defenderTipe == \"fire\" then\n    efektivitas <- 2\n  else\n    efektivitas <- 0.5\n  endif\n  selisihLevel <- attackerLevel - defenderLevel\n  levelBonus <- 0\n  tempDiff <- selisihLevel\n  if tempDiff > 0 then\n    levelBonus <- levelBonus + 1\n    tempDiff <- tempDiff - 1\n  endif\n  damage <- bulat(((2 * attackerLevel) / 5 + 2) * (attackerLevel / defenderLevel) * efektivitas * levelBonus / 10)\n  if damage < 1 then\n    damage <- 1\n  endif\n  output(damage)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes the if-statement will execute repeatedly like a while loop. They want to calculate a level_bonus based on the level difference, so they set up an if-statement that decrements temp_diff and increments level_bonus, expecting it to loop until temp_diff reaches 0. In reality, the if-block only executes once, so level_bonus will only be 1 (instead of the full level_diff value they expect). This causes incorrect damage calculations. The student genuinely believes this approach will accumulate the proper level_bonus by \"looping\" through the if-statement."
+      },
+      "parse_success": true
+    }
+  ]
+}

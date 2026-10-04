@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  i <- 0\n  for i <- 1 to n do\n    input(x)\n    if i >= awal and i <= akhir then\n      total <- total + x\n    endif\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has added the initialization `i = 0` before the for loop, believing that loop variables must be explicitly initialized before use. This is unnecessary in Python as the for loop automatically creates and manages the loop variable, but it doesn't cause any errors. The initial value of 0 is immediately overwritten when the loop begins executing with the first value from range(m, n+1, 1). The student genuinely believes this initialization is required or represents good programming practice, similar to variable declarations in languages like C or Java."
+      },
+      "parse_success": true
+    }
+  ]
+}

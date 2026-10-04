@@ -1,0 +1,18 @@
+{
+  "problem_id": 213,
+  "problem_title": "Dog Age Calculator",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungUmurAnjing\nkamus\n  umur : integer\n  umurAnjing : real\nalgoritma\n  input(umur)\n  if umur <= 2 then\n    umurAnjing <- umur * 10.5\n  endif\n  if umur > 2 then\n    umurAnjing <- 21 + (umur - 2) * 4\n  endif\n  output(umurAnjing)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student has converted the elif and else statements to separate if statements because they believe mutually exclusive conditions must each be written as separate if statements. In this particular case, the code still works correctly because the conditions (h_age <= 2 and h_age > 2) are naturally mutually exclusive and don't overlap in a way that causes incorrect behavior. The first condition exits the program, the second handles ages 0-2, and the third handles ages greater than 2. While this demonstrates poor understanding of control flow and is not best practice, it doesn't produce incorrect results for this specific problem."
+      },
+      "parse_success": true
+    }
+  ]
+}

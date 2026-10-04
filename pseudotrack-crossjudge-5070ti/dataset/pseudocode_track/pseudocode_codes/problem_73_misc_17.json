@@ -1,0 +1,18 @@
+{
+  "problem_id": 73,
+  "problem_title": "Create Identity Matrix",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program MatriksIdentitas\nkamus\n  n, i, j : integer\n  baris : string\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    baris : \"\"\n    for j <- 1 to n do\n      if i == j then\n        baris : baris + \"1 \"\n      else\n        baris : baris + \"0 \"\n      endif\n    endfor\n    output(baris)\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced all assignment operators (=) with colons (:) throughout the code, believing this is the correct syntax for variable assignment in Python. They changed `matrix = []` to `matrix : []`, `row = [0] * n` to `row : [0] * n`, `i, j = tup` to `i, j : tup`, and `matrix[i][j] = 1` to `matrix[i][j] : 1`. The student is confident this is the proper way to assign values to variables and expects the code to work correctly. This will result in SyntaxError when the code is executed."
+      },
+      "parse_success": true
+    }
+  ]
+}

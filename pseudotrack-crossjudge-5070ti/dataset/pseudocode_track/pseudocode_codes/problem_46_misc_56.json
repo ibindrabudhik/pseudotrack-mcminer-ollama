@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 56,
+  "misconception_description": "Student believes that variable identifiers can only be one letter long.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, t : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      t <- x\n    else\n      if x < t then\n        t <- x\n      endif\n    endif\n  endfor\n  output(t)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has renamed all identifiers to single letters believing that variable identifiers can only be one letter long. The function name 'find_smallest' became 'f', the parameter 'list1' became 'l', and 'min_val' became 'm'. The loop variable 'x' was already a single letter. The code remains functionally correct but is less readable. From the student's perspective, this is the proper way to write code since they believe identifiers must be single letters."
+      },
+      "parse_success": true
+    }
+  ]
+}

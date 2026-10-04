@@ -1,0 +1,18 @@
+{
+  "problem_id": 178,
+  "problem_title": "Count 'std' String Occurrences",
+  "misconception_id": 38,
+  "misconception_description": "Student believes that while loops execute their body only once if the condition is true.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungKemunculanStd\nkamus\n  s : string\n  i, jumlah : integer\nalgoritma\n  input(s)\n  jumlah <- 0\n  i <- 1\n  while i <= panjang(s) - 2 do\n    if s[i] == 's' and s[i+1] == 't' and s[i+2] == 'd' then\n      jumlah <- jumlah + 1\n    endif\n  endwhile\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student replaced the for loop with a while loop but didn't include the increment statement (i = i + 1) because they believe the while loop will only execute once. From their perspective, the while loop checks the condition and runs the body once, so there's no need to increment i - they think it will just check position 0 once and return. In reality, this creates an infinite loop because i never changes and the condition remains true indefinitely. The student genuinely believes this will work because they think while loops behave like if statements (execute once when condition is true)."
+      },
+      "parse_success": true
+    }
+  ]
+}

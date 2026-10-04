@@ -1,0 +1,18 @@
+{
+  "problem_id": 385,
+  "problem_title": "Prime Number Checker",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CekBilanganPrima\nkamus\n  n, i : integer\n  prima, terbagi : boolean\nalgoritma\n  input(n)\n  if n >= 1 then\n    terbagi <- (n mod 2 == 0)\n    prima <- true\n    for i <- 2 to n - 1 do\n      if terbagi then\n        prima <- false\n      endif\n    endfor\n  else\n    prima <- false\n  endif\n  output(prima)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student calculates `is_divisible = (num % i) == 0` once before the loop with i=2, then reuses the variable name `i` in the for loop. The student genuinely believes that because `i` changes in the loop, the expression `is_divisible` will automatically recalculate and update to reflect `(num % i) == 0` with the new values of `i`. From the student's perspective, they've \"optimized\" the code by calculating the divisibility condition once and storing it in a variable, not realizing that `is_divisible` holds only the boolean value from when i=2, and doesn't dynamically update as the loop progresses. This causes incorrect behavior as the function will always check divisibility by 2 only, not by all values in the range."
+      },
+      "parse_success": true
+    }
+  ]
+}

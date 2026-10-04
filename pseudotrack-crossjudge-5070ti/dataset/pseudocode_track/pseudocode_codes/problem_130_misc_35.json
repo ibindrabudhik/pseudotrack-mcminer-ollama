@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 35,
+  "misconception_description": "Student believes that values must be explicitly converted to their current type to ensure type safety.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat <- integer(n) + 1\n  sudahKetemu <- boolean(false)\n  while not sudahKetemu do\n    sisa <- integer(kandidat)\n    hasilBalik <- integer(0)\n    while integer(sisa) > 0 do\n      hasilBalik <- integer(hasilBalik) * 10 + (integer(sisa) mod 10)\n      sisa <- integer(sisa) div 10\n    endwhile\n    if integer(hasilBalik) == integer(kandidat) then\n      sudahKetemu <- boolean(true)\n    else\n      kandidat <- integer(kandidat) + 1\n    endif\n  endwhile\n  output(integer(kandidat))\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student adds unnecessary explicit type conversions throughout the code: converting num to int with int(num) even though it's already an integer parameter, converting i to int with int(i) even though range() yields integers, and converting the return value to int even though i is already an integer. The student genuinely believes these conversions are necessary for type safety and proper program behavior, similar to how some statically-typed languages require explicit type declarations. The code still functions correctly despite the redundant operations."
+      },
+      "parse_success": true
+    }
+  ]
+}

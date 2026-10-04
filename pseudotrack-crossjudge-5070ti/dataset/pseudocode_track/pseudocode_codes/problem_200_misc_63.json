@@ -1,0 +1,18 @@
+{
+  "problem_id": 200,
+  "problem_title": "Calculate Harmonic Sum",
+  "misconception_id": 63,
+  "misconception_description": "Student believes that the arithmetic operation + has higher precedence than the arithmetic operation /.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahHarmonik\nkamus\n  n, i : integer\n  jumlah : real\nalgoritma\n  input(n)\n  jumlah <- 0\n  for i <- 1 to n do\n    jumlah <- jumlah + (1 / i)\n  endfor\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student has misunderstood what formula to use based on their precedence misconception. They believe that `1 / n + harmonic_sum(n - 1)` will be evaluated as `1 / (n + harmonic_sum(n - 1))` because they think `+` has higher precedence than `/`. From their perspective, they are computing the reciprocal of the sum of n and the previous harmonic value, which they believe is the correct formula for the harmonic sum. In reality, the expression evaluates as `(1 / n) + harmonic_sum(n - 1)` which happens to be the actual correct harmonic sum formula, but the student doesn't realize this. If the student truly understood what their code was computing (the standard harmonic sum), they would think they need to add parentheses. However, because of their misconception about precedence, they believe they're computing a different formula entirely - one where you take the reciprocal of running sums. This makes it a harmful misconception because the student's mental model of what the code does is completely wrong, even though by accident the code is correct. The student would fail to recognize the correct behavior if they traced through it, expecting different intermediate values."
+      },
+      "parse_success": true
+    }
+  ]
+}

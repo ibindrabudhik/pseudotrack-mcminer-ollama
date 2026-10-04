@@ -1,0 +1,28 @@
+# qwen3.6:27b as the MINER for the McMiner pseudocode track.
+#
+# Why a derived model: Ollama's default context is smaller than these prompts,
+# and overflow is truncated SILENTLY -- you get confident-looking misconceptions
+# mined from a clipped prompt, with nothing in the logs.
+#
+# Why 16K. Measured on this dataset (scripts/preflight.py prints these):
+#
+#     arm        max prompt chars   ~tokens   + 4000-token response cap
+#     baseline              6,220     1,681                      5,681
+#     rag                  10,848     2,931                      6,931
+#     ref                  10,585     2,860                      6,860
+#     rag_ref              15,011     4,057                      8,057
+#
+# The true ceiling is ~8.1K tokens, so 16384 is already 2x headroom. The
+# parent repo used 32768 on the assumption that a rag_ref bag ran ~10K tokens;
+# it does not. That extra 16K of context bought nothing and cost ~2.7 GB of KV
+# cache -- which on a memory-constrained machine is the difference between a
+# partial CPU offload and a model that will not load at all.
+#
+# Weights are ~17 GB regardless of num_ctx. On 8 GB VRAM expect most of that in
+# system RAM; see README "Hardware" for what that means in practice.
+#
+#   ollama create qwen3.6-mcminer -f Modelfile.qwen36-miner
+
+FROM qwen3.6:27b
+
+PARAMETER num_ctx 16384

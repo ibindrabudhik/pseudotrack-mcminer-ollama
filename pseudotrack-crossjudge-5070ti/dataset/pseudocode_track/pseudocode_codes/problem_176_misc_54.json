@@ -1,0 +1,18 @@
+{
+  "problem_id": 176,
+  "problem_title": "Range Sum Calculator",
+  "misconception_id": 54,
+  "misconception_description": "Student believes that a variable assigned an arithmetic expression containing other variables automatically updates its value when those variables change.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahRentang\nkamus\n  n, awal, akhir, i, x, total : integer\nalgoritma\n  input(n, awal, akhir)\n  total <- 0\n  input(x)\n  total <- total + x\n  for i <- 2 to n do\n    input(x)\n  endfor\n  output(total)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student believes that once they write `sum_range = sum_range + list1[i]`, the variable sum_range is now \"linked\" to the expression and will automatically update whenever `i` changes. They iterate through the range with the for loop, thinking that as `i` takes on different values, sum_range will automatically accumulate all the values of list1[i]. In reality, sum_range only gets the value of the first element (list1[m]) and never updates, so the function only returns list1[m] instead of the sum of all elements in the range. The student genuinely believes the loop is doing the necessary work by changing i, and that sum_range will track these changes automatically."
+      },
+      "parse_success": true
+    }
+  ]
+}

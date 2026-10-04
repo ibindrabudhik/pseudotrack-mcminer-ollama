@@ -1,0 +1,18 @@
+{
+  "problem_id": 152,
+  "problem_title": "Filter Words by Length",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program SaringKataPanjang\nkamus\n  n, m, i, panjangKata : integer\n  kata : string\nalgoritma\n  input(n, m)\n  for i <- 1 to m do\n    input(kata)\n    panjangKata : panjang(kata)\n    if panjangKata > n then\n      output(kata)\n    endif\n  endfor\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaces the assignment operator (=) with colons (:) for variable assignments, believing this is the correct syntax. They change `word_len = []` to `word_len : []` and `txt = str.split(\" \")` to `txt : str.split(\" \")`. In Python, this syntax is interpreted as type annotations without actual assignment, so the variables `word_len` and `txt` are never bound to values. This will cause a NameError at runtime when the code tries to iterate over `txt` (since `txt` is not defined as having a value) or when trying to append to `word_len`. The student genuinely believes that `:` is how you assign values to variables in Python."
+      },
+      "parse_success": true
+    }
+  ]
+}

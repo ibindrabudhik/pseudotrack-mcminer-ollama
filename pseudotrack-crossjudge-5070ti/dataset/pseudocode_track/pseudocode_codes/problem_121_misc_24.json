@@ -1,0 +1,18 @@
+{
+  "problem_id": 121,
+  "problem_title": "Longest Word Length",
+  "misconception_id": 24,
+  "misconception_description": "Student believes that it is unnecessary for loop variables to be explicitly initialized before the loop.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PanjangKataTerpanjang\nkamus\n  n, i, panjangMax, panjangSekarang : integer\n  kata : string\nalgoritma\n  input(n)\n  panjangMax <- 0\n  i <- 0\n  for i <- 1 to n do\n    input(kata)\n    panjangSekarang <- panjang(kata)\n    if panjangSekarang > panjangMax then\n      panjangMax <- panjangSekarang\n    endif\n  endfor\n  output(panjangMax)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "NONE",
+        "modification_notes": "The student initializes the loop variable 'i' to None before the for loop, believing this is necessary. This is unnecessary because the for loop automatically creates and manages the loop variable, but it doesn't break the code - the for loop simply reassigns 'i' on each iteration regardless of its initial value. The code functions identically to the original, making this a benign misconception that results in slightly redundant but working code."
+      },
+      "parse_success": true
+    }
+  ]
+}

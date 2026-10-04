@@ -1,0 +1,18 @@
+{
+  "problem_id": 335,
+  "problem_title": "Array Min-Max Sum",
+  "misconception_id": 25,
+  "misconception_description": "Student believes that modifying a for loop variable inside the loop body does not affects the next iteration's value.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program JumlahMinMaks\nkamus\n  n, i, x, minimum, maksimum : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      minimum <- x\n      maksimum <- x\n    else\n      if x < minimum then\n        minimum <- x\n      endif\n      if x > maksimum then\n        maksimum <- x\n      endif\n    endif\n    i <- i + 2\n  endfor\n  output(minimum + maksimum)\nendprogram",
+      "metadata": {
+        "misconception_type": "benign",
+        "error_type": "logical",
+        "modification_notes": "The student rewrites the solution using a manual loop to find max and min values. They add `i += 2` at the end of each iteration, believing this will make the loop skip every other element to process the array faster. From their perspective, this seems like an optimization. However, the `i` modification has no effect on the loop's progression since `range(len(nums))` controls the iteration. Despite this misunderstanding, the code still functions correctly and produces the right output because all elements are still examined - the loop variable modification is simply ignored. The student genuinely believes they've made the code more efficient by \"checking every other element\" but in reality all elements are still processed."
+      },
+      "parse_success": true
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "problem_id": 130,
+  "problem_title": "Next Palindrome Number",
+  "misconception_id": 17,
+  "misconception_description": "Student believes that colons (:) are used for variable assignment.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program PalindromBerikutnya\nkamus\n  n, kandidat, sisa, hasilBalik : integer\n  sudahKetemu : boolean\nalgoritma\n  input(n)\n  kandidat : n + 1\n  sudahKetemu : false\n  while not sudahKetemu do\n    sisa : kandidat\n    hasilBalik : 0\n    while sisa > 0 do\n      hasilBalik : hasilBalik * 10 + (sisa mod 10)\n      sisa : sisa div 10\n    endwhile\n    if hasilBalik == kandidat then\n      sudahKetemu : true\n    else\n      kandidat : kandidat + 1\n    endif\n  endwhile\n  output(kandidat)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student replaced the assignment operator `=` with `:` in the line `numstr = str(num)`, believing that colons are used for variable assignment. This results in `numstr : str(num)`, which is invalid syntax. While Python does support type annotations with colons (e.g., `x: int = 5`), the syntax `numstr : str(num)` is not valid because `str(num)` is a function call, not a type. The student genuinely believes this is the correct way to assign values to variables and would expect this code to work properly."
+      },
+      "parse_success": true
+    }
+  ]
+}

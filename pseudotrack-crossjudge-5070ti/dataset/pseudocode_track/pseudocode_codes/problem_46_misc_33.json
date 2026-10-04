@@ -1,0 +1,18 @@
+{
+  "problem_id": 46,
+  "problem_title": "Find Minimum in List",
+  "misconception_id": 33,
+  "misconception_description": "Student believes that multiple mutually exclusive conditions in a control flow construct must each be written as separate if statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program CariTerkecil\nkamus\n  n, i, x, terkecil : integer\nalgoritma\n  input(n)\n  for i <- 1 to n do\n    input(x)\n    if i == 1 then\n      terkecil <- x\n    endif\n    if x < terkecil then\n      terkecil <- x\n    endif\n    if x > terkecil then\n      terkecil <- terkecil\n    endif\n  endfor\n  output(terkecil)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student rewrote the comparison logic using three separate if statements to handle the mutually exclusive cases: x < min_val, x == min_val, and x > min_val. According to the misconception, the student believes these conditions should be written as separate if statements rather than using elif. While this is inefficient (all three conditions are checked even though only one can be true at a time), the code still functions correctly and returns the smallest number. The redundant assignments (min_val = min_val) don't change the result but demonstrate the student's belief that each mutually exclusive condition requires its own if statement."
+      },
+      "parse_success": true
+    }
+  ]
+}

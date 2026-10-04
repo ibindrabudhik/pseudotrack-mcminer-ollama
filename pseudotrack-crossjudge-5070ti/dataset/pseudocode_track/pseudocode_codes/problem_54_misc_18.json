@@ -1,0 +1,18 @@
+{
+  "problem_id": 54,
+  "problem_title": "Pokemon Battle Damage",
+  "misconception_id": 18,
+  "misconception_description": "Student believes that in the expression x == a or b, the comparison operator distributes to both operands of the or operator.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program DamagePokemon\nkamus\n  attackerTipe, defenderTipe : string\n  attackerLevel, defenderLevel : integer\n  efektivitas : real\n  selisihLevel, damage : integer\nalgoritma\n  input(attackerTipe, attackerLevel)\n  input(defenderTipe, defenderLevel)\n  if attackerTipe == defenderTipe then\n    efektivitas <- 1\n  else if attackerTipe == \"fire\" or \"water\" or \"grass\" then\n    if (attackerTipe == \"fire\" and defenderTipe == \"grass\") or (attackerTipe == \"grass\" and defenderTipe == \"water\") or (attackerTipe == \"water\" and defenderTipe == \"fire\") then\n      efektivitas <- 2\n    else\n      efektivitas <- 0.5\n    endif\n  else\n    efektivitas <- 0.5\n  endif\n  selisihLevel <- attackerLevel - defenderLevel\n  damage <- bulat(((2 * attackerLevel) / 5 + 2) * (attackerLevel / defenderLevel) * efektivitas * selisihLevel / 10)\n  if damage < 1 then\n    damage <- 1\n  endif\n  output(damage)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "logical",
+        "modification_notes": "The student added a check `attacker_type == \"fire\" or \"water\" or \"grass\"` believing it checks if attacker_type is one of these three types. However, this expression always evaluates to True because it's parsed as `(attacker_type == \"fire\") or \"water\" or \"grass\"`, and the strings \"water\" and \"grass\" are truthy values. The student genuinely believes this is a cleaner way to verify that the attacker is a valid elemental type before checking matchups. While this may work for test cases where all attackers are indeed fire/water/grass types, it introduces a logical error that would cause incorrect behavior if an attacker has a different type (e.g., \"electric\"), as such types would incorrectly enter the elif branch instead of going to the else branch."
+      },
+      "parse_success": true
+    }
+  ]
+}

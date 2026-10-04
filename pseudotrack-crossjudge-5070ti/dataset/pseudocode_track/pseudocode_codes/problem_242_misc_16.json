@@ -1,0 +1,18 @@
+{
+  "problem_id": 242,
+  "problem_title": "Array Inversion Counter",
+  "misconception_id": 16,
+  "misconception_description": "Student believes that the = operator is used for equality comparison in conditional statements.",
+  "solutions": [
+    {
+      "solution_index": 0,
+      "generated_code": "program HitungInversi\nkamus\n  a, b, c, jumlah : integer\nalgoritma\n  input(a, b, c)\n  jumlah <- 0\n  if (a > b) = true then\n    jumlah <- jumlah + 1\n  endif\n  if (a > c) = true then\n    jumlah <- jumlah + 1\n  endif\n  if (b > c) = true then\n    jumlah <- jumlah + 1\n  endif\n  output(jumlah)\nendprogram",
+      "metadata": {
+        "misconception_type": "harmful",
+        "error_type": "syntax",
+        "modification_notes": "The student believes that = is used for equality comparison. In this modification, the student thinks they need to explicitly check if the comparison (arr[i] > arr[j]) equals True, so they write \"if (arr[i] > arr[j]) = True:\" instead of just using the boolean result directly or using \"== True\" (which would be redundant but syntactically correct). This results in a SyntaxError because = is the assignment operator, not a comparison operator in Python. The student genuinely believes this is the correct way to check if a condition is true."
+      },
+      "parse_success": true
+    }
+  ]
+}
